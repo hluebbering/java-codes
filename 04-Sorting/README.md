@@ -42,8 +42,7 @@ list X: 7 5 4 6 8 2
     first element we don’t have to shift
   - Place the new element into its proper place within the sorted
     subarray
-
- 
+    
 
 ![](equation.svg)
 
