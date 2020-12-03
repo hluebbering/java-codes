@@ -5,7 +5,7 @@ Lab 5. Sorting Algorithms
 [![Badge](https://pcylahiqejai.runkit.sh)](https://git.io/gradientbadge)
 [![Badge](https://u7qa58vvcots.runkit.sh)](https://git.io/gradientbadge)
 
-## Insertion Sort
+## Insertion Sort :zap:
 
 ### Background
 
@@ -79,7 +79,7 @@ going to be bounded by
 
 -----
 
-## Bubble Sort
+## Bubble Sort :thought_balloon:
 
 ### Background
 
@@ -133,7 +133,7 @@ input (data points) size grows.
 
 -----
 
-## Merge Sort
+## Merge Sort :collision:
 
 ### Background
 
@@ -186,6 +186,7 @@ hence, the search algorithm has a run time that grows logarithmically as
 the input size grows.
 
 -----
+
 
 ## Summary
 
