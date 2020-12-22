@@ -1,0 +1,789 @@
+---
+title: "Sorting Algorithms"
+output:
+  html_document: 
+    toc: yes
+    toc_float: yes
+    highlight: haddock
+css: ./assets/css/styles.css
+# knit: pagedown::chrome_print
+bibliography: ./assets/citation/csc112.bib
+csl: ./assets/citation/institute-of-mathematical-statistics.csl 
+link-citations: yes
+nocite: '@*'
+---
+
+
+```{r include=FALSE}
+library(knitr)
+library(graphics)
+library(drc)
+knitr::opts_chunk$set(echo = FALSE, out.width = 445)
+
+```
+
+
+The sorting algorithms we built in this lab are the **Simple Bubble Sort** and **Merge Sort**. After making the algorithms, we ran them on different **data points** of sizes (50, 100, 200, 400, 800, 1000, 2000) and collected the **number of steps** for the data points in a text file. We then used the text file to plot the graphs for both algorithms.
+
+
+----------------------------
+
+## Bubble Sort 
+
+### Definition 
+
+Bubble sort checks and rechecks the relation between each component of the list. The method sorts the $\mathrm{n}$ elements by linearly moving through the list where each pass completes $\mathrm{n-1}$ comparisons and $\mathrm{n-1}$ exchanges. After one pass, the largest integer-value should "bubble" up to the ArrayList's high-indexed side --the operation repeats. After $\mathrm{n-1}$ passes, the bubble sorting terminates. 
+
+------------------
+
+### Time Complexity
+
+#### Worst Case Time Complexity: 
+
+The worst case has time complexity $O(n^2)$; this occurs when the array is reverse sorted.
+
+#### Best Case Time Complexity: 
+
+The best case has time complexity $O(n)$. Bubble sort takes minimum time (Order of n) when elements are already sorted.
+
+
+
+---------------------------------------
+
+### How does Bubble Sort act on the following list
+
+```java
+list XXX: 5 1 4 2 8
+```
+
+
+$$
+\begin{align}
+\begin{matrix} 5 & 1 & 4 & 2 & 8 \end{matrix} \\
+\begin{matrix} \mathbf{1} & \mathbf{5} & 4 & 2 & 8 \end{matrix} \\
+\begin{matrix} 1 & \mathbf{4} & \mathbf{5} & 2 & 8 \end{matrix} \\
+\begin{matrix} 1 & 4 & \mathbf{2} & \mathbf{5} & 8 \end{matrix} \\
+\\
+\begin{matrix} \mathbf{1} & \mathbf{4} & 2 & 5 & 8 \end{matrix} \\
+\begin{matrix} 1 & \mathbf{2} & \mathbf{4} & 5 & 8 \end{matrix} \\
+\begin{matrix} 1 & 2 & \mathbf{4} & \mathbf{5} & 8 \end{matrix} \\
+\begin{matrix} 1 & 2 & 4 & \mathbf{5} & \mathbf{8} \end{matrix}
+\end{align}
+$$
+
+
+- The algorithm needs one whole pass without any swap to know it is sorted. 
+
+$$
+\begin{align}
+\begin{matrix} \mathbf{1} & \mathbf{2} & 4 & 5 & 8 \end{matrix} \\
+\begin{matrix} 1 & \mathbf{2} & \mathbf{4} & 5 & 8 \end{matrix} \\
+\begin{matrix} 1 & 2 & \mathbf{4} & \mathbf{5} & 8 \end{matrix} \\
+\begin{matrix} 1 & 2 & 4 & \mathbf{5} & \mathbf{8} \end{matrix}
+\end{align}
+$$
+
+
+
+
+---------------------------------------
+
+
+
+### Java Code
+
+#### Steps
+
+<span class="lp9">i. </span> Method sorts the elements by linearly moving through the list
+
+<span class="lp9">ii. </span> After a pass, the largest value "bubbles" up the ArrayList
+
+<span class="lp9">iii. </span> Bubble sorting repeats for (n-1) passes
+
+
+```java
+// Bubble Sort Class
+
+import java.util.ArrayList;
+
+public class BubbleSort {
+
+    // Used to count number of steps
+    private static int Bcount = 0;
+
+    // Getter
+    public static int getBcount(){
+        return Bcount;
+    }
+
+    // Setter
+    public static void resetBcount(){
+        Bcount = 0;
+    }
+
+    // Simple Bubble Sort -- O(n^2)
+    // Requires isLessThan from interface Relateable
+    // Uses a generic class T which extends Relateable
+    public static <T extends Relateable> ArrayList<T> Bubble(ArrayList<T>  A){
+
+        // Depth of split levels:
+        // number of times n can be halved while value is greater than 1
+        if (A.size() <= 1) return A;
+
+        // Each pass of the bubbling phase performs n-1 comparisons and n-1 exchanges
+        // After n-1 passes, the method terminates
+        for(int passes = 0; passes < A.size()-1; passes++){
+
+            for(int index = 0; index < A.size() - passes - 1; index++){
+
+                Bcount++;
+                if (A.get(index).isLessThan(A.get(index + 1))){
+                    T temp = A.get(index + 1);
+                    A.set(index + 1, A.get(index));
+                    A.set(index, temp);
+                }
+
+            }
+        }
+
+        return A;
+    }
+
+}
+
+```
+
+\ 
+
+
+### Code Output
+
+#### Execution Times
+
+
+```{r bubblesort, echo=FALSE, fig.pos='asis', fig.align='center'}
+library(knitr)
+library(kableExtra)
+
+BubbleSort <- data.frame(
+  "DataPoints" =c(50, 100, 200, 400, 800, 1000, 2000),
+  "Steps" =c(1225, 4950, 19900, 79800, 319600, 499500, 1999000))
+
+
+knitr::kable(BubbleSort, booktabs = T, align = 'c') %>%
+  kable_styling(full_width = FALSE ,font_size = 13.3, bootstrap_options = "striped", position = "float_left") %>%
+  collapse_rows(1) %>%
+  row_spec(0,color = "#57a5ff",font_size = 13.3, align = "center") %>% 
+  add_header_above(c("Collected Execution Times"=2), align='center', background = "white", line = TRUE, font_size = 13.3) %>%
+  add_header_above(c("Bubble Sort:"=2),color = "#417dc1" ,align = 'left', font_size = 13.3, line = FALSE) %>%
+  row_spec(0, color = "#417dc1")
+
+
+# plot(BubbleSort, pch = 16, cex = 1.3, col = "#57a5ff", main = "Data Points vs. Number of Steps", xlab = "Data Points", ylab = "Steps")
+fit2 <- lm(BubbleSort$Steps~poly(BubbleSort$DataPoints, 2, raw = TRUE))
+
+quadratic = fit2$coefficient[3]*BubbleSort$DataPoints^2 + 
+  fit2$coefficient[2]*BubbleSort$DataPoints +
+  fit2$coefficient[1]
+
+# pdf("BubbleSortGraph.pdf", width = 9)
+
+plot(BubbleSort, pch = 16, cex = 1.3, col = "#57a5ff", main = "Bubble Sort Graph", xlab = "Data Points", ylab = "Number of Steps", col.main="#00416a",cex.main=1.3,)
+par(new = TRUE)
+lines(BubbleSort$DataPoints,quadratic, col="black")
+
+# dev.off()
+```
+
+
+\ 
+
+------------------------------------------
+
+
+### Summary
+
+From the above execution times and graph, we can see that as the number of data points $\mathrm{n}$ increases, the number of steps it takes to complete the bubble sort increases **exponentially**. In **big-O notation**, the Simple Bubble Sort Method for sorting $\mathrm{n}$ elements of an array is $O\mathbf{(n^2)}$; hence, the algorithm has a run time that grows quadratically as the input (data points) size grows.
+
+
+
+
+-----------------------------
+
+
+
+## Merge Sort
+
+### Definition 
+
+MergeSort is a recursive sorting technique that recursively splits, sorts, and reconstructs the data. This method recursively divides the data into two unsorted lists, sorts the two lists, and then merges the two sorted lists.
+
+
+------------------------
+
+### Time Complexity: 
+
+<span class="sp6">a.</span> Merge Sort is a recursive algorithm and time complexity can be expressed as following recurrence relation: $T(n) = 2T(n/2) + \theta(n)$
+
+<span class="sp6">b.</span> The above recurrence can be solved either using the Recurrence Tree method or the Master method. The solution of the recurrence is $\theta(n\log n)$.
+
+<span class="sp6">c. $\bigstar$</span> Time complexity of Merge Sort is  $\theta(n\log n)$ in all 3 cases (worst, average and best) as merge sort always divides the array into two halves and takes linear time to merge two halves.
+
+
+------------------------------------------
+
+### Java Code.
+
+<span class="lp9">i.</span> Break the whole array down into two subarrays
+
+<span class="lp9">ii.</span> Sort the left half of the array (recursively)
+
+<span class="lp9">iii.</span> Sort the right half of the array (recursively)
+Merge the solutions
+
+
+```java
+// Merge Sort Class
+
+import java.util.ArrayList;
+
+public class MergeSort {
+
+    private static int Mcount = 0;
+
+    // Getter
+    public static int getMcount(){
+        return Mcount;
+    }
+
+    // Merge Sort --  O(nlog2(n))
+    // Requires isLessthan from interface Relateable
+    // Uses a generic T which extends Relateable
+
+    // Public signature
+    // This nonrecursive part takes care of small lists
+    public static <T extends Relateable> ArrayList<T> MergeSort(ArrayList<T> A){
+        Mcount++;
+        if (A.size() <= 1) {return A;}
+        return RMergeSort(A);
+    }
+
+    // Recursive RMergeSort method--
+    // Private signature for the recursive part
+    // Requires isLessthan from interface Relateable
+    // Uses a generic T which extends Relateable
+    private static <T extends Relateable> ArrayList<T> RMergeSort(ArrayList<T> A){
+
+        // Middle index to divide the ArrayList into two halves
+        int mid = A.size() / 2;
+
+        // Create two temporary arrays:
+        ArrayList<T> B = new ArrayList<>(); // first half
+        ArrayList<T> C = new ArrayList<>(); // second half
+
+        for(int i = 0; i < mid; i++) {
+            B.add(A.get(i));
+        }
+        for(int i = mid; i < A.size(); i++) {
+            C.add(A.get(i));
+        }
+
+        // Call mergeSort for first half:
+        B = MergeSort(B);
+
+        // Call mergeSort for second half:
+        C = MergeSort(C);
+
+        // Merge the two halves sorted:
+        return Merge(B,C);
+    }
+
+    // Merge method-- merge A and B routine
+    // Requires isLessthan from interface Relateable
+    // Uses a generic T which extends Relateable
+    private static <T extends Relateable> ArrayList<T> Merge(ArrayList<T> A, ArrayList<T> B){
+        ArrayList<T> C = new ArrayList<>();
+        int j = 0;
+        int k = 0;
+
+        // Compares the elements of both sub-arrays one by one
+        while(j < A.size() && k < B.size()) {
+            if (A.get(j).isLessThan(B.get(k))) {
+                C.add(A.get(j));
+                j++;
+            }
+            else{
+                C.add(B.get(k));
+                k++;
+            }
+        }
+        while(j < A.size()) {
+            C.add(A.get(j));
+            j++;
+        }
+        while(k < B.size()) {
+            C.add(B.get(k));
+            k++;
+        }
+
+        return C; // sorted array
+    }
+
+}
+```
+
+
+\ 
+
+
+### Code Output
+
+#### Execution Times
+
+
+
+```{r mergesort, echo=FALSE, fig.pos='asis', fig.align='center'}
+library(knitr)
+library(kableExtra)
+MergeSort <- data.frame(
+  "DataPoints" =c(50, 100, 200, 400, 800, 1000, 2000),
+  "Steps" =c(99, 199, 399, 799, 1599, 1999, 3999))
+
+knitr::kable(MergeSort, booktabs = T, align = 'c') %>%
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, font_size = 13.3, position = "float_left") %>%
+  collapse_rows(1) %>%
+  row_spec(0,color = "#008080",font_size = 13.3) %>%
+  add_header_above(c("Collected Execution Times"=2), align='center', background = "white", line = TRUE, font_size = 13.3) %>%
+  add_header_above(c("Merge Sort:"=2), color = "#004953", align = 'left',background = "white", font_size = 13.3, line = FALSE)
+
+
+# pdf("MergeSortGraph.pdf", width = 9)
+
+plot(MergeSort, pch = 16, cex = 1.3, col = "#00a693", main = "Merge Sort Graph", col.main="#004953",cex.main=1.3, xlab = "Data Points", ylab = "Number of Steps")
+fit2a <- lm(MergeSort$Steps ~ MergeSort$DataPoints)
+abline(-1, 2)
+abline(lm(MergeSort$Steps ~ MergeSort$DataPoints), col="black")
+
+# dev.off()
+
+```
+
+\ 
+
+------------------------------------------
+
+
+### Summary
+
+
+Each value $\mathrm{n}$ in the data set must be sorted into a temporary array, allotted once before every single merge; therefore, we have $O(\mathrm{n})$ compares over all the merges. From the above execution times and graph, we can see that as the number of data points  $\mathrm{n}$ increases, the number of steps it takes to complete the bubble sort increases **logarithmically**. In **big-O notation**, since there are $\mathrm{\log{2}n}$  split levels, we have a time execution of $O(\mathrm{n \log{n}})$; hence, the search algorithm has a run time that grows logarithmically as the input size grows.
+
+
+
+#### Comparing Sort Algorithms 
+
+
+From the graph below, we can see that the number of steps to execute the Merge Sort method is significantly lower than the number of steps to execute the Bubble Sort method; hence, the Merge Sort is faster and more efficient than the Bubble Sort. 
+
+
+
+```{r fig.align='center', out.width=800}
+require(datasets)
+require(grDevices); 
+require(graphics)
+
+# define 3 data sets
+ xdata <- c(50, 100, 200, 400, 800, 1000, 2000)
+ y1 <- c(1225, 4950, 19900, 79800, 319600, 499500, 1999000)
+ y2 <- c(99, 199, 399, 799, 1599, 1999, 3999)
+
+BubbleSort <- data.frame(
+  "DataPoints" =c(50, 100, 200, 400, 800, 1000, 2000),
+  "Steps" =c(1225, 4950, 19900, 79800, 319600, 499500, 1999000))
+MergeSort <- data.frame(
+  "DataPoints" =c(50, 100, 200, 400, 800, 1000, 2000),
+  "Steps" =c(99, 199, 399, 799, 1599, 1999, 3999))
+
+fit2 <- lm(BubbleSort$Steps~poly(BubbleSort$DataPoints, 2, raw = TRUE))
+
+quadratic = fit2$coefficient[3]*BubbleSort$DataPoints^2 + 
+  fit2$coefficient[2]*BubbleSort$DataPoints +
+  fit2$coefficient[1]
+
+# pdf("CompareGraph.pdf", width = 9)
+ 
+plot(BubbleSort, pch = 16, cex = 1.5, col = "#57a5ff",main="Bubble Sort and Merge Sort", xlab = "Data Points", ylab = "Steps", ylim=c(0,2000000), xlim= c(0, 2000))
+par(new = TRUE)
+lines(BubbleSort$DataPoints,quadratic, col="black")
+
+points(xdata, y2, col="#009987", pch=16, cex=1.6)
+lines(xdata, y2, col="black")
+legend(x=0,y=900000,legend=c(expression(
+  "Bubble Sort O" * (n^2),
+  "Merge Sort O" * (n*log(n)))),
+  col=c("#57a5ff","#009987"),
+  pch=c(16,16),lty=c(1,1), ncol=1,
+  bty = "n", cex = 1 )
+# dev.off()
+
+
+```
+
+
+
+--------------------
+
+### Questions
+
+#### 1.	What non-sequential data structure, we have studied, does the logic of MergeSort() resemble?
+
+MergeSort is a recursive sorting technique that recursively splits, sorts, and reconstructs the data. This method recursively divides the data into two unsorted lists, sorts the two lists, and then merges the two sorted lists. In big-O notation, we have a time execution of $O(\mathrm{n \log{n}})$; hence, the search algorithm has a run time that grows logarithmically as the input size grows. Similar to MergeSort, **binary search trees** are nonlinear structures that execute in logarithmic time.
+
+
+
+
+
+------------------------------------------
+
+## Insertion Sort 
+
+### Definition
+
+**Definition.** a Java sorting method where the sorted values locate to the low end of the array, and the unsorted values locate to the high end. 
+
+<span class="sp8">a.</span> Insertion sort takes linear time when input array is sorted or almost sorted (maximum 1 or 2 elements are misplaced). All other sorting algorithms mentioned above will take more than linear time in their typical implementation.
+
+ 
+<span class="sp8">b.</span> total of $n-1$ passes over the array, with a new unsorted value inserted each time
+
+<span class="sp8">c.</span> expected running time is $\mathbb{O}\left(n^2\right)$ compares and data movements --most compares will lead to movement of a data value
+
+<span class="sp8">d.</span> best case running time performance is $\mathbb{O}\left(n\right)$ comparisons --occurs for no movements of data within the array; therefore, it's best to implement insertion sort on data that is nearly ordered
+
+-------------
+
+### Time Complexity
+
+On average, it is $i/2$ positions out of order 
+
+```{r, echo=FALSE, eval=TRUE}
+library(kableExtra)
+kable(data.frame("$0 \\;$", "$1 \\;$", "$\\dots$", "$i-1$", "$i\\;$", "$\\dots$", "$n-1$"), col.names = c(" ", " ", " ", " ", " ", " ", " ")) %>%
+  kable_styling(full_width = FALSE)  %>%
+  column_spec(1, background = "pink") %>%
+  column_spec(2, background = "salmon") %>%
+  column_spec(3, background = "darkseagreen") %>%
+  column_spec(4, background = "plum") %>%
+  column_spec(5, background = "aquamarine") %>%
+  column_spec(6, background = "lightseagreen") %>%
+  column_spec(7, background = "cornflowerblue") %>%
+  add_header_above(c("$\\large\\Longleftarrow n-1 \\Longrightarrow$"=7))
+```
+
+
+And since this is done from $1$ to $n-1$, then we have the total cost as 
+
+$$\sum^{n-1}_{i=1} \frac{i}{2} = \frac{n(n+1)}{4}$$
+
+Therefore, the average case running time of **insertion sort** is $\mathbf{O(n^2)}$
+
+
+
+\ 
+
+-------------
+
+
+### 1. Show how Insertion Sort acts on the following List: 
+
+
+```java
+list X: 7 5 4 6 8 2
+```
+
+
+$$
+\begin{align}
+\begin{matrix} \mathbf{7} & 5 & 4 & 6 & 8 & 2 \end{matrix} \\
+\begin{matrix} \mathbf{5} & \mathbf{7} & 4 & 6 & 8 & 2 \end{matrix} \\
+\begin{matrix} \mathbf{4} & \mathbf{5} & \mathbf{7} & 6 & 8 & 2 \end{matrix} \\
+\begin{matrix} \mathbf{4} & \mathbf{5} & \mathbf{6} & \mathbf{7} & 8 & 2 \end{matrix} \\
+\begin{matrix} \mathbf{4} & \mathbf{5} & \mathbf{6} & \mathbf{7} & \mathbf{8} & 2 \end{matrix} \\
+\begin{matrix} \mathbf{2} & \mathbf{4} & \mathbf{5} & \mathbf{6} & \mathbf{7} & \mathbf{8} \end{matrix}
+\end{align}
+$$
+
+\ 
+
+
+### 2. Consider an array of elements arr[5] = {5,4,3,2,1}, what are the steps of insertions done while doing insertion sort in the array.  
+
+```java
+arr[5] = {5,4,3,2,1}
+```
+
+$$
+\begin{align}
+\begin{matrix} 5 & 4 & 3 & 2 & 1 \end{matrix} \\
+\begin{matrix} \mathbf{4} & \mathbf{5} & 3 & 2 & 1 \end{matrix} \\
+\begin{matrix} \mathbf{3} & \mathbf{4} & \mathbf{5}  & 2 & 1 \end{matrix} \\
+\begin{matrix} \mathbf{2} & \mathbf{3} & \mathbf{4} & \mathbf{5}  & 1 \end{matrix} \\
+\begin{matrix} \mathbf{1} & \mathbf{2} & \mathbf{3} & \mathbf{4} & \mathbf{5}  \end{matrix}
+\end{align}
+$$
+
+
+
+
+------------------------------------
+
+
+### Method to Insertion Sort
+
+#### a generic type that extends the interface Relateable 
+
+<div class="b1">
+
+<span class="lp9">a.</span> create a LinkedList
+
+<span class="lp9">b.</span> initialize ICount
+
+<span class="lp9">c.</span> walk down ArrayList and insert each element into sorted LinkedList
+
+<span class="lp9">d.</span> repackage and return ArrayList
+
+<span class="lp9">e.</span> method to insert a new element myObj into a sorted LinkedList
+
+- use a loop to traverse LinkedList
+- begin with first element (smallest T) and find where myObj should go
+
+<span class="lp9">f.</span> debugging tool and method to dump out content in LinkedList 
+
+</div>
+
+
+\ 
+
+---------------------------------------
+
+### Java Code
+
+#### Steps 
+
+<span class="lp9">i.</span> Iterate through the array
+
+<span class="lp9">ii.</span> Shifting all of the elements to the right until we encounter the first element we don't have to shift
+
+<span class="lp9">iii.</span> Place the new element into its proper place within the sorted subarray
+
+
+
+```java
+import java.util.LinkedList;
+import java.util.ListIterator;
+import java.util.ArrayList;
+
+public class InsertionSort {
+  
+  private static int ICount;
+  public static int getICount(){
+    return ICount; }
+  
+  // a generic type that extends the interface Relateable
+  public static <T extends Relateable> ArrayList<T> InsertionSort(ArrayList<T> myAL){
+    
+    // create a LinkedList
+    LinkedList<T> mylist = new LinkedList<T>();
+
+    // initialize ICount
+    ICount = 0;
+
+    // walk down ArrayList and insert each into sorted LinkedList
+    for(T XXX: myAL){
+      insert(mylist, XXX); }
+    
+    // repackage myAL from the LinkedList and return it
+    return myAL; }
+  
+  // insert new element myObj into sorted LinkedList
+  public static  <T extends Relateable> void insert(LinkedList<T> mylist, T myObj) {
+    
+    // if myList is empty, add myObj and return
+    if (mylist.isEmpty()) {
+      ICount++;
+      mylist.add(myObj);
+      return; }
+    
+    // use a loop to traverse LinkedList
+    // begin with first element (smallest T) and find where myObj goes
+    ListIterator current = mylist.listIterator();
+    while(current.hasNext()){
+      
+      // get value and advance iterator
+      ICount++;
+      T temp = (T)(current.next());
+      
+      // figure out out if I should add now or not
+      if (temp.isLessThan(myObj)){
+        continue; }
+      
+      // add on the list iterator but where?
+      else{
+        current.add(myObj);
+        return; }}
+    
+    // **************************
+    // if we get here, then I should add myObj at the end of the list
+    // ICount++;
+    // mylist.addLast(myObj);
+    // return; }
+  
+  // method to dump out content in LinkedList
+  // debugging tool
+  private static <T> void dump (LinkedList<T> mylist){
+    ListIterator<T> current = mylist.listIterator();
+    for(int i=0; i< Math.min(15, mylist.size()); i++){
+      System.out.println((T)(current.next()).toString()); }}
+  
+  }
+```
+
+
+
+
+### Code Output
+
+
+#### Execution Times
+
+
+At the worst case scenario for the algorithm, the whole array is descending. This is because in each iteration, we'll have to move the whole sorted list by 1, which is $O(n)$. We have to do this for each element in every array, which means it's going to be bounded by $O(n^2)$.
+
+
+
+
+
+
+```{r, eval=TRUE, echo=FALSE, fig.show='hold', out.width=450}
+library(knitr)
+library(kableExtra)
+library(graphics)
+library(datasets)
+library(grDevices)
+library(drc)
+
+InsertionSort <- data.frame(
+  "DataPoints" =c(50, 100, 200, 400, 800, 1000, 2000),
+  "Steps" =c(671, 2395, 9743, 39658, 161494, 251346, 974151))
+
+knitr::kable(InsertionSort, booktabs = T, align = 'c', show='hold') %>%
+  kable_styling(full_width = FALSE ,font_size = 13.3, bootstrap_options = "striped", position = "float_left") %>%
+  collapse_rows(1) %>%
+  row_spec(0,color = "#fba0e3",font_size = 13.3, align = "center") %>% 
+  add_header_above(c("Collected Execution Times"=2), align='center', background = "white", line = TRUE, font_size = 13.3) %>%
+  add_header_above(c("Insertion Sort:"=2),color = "#fba0e3" ,align = 'left', font_size = 13.3, line = FALSE) %>%
+  row_spec(0, color = "#fba0e3")
+
+
+fit2 <- lm(InsertionSort$Steps~poly(InsertionSort$DataPoints, 2, raw = TRUE))
+
+quadratic = fit2$coefficient[3]*InsertionSort$DataPoints^2 + 
+  fit2$coefficient[2]*InsertionSort$DataPoints +
+  fit2$coefficient[1]
+
+
+plot(InsertionSort, pch = 16, cex = 1.5, col = "#fba0e3",main="Insertion Sort Graph", xlab = "Data Points", ylab = "Steps", ylim=c(0,2000000), xlim= c(0, 2000), col.main="#fba0e3",cex.main=1.3)
+par(new = TRUE)
+lines(InsertionSort$DataPoints,quadratic, col="black")
+
+legend(x=0,y=900000,legend=c(expression(
+  "Insertion Sort O" * (n^2))),
+  col=c("#fba0e3","#009987", "#fba0e3"),
+  pch=c(16,16,16),lty=c(1,1,1), ncol=1,
+  bty = "n", cex = 1 )
+
+```
+
+
+\ 
+
+
+
+------------------------------------------
+
+
+
+
+
+## Conclusion 
+
+### Sorting Techniques: 
+
+$$
+\begin{align}
+&\text{How large of an array do you want } \mathcal{sorted} \text{ ? } \mathbf{20} \\
+&\mathrm{Fisher} \text{ data file loaded }\dots \text{test file of size } \mathrm{20} \text{ created.} \\
+&\text{For list size of } 20 \dots \\
+&\qquad \Rightarrow \quad \text{Bubble sort number of steps: } 190 \\
+&\qquad \Rightarrow \quad \text{Merge sort number  of steps: } 39 \\
+&\qquad \Rightarrow \quad \text{Insertion sort number of steps: } 20
+\end{align}
+$$
+
+
+
+From the graph below, we can see that the number of steps to execute the Merge Sort method is significantly lower than the number of steps to execute the Bubble Sort method; hence, the Merge Sort is faster and more efficient than the Bubble Sort. 
+
+
+
+```{r, eval=TRUE, echo=FALSE}
+library(knitr)
+library(kableExtra)
+library(graphics)
+library(datasets)
+library(grDevices)
+library(drc)
+
+BubbleSort <- data.frame(
+  "DataPoints" =c(50, 100, 200, 400, 800, 1000, 2000),
+  "Steps" =c(1225, 4950, 19900, 79800, 319600, 499500, 1999000))
+
+fit2 <- lm(BubbleSort$Steps~poly(BubbleSort$DataPoints, 2, raw = TRUE))
+
+quadratic = fit2$coefficient[3]*BubbleSort$DataPoints^2 + 
+  fit2$coefficient[2]*BubbleSort$DataPoints +
+  fit2$coefficient[1]
+
+
+plot(BubbleSort, pch = 16, cex = 1.5, col = "#57a5ff",main="Sort Algorithms:\n Bubble, Merge, and Insertion", xlab = "Data Points", ylab = "Steps", ylim=c(0,2000000), xlim= c(0, 2000), col.main="gray10", cex.main=1)
+par(new = TRUE)
+lines(BubbleSort$DataPoints,quadratic, col="black")
+
+datapoints <- c(50, 100, 200, 400, 800, 1000, 2000)
+MergeSort <- c(232, 568, 1328, 3037, 6844, 8726, 19425)
+InsertionSort <- c(671, 2395, 9743, 39658, 161494, 251346, 974151)
+
+points(datapoints, MergeSort, col="#009987", pch=16, cex=1.6)
+lines(datapoints, MergeSort, col="black")
+
+points(datapoints, InsertionSort, col="#fba0e3", pch=16, cex=1.6)
+lines(datapoints, InsertionSort, col="black", lwd=1.6)
+
+legend(x=0,y=900000,legend=c(expression(
+  "Bubble Sort O" * (n^2),
+  "Merge Sort O" * (n*log(n)),
+  "Insertion Sort O" * (n^2))),
+  col=c("#57a5ff","#009987", "#fba0e3"),
+  pch=c(16,16,16),lty=c(1,1,1), ncol=1,
+  bty = "n", cex = 1 )
+
+```
+
+
+
+------------------------
+
+
+## References
+
+

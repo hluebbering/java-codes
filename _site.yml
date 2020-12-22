@@ -1,0 +1,10 @@
+name: "Java Data Structures"
+navbar:
+  title: "Java Data Structures"
+  left:
+    - text: "Sorting Algorithms"
+      href: index.html
+    - text: "Binary Search"
+      href: BinarySearch.html
+    - text: "Stacks and Queues"
+      href: Stacks.html
