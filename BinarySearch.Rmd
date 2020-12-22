@@ -64,11 +64,12 @@ simpleNetwork(acmeNetwork[-3], fontSize = 12)
 
 <div class="a3">
 
-<span class="lp14">a.</span> **Root:** the first node
+a. **Root:** the first node
 
-<span class="lp14">b.</span> **Leaf:** a node with no children 
+b. **Leaf:** a node with no children 
 
-<span class="lp14">c.</span> **Interior Nodes:** nodes that are neither the root or a leaf 
+c. **Interior Nodes:** nodes that are neither the root or a leaf 
+
 </div>
 
 \ 
@@ -131,17 +132,17 @@ A binary search tree is a binary tree structure with the following attributes:
 
 <div class="a1">
 
-<span class="lp14">a.</span> unlike the BinaryTree, the BinarySearchTree provides one iterator method: an in-order traversal
+<span class="lp10">a.</span> unlike the BinaryTree, the BinarySearchTree provides one iterator method: an in-order traversal
 
 
-<span class="lp14">b.</span> when implementing a BinarySearchTree, we're implementing an OrderedStructure: methods that accept and return values compared to one another
+<span class="lp10">b.</span> when implementing a BinarySearchTree, we're implementing an OrderedStructure: methods that accept and return values compared to one another
 
 - we assume the data is Comparable, and the natural order is sufficient
 
-<span class="lp14">c.</span> we can use alternative Comparators for elements that do not directly implement compareTo
+<span class="lp10">c.</span> we can use alternative Comparators for elements that do not directly implement compareTo
 
 
-<span class="lp14">d.</span> only methods depended on are the compatibility of the Comparator and the tree elements
+<span class="lp10">d.</span> only methods depended on are the compatibility of the Comparator and the tree elements
 
 
 </div>
@@ -192,7 +193,7 @@ sibling3$AddChildNode(child7)$AddSiblingNode(sibling7)
 ```{r, include=FALSE}
 SetEdgeStyle(root, arrowhead = "vee", color = "grey35", penwidth = 2, position = "center")
 SetNodeStyle(root, style = "filled", shape = "circle", fillcolor = "thistle", 
-            fontname = "helvetica", tooltip = GetDefaultTooltip, position = "center", width=1.1)
+            fontname = "helvetica", tooltip = GetDefaultTooltip, position = "center", width=0.5, fontsize=16)
 SetNodeStyle(root$a50, inherit = FALSE, fillcolor = "#ECD999", fontcolor = "black")
 SetNodeStyle(root$c50, inherit = FALSE, fillcolor = "#ECD999", fontcolor = "black")
 SetNodeStyle(child$a40, inherit = FALSE, fillcolor = "#ffa089", fontcolor = "black")
@@ -210,18 +211,18 @@ SetNodeStyle(sibling3$c65, inherit = FALSE, fillcolor = "#9bddff", fontcolor = "
 ```
 
 
-```{r, out.height=160, fig.align="center", fig.show='hold'}
+```{r, out.height=230, fig.align="center", fig.show='hold'}
 graphics::plot(root)
 ```
 
 
 #### Summary:
 
-<div class="a2">
+<div class="a3">
 
-<span class="lp14">a.</span> `Levels:` The root and each interior node have two children --a right and left child; hence, there are $4$ **full** levels.
+<span class="lp10">a.</span> `Levels:` The root and each interior node have two children --a right and left child; hence, there are $4$ **full** levels.
 
-<span class="lp14">b.</span> `Nodes:` The number of nodes can be calculated by $2^{n}-1$ where $n$ represents the number of full levels; hence, there are $15$ nodes.
+<span class="lp10">b.</span> `Nodes:` The number of nodes can be calculated by $2^{n}-1$ where $n$ represents the number of full levels; hence, there are $15$ nodes.
 
 </div>
 
@@ -266,7 +267,7 @@ graphics::plot(root1)
 
 ### Binary Search Tree
 
-<div class="a5">
+<div class="b1">
 
 <span class="sp4">I.</span> Main.java
 
@@ -353,17 +354,17 @@ public class Main {
 
 <div class="b1">
 
-<span class="lp13">a.</span> uses a generic that extends Comparable `.compareTo()`
+<span class="lp10">a.</span> uses a generic that extends Comparable `.compareTo()`
 
-<span class="lp13">b.</span> each node contains three objects: data, a left child, and a right child
+<span class="lp10">b.</span> each node contains three objects: data, a left child, and a right child
 
-<span class="lp13">c.</span> alternate constructor creates a new leaf in binary tree and getters return objects
+<span class="lp10">c.</span> alternate constructor creates a new leaf in binary tree and getters return objects
 
-<span class="lp13">d.</span> `insert(E item)` method recursively inserts item as a new leaf
+<span class="lp10">d.</span> `insert(E item)` method recursively inserts item as a new leaf
 
-<span class="lp13">e.</span> `boolean` method checks if the Left or Right child is empty
+<span class="lp10">e.</span> `boolean` method checks if the Left or Right child is empty
 
-<span class="lp13">f.</span>  `inorder` method recursively traverses the nodes
+<span class="lp10">f.</span>  `inorder` method recursively traverses the nodes
 
 - if there is a nonempty left child, check there first
 - if there is a nonempty right child, check there last
@@ -544,60 +545,19 @@ public class BinaryTree<E extends Comparable> {
 
 \ 
 
-<div class="a6">
+<div class="a3">
 
 The binary search tree requires an order on the nodes of the binary tree. 
 
-<span class="lp10">a.</span> At each node in the search method, the program decides to go left or right. 
-
-<span class="lp10">b.</span> If the tree is short and relatively balanced, these decisions will eliminate many of the remaining candidate values.
+- At each node in the search method, the program decides to go left or right.
+- If the tree is short and relatively balanced, these decisions will eliminate many of the remaining candidate values.
 
 \ 
 
 The binary search tree is the result of inserting new values. 
 
-<span class="lp10">a.</span> method puts each new data point on a leaf; hence, the internal nodes remain unchanged, thereby making the structure reasonably static
-
-<span class="lp10">b.</span> insufficient data allocation will cause a degraded tree structure to negatively affect the method's performance
-
-</div>
-
-\ 
-
-### OrderedStructures: 
-
-<div class="b1">
-
-The OrderedStructures implement is a method that:
-
-<span class="lp12">i.</span> finds the correct location for inserting a new data point
-
-<span class="lp12">ii.</span> implements the public methods—add, contain, and remove
-
-</div>
-
-
-\ 
-
-<div class="a2">
-
-<span class="sp12">I. </span> Locate Method
-
-The locate method's approach is to return a reference to the location of the new value's inserted spot; this process is similar to binary search. 
-
-<span class="lp12">i.</span> This method compares the insertion point with the root as an intermediate value. 
-
-<span class="lp12">ii.</span> If the values are different, the search will move to the left subtree of the smaller value, or the right subtree of the larger value. 
-
-<span class="lp12">iii.</span> If the method adds the value, the value will be a child of the current node.
-
-<span class="lp12">iv.</span> After completing the locate method, the contain method checks whether the returned node is equal to the required value. 
-
-
-<span class="sp12">II. </span> Insertion Method
-
-- We use the locate method to find a value in the tree. If the function can't find the value, locate returns a node of a leaf for the added data point. However, if the process finds an equal data point, it must insert the new value point as the right subtree child node.
-
+- method puts each new data point on a leaf; hence, the internal nodes remain unchanged, thereby making the structure reasonably static
+- insufficient data allocation will cause a degraded tree structure to negatively affect the method's performance
 
 </div>
 
@@ -618,7 +578,6 @@ Each operation of a Binary Search Tree has a worst-case time complexity proporti
 
 <span class="sp12">ii.</span> If we insert values using ascending order, the tree is right-skewed.
 
-
 The program performs better if we shuffle the values beforehand:
 
 <span class="lp12">i.</span> the tree becomes shorter and more balanced
@@ -637,16 +596,57 @@ The program performs better if we shuffle the values beforehand:
 An InOrder traversal visits the nodes in the following order:
 
 
+```{r, include=FALSE}
+root <- Node$new("25")
+child <- Node$new("15")
+sibling <- Node$new("50")
+root$AddChildNode(child)$AddSiblingNode(sibling)
 
-```{r, out.width=200, echo=FALSE, eval=TRUE}
-knitr::include_graphics("assets/css/image1.jpg")
+child2 <- Node$new("10")
+sibling2 <- Node$new("22")
+child$AddChildNode(child2)$AddSiblingNode(sibling2)
+
+child3 <- Node$new("35")
+sibling3 <- Node$new("70")
+sibling$AddChildNode(child3)$AddSiblingNode(sibling3)
+
+child4 <- Node$new("4")
+sibling4 <- Node$new("12")
+child2$AddChildNode(child4)$AddSiblingNode(sibling4)
+
+child5 <- Node$new("18")
+sibling5 <- Node$new("24")
+sibling2$AddChildNode(child5)$AddSiblingNode(sibling5)
+
+child6 <- Node$new("31")
+sibling6 <- Node$new("44")
+child3$AddChildNode(child6)$AddSiblingNode(sibling6)
+
+child7 <- Node$new("66")
+sibling7 <- Node$new("90")
+sibling3$AddChildNode(child7)$AddSiblingNode(sibling7)
 ```
+
+
+
+```{r, include=FALSE}
+SetEdgeStyle(root, arrowhead = "vee", color = "#708090", position = "center")
+SetNodeStyle(root, style = "filled", shape = "circle", fillcolor = "#9bddff",fontcolor = "black", fontsize=12,
+            fontname = "helvetica", tooltip = GetDefaultTooltip, position = "center", width=0.6)
+```
+
+
+```{r, out.height=210, fig.align="center", fig.show='hold'}
+graphics::plot(root)
+```
+
+
 
 
 $$\begin{matrix}4 & \mathbf{10} & 12 & \mathbf{15} & 18 & \mathbf{22} & 24 & \Large\mathbf{25} & 31 & \mathbf{35} & 44 & \mathbf{50} & 66 & \mathbf{70} & 90\end{matrix}$$
 
 
----------------------------------
+\ 
 
 
 

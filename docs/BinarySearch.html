@@ -464,14 +464,16 @@ div.tocify {
 <div id="binary-nodes" class="section level2">
 <h2>Binary Nodes</h2>
 <p><span class="sp4">a.</span> Every node can have up to two children: a left child and a right child</p>
-<div id="htmlwidget-1d923c4a393a953a0fce" style="width:600px;height:200px;" class="forceNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1d923c4a393a953a0fce">{"x":{"links":{"source":[0,3,3],"target":[3,1,2],"value":[1,1,1],"colour":["#666","#666","#666"]},"nodes":{"name":["Header","LeftChild","RightChild","Root"],"group":[1,1,1,1],"nodesize":[8,8,8,8]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scaleOrdinal(['#3182bd'])","fontSize":12,"fontFamily":"serif","clickTextSize":30,"linkDistance":50,"linkWidth":"'1.5px'.toString()","charge":-30,"opacity":0.6,"zoom":false,"legend":false,"arrows":false,"nodesize":true,"radiusCalculation":"d.nodesize","bounded":false,"opacityNoHover":1,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1d11786c9e234afe4b5e" style="width:600px;height:200px;" class="forceNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1d11786c9e234afe4b5e">{"x":{"links":{"source":[0,3,3],"target":[3,1,2],"value":[1,1,1],"colour":["#666","#666","#666"]},"nodes":{"name":["Header","LeftChild","RightChild","Root"],"group":[1,1,1,1],"nodesize":[8,8,8,8]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scaleOrdinal(['#3182bd'])","fontSize":12,"fontFamily":"serif","clickTextSize":30,"linkDistance":50,"linkWidth":"'1.5px'.toString()","charge":-30,"opacity":0.6,"zoom":false,"legend":false,"arrows":false,"nodesize":true,"radiusCalculation":"d.nodesize","bounded":false,"opacityNoHover":1,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
 <div id="types-of-binary-nodes" class="section level3">
 <h3>Types of Binary Nodes</h3>
 <div class="a3">
-<p><span class="lp14">a.</span> <strong>Root:</strong> the first node</p>
-<p><span class="lp14">b.</span> <strong>Leaf:</strong> a node with no children</p>
-<p><span class="lp14">c.</span> <strong>Interior Nodes:</strong> nodes that are neither the root or a leaf</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><strong>Root:</strong> the first node</p></li>
+<li><p><strong>Leaf:</strong> a node with no children</p></li>
+<li><p><strong>Interior Nodes:</strong> nodes that are neither the root or a leaf</p></li>
+</ol>
 </div>
 <p> </p>
 <hr />
@@ -511,26 +513,26 @@ div.tocify {
 <p><span class="lp4">c.</span> Both the left and right subtrees must also be a binary search tree</p>
 <p> </p>
 <div class="a1">
-<p><span class="lp14">a.</span> unlike the BinaryTree, the BinarySearchTree provides one iterator method: an in-order traversal</p>
-<p><span class="lp14">b.</span> when implementing a BinarySearchTree, we’re implementing an OrderedStructure: methods that accept and return values compared to one another</p>
+<p><span class="lp10">a.</span> unlike the BinaryTree, the BinarySearchTree provides one iterator method: an in-order traversal</p>
+<p><span class="lp10">b.</span> when implementing a BinarySearchTree, we’re implementing an OrderedStructure: methods that accept and return values compared to one another</p>
 <ul>
 <li>we assume the data is Comparable, and the natural order is sufficient</li>
 </ul>
-<p><span class="lp14">c.</span> we can use alternative Comparators for elements that do not directly implement compareTo</p>
-<p><span class="lp14">d.</span> only methods depended on are the compatibility of the Comparator and the tree elements</p>
+<p><span class="lp10">c.</span> we can use alternative Comparators for elements that do not directly implement compareTo</p>
+<p><span class="lp10">d.</span> only methods depended on are the compatibility of the Comparator and the tree elements</p>
 </div>
 <p> </p>
 </div>
 <div id="example.-complete-binary-search-tree-with-4-levels." class="section level3">
 <h3>Example. Complete Binary Search Tree with 4 Levels.</h3>
 <p><span class="sp4">a.</span> The below is an example of a <strong>complete</strong> binary tree:</p>
-<div id="htmlwidget-e575d944adce406dda92" style="width:600px;height:160px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e575d944adce406dda92">{"x":{"diagram":"digraph {\n\n\n\n\n  \"1\" [label = \"b50\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: b50\", width = \"1.1\", fontcolor = \"\", fillcolor = \"#D8BFD8\"] \n  \"2\" [label = \"a50\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a50\", width = \"1.1\", fontcolor = \"black\", fillcolor = \"#ECD999\"] \n  \"3\" [label = \"a40\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a40\", width = \"1.1\", fontcolor = \"black\", fillcolor = \"#ffa089\"] \n  \"4\" [label = \"a35\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a35\", width = \"1.1\", fontcolor = \"black\", fillcolor = \"#EF4868\"] \n  \"5\" [label = \"a45\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a45\", width = \"1.1\", fontcolor = \"black\", fillcolor = \"#EF4868\"] \n  \"6\" [label = \"a60\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a60\", width = \"1.1\", fontcolor = \"black\", fillcolor = \"#ffa089\"] \n  \"7\" [label = \"a55\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a55\", width = \"1.1\", fontcolor = \"black\", fillcolor = \"#FBA0E3\"] \n  \"8\" [label = \"a65\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a65\", width = \"1.1\", fontcolor = \"black\", fillcolor = \"#FBA0E3\"] \n  \"9\" [label = \"c50\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c50\", width = \"1.1\", fontcolor = \"black\", fillcolor = \"#ECD999\"] \n  \"10\" [label = \"c40\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c40\", width = \"1.1\", fontcolor = \"black\", fillcolor = \"#5CBD92\"] \n  \"11\" [label = \"c35\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c35\", width = \"1.1\", fontcolor = \"black\", fillcolor = \"#38BDBB\"] \n  \"12\" [label = \"c45\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c45\", width = \"1.1\", fontcolor = \"black\", fillcolor = \"#38BDBB\"] \n  \"13\" [label = \"c60\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c60\", width = \"1.1\", fontcolor = \"black\", fillcolor = \"#5CBD92\"] \n  \"14\" [label = \"c55\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c55\", width = \"1.1\", fontcolor = \"black\", fillcolor = \"#9bddff\"] \n  \"15\" [label = \"c65\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c65\", width = \"1.1\", fontcolor = \"black\", fillcolor = \"#9bddff\"] \n\"1\"->\"2\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"1\"->\"9\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"2\"->\"3\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"2\"->\"6\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"9\"->\"10\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"9\"->\"13\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"3\"->\"4\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"3\"->\"5\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"6\"->\"7\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"6\"->\"8\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"10\"->\"11\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"10\"->\"12\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"13\"->\"14\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"13\"->\"15\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-60a373d1b4906645f9e0" style="width:600px;height:230px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-60a373d1b4906645f9e0">{"x":{"diagram":"digraph {\n\n\n\n\n  \"1\" [label = \"b50\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: b50\", width = \"0.5\", fontsize = \"16\", fontcolor = \"\", fillcolor = \"#D8BFD8\"] \n  \"2\" [label = \"a50\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a50\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ECD999\"] \n  \"3\" [label = \"a40\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a40\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ffa089\"] \n  \"4\" [label = \"a35\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a35\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#EF4868\"] \n  \"5\" [label = \"a45\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a45\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#EF4868\"] \n  \"6\" [label = \"a60\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a60\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ffa089\"] \n  \"7\" [label = \"a55\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a55\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#FBA0E3\"] \n  \"8\" [label = \"a65\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a65\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#FBA0E3\"] \n  \"9\" [label = \"c50\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c50\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ECD999\"] \n  \"10\" [label = \"c40\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c40\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#5CBD92\"] \n  \"11\" [label = \"c35\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c35\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#38BDBB\"] \n  \"12\" [label = \"c45\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c45\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#38BDBB\"] \n  \"13\" [label = \"c60\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c60\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#5CBD92\"] \n  \"14\" [label = \"c55\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c55\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#9bddff\"] \n  \"15\" [label = \"c65\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c65\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#9bddff\"] \n\"1\"->\"2\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"1\"->\"9\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"2\"->\"3\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"2\"->\"6\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"9\"->\"10\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"9\"->\"13\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"3\"->\"4\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"3\"->\"5\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"6\"->\"7\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"6\"->\"8\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"10\"->\"11\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"10\"->\"12\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"13\"->\"14\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"13\"->\"15\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <div id="summary-1" class="section level4">
 <h4>Summary:</h4>
-<div class="a2">
-<p><span class="lp14">a.</span> <code>Levels:</code> The root and each interior node have two children –a right and left child; hence, there are <span class="math inline">\(4\)</span> <strong>full</strong> levels.</p>
-<p><span class="lp14">b.</span> <code>Nodes:</code> The number of nodes can be calculated by <span class="math inline">\(2^{n}-1\)</span> where <span class="math inline">\(n\)</span> represents the number of full levels; hence, there are <span class="math inline">\(15\)</span> nodes.</p>
+<div class="a3">
+<p><span class="lp10">a.</span> <code>Levels:</code> The root and each interior node have two children –a right and left child; hence, there are <span class="math inline">\(4\)</span> <strong>full</strong> levels.</p>
+<p><span class="lp10">b.</span> <code>Nodes:</code> The number of nodes can be calculated by <span class="math inline">\(2^{n}-1\)</span> where <span class="math inline">\(n\)</span> represents the number of full levels; hence, there are <span class="math inline">\(15\)</span> nodes.</p>
 </div>
 <p> </p>
 <hr />
@@ -541,8 +543,8 @@ div.tocify {
 <p><span class="sp3">I.</span> Complete Binary Trees</p>
 <p><span class="lp3">a.</span> Complete Binary Trees give excellent time complexities of <span class="math inline">\(\mathbb{\bf O}\left(\log2\left(n\right)\right)\)</span>, which helps for find and insert methods in a Java data structure.</p>
 <p><span class="lp3">b.</span> The number of <strong>nodes</strong> can be calculated with, <span class="math inline">\(\mathbb{\bf n}\text{ full levels:}\left(2^\mathbb{\bf n}-1\right) \text{ nodes}\)</span>.</p>
-<div id="htmlwidget-2db48274db52650ada06" style="width:600px;height:160px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2db48274db52650ada06">{"x":{"diagram":"digraph {\n\n\n\n\n  \"1\" [label = \"Root\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", fontsize = \"6\", fontcolor = \"\", fillcolor = \"#D8BFD8\"] \n  \"2\" [label = \"LeftChild\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", fontsize = \"5\", fontcolor = \"black\", fillcolor = \"#20B2AA\"] \n  \"3\" [label = \"RightChild\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", fontsize = \"4.5\", fontcolor = \"black\", fillcolor = \"#C1CDC1\"] \n  \"1\"->\"2\" \n  \"1\"->\"3\" \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e66838aacebf135402f3" style="width:600px;height:160px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e66838aacebf135402f3">{"x":{"diagram":"digraph {\n\n\n\n\n  \"1\" [label = \"Root\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", fontsize = \"6\", fontcolor = \"\", fillcolor = \"#D8BFD8\"] \n  \"2\" [label = \"LeftChild\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", fontsize = \"5\", fontcolor = \"black\", fillcolor = \"#20B2AA\"] \n  \"3\" [label = \"RightChild\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", fontsize = \"4.5\", fontcolor = \"black\", fillcolor = \"#C1CDC1\"] \n  \"1\"->\"2\" \n  \"1\"->\"3\" \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p> </p>
 <p><span class="sp3">II.</span> “Real” Binary Trees</p>
 <p><span class="lp3">a.</span> It’s possible to have a non-complete binary tree, which means not every parent node has two children nodes.</p>
@@ -555,7 +557,7 @@ div.tocify {
 <h2>Java Code.</h2>
 <div id="binary-search-tree-1" class="section level3">
 <h3>Binary Search Tree</h3>
-<div class="a5">
+<div class="b1">
 <p><span class="sp4">I.</span> Main.java</p>
 <p>Main method to demonstrate binary tree and binary tree node</p>
 <p><span class="sp4">II.</span> BinaryNode.java</p>
@@ -616,12 +618,12 @@ div.tocify {
 <div id="outline-1" class="section level4">
 <h4>Outline</h4>
 <div class="b1">
-<p><span class="lp13">a.</span> uses a generic that extends Comparable <code>.compareTo()</code></p>
-<p><span class="lp13">b.</span> each node contains three objects: data, a left child, and a right child</p>
-<p><span class="lp13">c.</span> alternate constructor creates a new leaf in binary tree and getters return objects</p>
-<p><span class="lp13">d.</span> <code>insert(E item)</code> method recursively inserts item as a new leaf</p>
-<p><span class="lp13">e.</span> <code>boolean</code> method checks if the Left or Right child is empty</p>
-<p><span class="lp13">f.</span> <code>inorder</code> method recursively traverses the nodes</p>
+<p><span class="lp10">a.</span> uses a generic that extends Comparable <code>.compareTo()</code></p>
+<p><span class="lp10">b.</span> each node contains three objects: data, a left child, and a right child</p>
+<p><span class="lp10">c.</span> alternate constructor creates a new leaf in binary tree and getters return objects</p>
+<p><span class="lp10">d.</span> <code>insert(E item)</code> method recursively inserts item as a new leaf</p>
+<p><span class="lp10">e.</span> <code>boolean</code> method checks if the Left or Right child is empty</p>
+<p><span class="lp10">f.</span> <code>inorder</code> method recursively traverses the nodes</p>
 <ul>
 <li>if there is a nonempty left child, check there first</li>
 <li>if there is a nonempty right child, check there last</li>
@@ -776,38 +778,20 @@ div.tocify {
 <div id="summary-2" class="section level2">
 <h2>Summary</h2>
 <p> </p>
-<div class="a6">
+<div class="a3">
 <p>The binary search tree requires an order on the nodes of the binary tree.</p>
-<p><span class="lp10">a.</span> At each node in the search method, the program decides to go left or right.</p>
-<p><span class="lp10">b.</span> If the tree is short and relatively balanced, these decisions will eliminate many of the remaining candidate values.</p>
+<ul>
+<li>At each node in the search method, the program decides to go left or right.</li>
+<li>If the tree is short and relatively balanced, these decisions will eliminate many of the remaining candidate values.</li>
+</ul>
 <p> </p>
 <p>The binary search tree is the result of inserting new values.</p>
-<p><span class="lp10">a.</span> method puts each new data point on a leaf; hence, the internal nodes remain unchanged, thereby making the structure reasonably static</p>
-<p><span class="lp10">b.</span> insufficient data allocation will cause a degraded tree structure to negatively affect the method’s performance</p>
-</div>
-<p> </p>
-<div id="orderedstructures" class="section level3">
-<h3>OrderedStructures:</h3>
-<div class="b1">
-<p>The OrderedStructures implement is a method that:</p>
-<p><span class="lp12">i.</span> finds the correct location for inserting a new data point</p>
-<p><span class="lp12">ii.</span> implements the public methods—add, contain, and remove</p>
-</div>
-<p> </p>
-<div class="a2">
-<p><span class="sp12">I. </span> Locate Method</p>
-<p>The locate method’s approach is to return a reference to the location of the new value’s inserted spot; this process is similar to binary search.</p>
-<p><span class="lp12">i.</span> This method compares the insertion point with the root as an intermediate value.</p>
-<p><span class="lp12">ii.</span> If the values are different, the search will move to the left subtree of the smaller value, or the right subtree of the larger value.</p>
-<p><span class="lp12">iii.</span> If the method adds the value, the value will be a child of the current node.</p>
-<p><span class="lp12">iv.</span> After completing the locate method, the contain method checks whether the returned node is equal to the required value.</p>
-<p><span class="sp12">II. </span> Insertion Method</p>
 <ul>
-<li>We use the locate method to find a value in the tree. If the function can’t find the value, locate returns a node of a leaf for the added data point. However, if the process finds an equal data point, it must insert the new value point as the right subtree child node.</li>
+<li>method puts each new data point on a leaf; hence, the internal nodes remain unchanged, thereby making the structure reasonably static</li>
+<li>insufficient data allocation will cause a degraded tree structure to negatively affect the method’s performance</li>
 </ul>
 </div>
 <p> </p>
-</div>
 <div id="time-complexity" class="section level3">
 <h3>Time Complexity</h3>
 <div class="b1">
@@ -825,9 +809,10 @@ div.tocify {
 <div id="traversal-example" class="section level2">
 <h2>Traversal Example</h2>
 <p>An InOrder traversal visits the nodes in the following order:</p>
-<p><img src="assets/css/image1.jpg" width="200" style="display: block; margin: auto;" /></p>
+<div id="htmlwidget-f3c0388d86f96ae0982c" style="width:600px;height:210px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f3c0388d86f96ae0982c">{"x":{"diagram":"digraph {\n\n\n\n\n  \"1\" [label = \"25\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 25\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"2\" [label = \"15\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 15\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"3\" [label = \"10\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 10\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"4\" [label = \"4\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 4\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"5\" [label = \"12\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 12\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"6\" [label = \"22\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 22\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"7\" [label = \"18\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 18\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"8\" [label = \"24\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 24\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"9\" [label = \"50\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 50\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"10\" [label = \"35\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 35\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"11\" [label = \"31\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 31\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"12\" [label = \"44\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 44\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"13\" [label = \"70\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 70\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"14\" [label = \"66\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 66\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"15\" [label = \"90\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 90\", width = \"0.6\", fillcolor = \"#9bddff\"] \n\"1\"->\"2\" [arrowhead = \"vee\", color = \"#708090\"] \n\"1\"->\"9\" [arrowhead = \"vee\", color = \"#708090\"] \n\"2\"->\"3\" [arrowhead = \"vee\", color = \"#708090\"] \n\"2\"->\"6\" [arrowhead = \"vee\", color = \"#708090\"] \n\"9\"->\"10\" [arrowhead = \"vee\", color = \"#708090\"] \n\"9\"->\"13\" [arrowhead = \"vee\", color = \"#708090\"] \n\"3\"->\"4\" [arrowhead = \"vee\", color = \"#708090\"] \n\"3\"->\"5\" [arrowhead = \"vee\", color = \"#708090\"] \n\"6\"->\"7\" [arrowhead = \"vee\", color = \"#708090\"] \n\"6\"->\"8\" [arrowhead = \"vee\", color = \"#708090\"] \n\"10\"->\"11\" [arrowhead = \"vee\", color = \"#708090\"] \n\"10\"->\"12\" [arrowhead = \"vee\", color = \"#708090\"] \n\"13\"->\"14\" [arrowhead = \"vee\", color = \"#708090\"] \n\"13\"->\"15\" [arrowhead = \"vee\", color = \"#708090\"] \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p><span class="math display">\[\begin{matrix}4 &amp; \mathbf{10} &amp; 12 &amp; \mathbf{15} &amp; 18 &amp; \mathbf{22} &amp; 24 &amp; \Large\mathbf{25} &amp; 31 &amp; \mathbf{35} &amp; 44 &amp; \mathbf{50} &amp; 66 &amp; \mathbf{70} &amp; 90\end{matrix}\]</span></p>
-<hr />
+<p> </p>
 <ul>
 <li><a href="https://www.cs.usfca.edu/~galles/visualization/BST.html">Helpful resource</a> for plotting nodes in binary search trees</li>
 </ul>
