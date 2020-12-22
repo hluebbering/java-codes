@@ -24,8 +24,6 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <script src="site_libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
 <script src="site_libs/d3-4.5.0/d3.min.js"></script>
 <script src="site_libs/forceNetwork-binding-0.4/forceNetwork.js"></script>
@@ -42,22 +40,94 @@
   ul.task-list{list-style: none;}
     </style>
 
+
 <style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
   }
 </style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
 
 
 <style type="text/css">
@@ -394,8 +464,8 @@ div.tocify {
 <div id="binary-nodes" class="section level2">
 <h2>Binary Nodes</h2>
 <p><span class="sp4">a.</span> Every node can have up to two children: a left child and a right child</p>
-<div id="htmlwidget-2ceffff17d704d389853" style="width:600px;height:200px;" class="forceNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2ceffff17d704d389853">{"x":{"links":{"source":[0,3,3],"target":[3,1,2],"value":[1,1,1],"colour":["#666","#666","#666"]},"nodes":{"name":["Header","LeftChild","RightChild","Root"],"group":[1,1,1,1],"nodesize":[8,8,8,8]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scaleOrdinal(['#3182bd'])","fontSize":12,"fontFamily":"serif","clickTextSize":30,"linkDistance":50,"linkWidth":"'1.5px'.toString()","charge":-30,"opacity":0.6,"zoom":false,"legend":false,"arrows":false,"nodesize":true,"radiusCalculation":"d.nodesize","bounded":false,"opacityNoHover":1,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9cd60e9550777a5c3b8a" style="width:600px;height:200px;" class="forceNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9cd60e9550777a5c3b8a">{"x":{"links":{"source":[0,3,3],"target":[3,1,2],"value":[1,1,1],"colour":["#666","#666","#666"]},"nodes":{"name":["Header","LeftChild","RightChild","Root"],"group":[1,1,1,1],"nodesize":[8,8,8,8]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scaleOrdinal(['#3182bd'])","fontSize":12,"fontFamily":"serif","clickTextSize":30,"linkDistance":50,"linkWidth":"'1.5px'.toString()","charge":-30,"opacity":0.6,"zoom":false,"legend":false,"arrows":false,"nodesize":true,"radiusCalculation":"d.nodesize","bounded":false,"opacityNoHover":1,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
 <div id="types-of-binary-nodes" class="section level3">
 <h3>Types of Binary Nodes</h3>
 <div class="a3">
@@ -452,8 +522,8 @@ div.tocify {
 <div id="example.-complete-binary-search-tree-with-4-levels." class="section level3">
 <h3>Example. Complete Binary Search Tree with 4 Levels.</h3>
 <p><span class="sp4">a.</span> The below is an example of a <strong>complete</strong> binary tree:</p>
-<div id="htmlwidget-b2299393b4ea5315d93a" style="width:600px;height:230px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b2299393b4ea5315d93a">{"x":{"diagram":"digraph {\n\n\n\n\n  \"1\" [label = \"b50\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: b50\", width = \"0.5\", fontsize = \"16\", fontcolor = \"\", fillcolor = \"#D8BFD8\"] \n  \"2\" [label = \"a50\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a50\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ECD999\"] \n  \"3\" [label = \"a40\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a40\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ffa089\"] \n  \"4\" [label = \"a35\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a35\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#EF4868\"] \n  \"5\" [label = \"a45\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a45\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#EF4868\"] \n  \"6\" [label = \"a60\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a60\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ffa089\"] \n  \"7\" [label = \"a55\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a55\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#FBA0E3\"] \n  \"8\" [label = \"a65\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a65\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#FBA0E3\"] \n  \"9\" [label = \"c50\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c50\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ECD999\"] \n  \"10\" [label = \"c40\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c40\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#5CBD92\"] \n  \"11\" [label = \"c35\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c35\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#38BDBB\"] \n  \"12\" [label = \"c45\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c45\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#38BDBB\"] \n  \"13\" [label = \"c60\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c60\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#5CBD92\"] \n  \"14\" [label = \"c55\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c55\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#9bddff\"] \n  \"15\" [label = \"c65\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c65\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#9bddff\"] \n\"1\"->\"2\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"1\"->\"9\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"2\"->\"3\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"2\"->\"6\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"9\"->\"10\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"9\"->\"13\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"3\"->\"4\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"3\"->\"5\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"6\"->\"7\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"6\"->\"8\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"10\"->\"11\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"10\"->\"12\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"13\"->\"14\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"13\"->\"15\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b7f9f7dc0e01b367745d" style="width:600px;height:230px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b7f9f7dc0e01b367745d">{"x":{"diagram":"digraph {\n\n\n\n\n  \"1\" [label = \"b50\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: b50\", width = \"0.5\", fontsize = \"16\", fontcolor = \"\", fillcolor = \"#D8BFD8\"] \n  \"2\" [label = \"a50\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a50\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ECD999\"] \n  \"3\" [label = \"a40\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a40\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ffa089\"] \n  \"4\" [label = \"a35\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a35\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#EF4868\"] \n  \"5\" [label = \"a45\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a45\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#EF4868\"] \n  \"6\" [label = \"a60\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a60\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ffa089\"] \n  \"7\" [label = \"a55\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a55\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#FBA0E3\"] \n  \"8\" [label = \"a65\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a65\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#FBA0E3\"] \n  \"9\" [label = \"c50\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c50\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ECD999\"] \n  \"10\" [label = \"c40\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c40\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#5CBD92\"] \n  \"11\" [label = \"c35\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c35\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#38BDBB\"] \n  \"12\" [label = \"c45\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c45\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#38BDBB\"] \n  \"13\" [label = \"c60\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c60\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#5CBD92\"] \n  \"14\" [label = \"c55\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c55\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#9bddff\"] \n  \"15\" [label = \"c65\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c65\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#9bddff\"] \n\"1\"->\"2\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"1\"->\"9\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"2\"->\"3\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"2\"->\"6\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"9\"->\"10\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"9\"->\"13\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"3\"->\"4\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"3\"->\"5\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"6\"->\"7\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"6\"->\"8\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"10\"->\"11\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"10\"->\"12\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"13\"->\"14\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"13\"->\"15\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <div id="summary-1" class="section level4">
 <h4>Summary:</h4>
 <div class="a3">
@@ -469,8 +539,8 @@ div.tocify {
 <p><span class="sp3">I.</span> Complete Binary Trees</p>
 <p><span class="lp3">a.</span> Complete Binary Trees give excellent time complexities of <span class="math inline">\(\mathbb{\bf O}\left(\log2\left(n\right)\right)\)</span>, which helps for find and insert methods in a Java data structure.</p>
 <p><span class="lp3">b.</span> The number of <strong>nodes</strong> can be calculated with, <span class="math inline">\(\mathbb{\bf n}\text{ full levels:}\left(2^\mathbb{\bf n}-1\right) \text{ nodes}\)</span>.</p>
-<div id="htmlwidget-de26828776f2ef3c9523" style="width:600px;height:160px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-de26828776f2ef3c9523">{"x":{"diagram":"digraph {\n\n\n\n\n  \"1\" [label = \"Root\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", fontsize = \"6\", fontcolor = \"\", fillcolor = \"#D8BFD8\"] \n  \"2\" [label = \"LeftChild\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", fontsize = \"5\", fontcolor = \"black\", fillcolor = \"#20B2AA\"] \n  \"3\" [label = \"RightChild\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", fontsize = \"4.5\", fontcolor = \"black\", fillcolor = \"#C1CDC1\"] \n  \"1\"->\"2\" \n  \"1\"->\"3\" \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-0b1ef04052baf6f4c80e" style="width:600px;height:160px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0b1ef04052baf6f4c80e">{"x":{"diagram":"digraph {\n\n\n\n\n  \"1\" [label = \"Root\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", fontsize = \"6\", fontcolor = \"\", fillcolor = \"#D8BFD8\"] \n  \"2\" [label = \"LeftChild\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", fontsize = \"5\", fontcolor = \"black\", fillcolor = \"#20B2AA\"] \n  \"3\" [label = \"RightChild\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", fontsize = \"4.5\", fontcolor = \"black\", fillcolor = \"#C1CDC1\"] \n  \"1\"->\"2\" \n  \"1\"->\"3\" \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p> </p>
 <p><span class="sp3">II.</span> “Real” Binary Trees</p>
 <p><span class="lp3">a.</span> It’s possible to have a non-complete binary tree, which means not every parent node has two children nodes.</p>
@@ -505,37 +575,37 @@ div.tocify {
 <p><span class="lp6">d.</span> prints out the tree</p>
 </div>
 <p> </p>
-<pre class="java"><code>import java.util.concurrent.ThreadLocalRandom;
-import java.util.Scanner;
-
-public class Main {
-  public static void main(String[] args) {
-    
-    // create an empty BinaryTree
-    BinaryTree&lt;Integer&gt; myTree = new
-    BinaryTree&lt;Integer&gt;();
-    
-    // instantiate new scanner
-    Scanner keyboard = new Scanner(System.in);
-    
-    // create random integers and insert them into myTree
-    for (int i=0; i&lt; 5; i++){
-      
-      // generate random number in range [-15, 50]
-      System.out.print(&quot;Enter item #&quot;+i+&quot;: &quot;);
-      int randValue = keyboard.nextInt();
-      
-      // insert each number into myTree
-      myTree.insert(randValue); }
-    
-    // System.out.println(myTree);
-    
-    System.out.print(&quot;The nodes of tree are (inorder): &quot;);
-    System.out.println(myTree.inorder());
-    System.out.print(&quot;The breadth order of the tree is: &quot;);
-    System.out.println(myTree);
-  }
-}</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.concurrent.ThreadLocalRandom;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.Scanner;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> Main {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>    </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>    <span class="co">// create an empty BinaryTree</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>    BinaryTree&lt;<span class="bu">Integer</span>&gt; myTree = <span class="kw">new</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>    BinaryTree&lt;<span class="bu">Integer</span>&gt;();</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>    </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>    <span class="co">// instantiate new scanner</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>    <span class="bu">Scanner</span> keyboard = <span class="kw">new</span> <span class="bu">Scanner</span>(<span class="bu">System</span>.<span class="fu">in</span>);</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>    </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>    <span class="co">// create random integers and insert them into myTree</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>    <span class="kw">for</span> (<span class="dt">int</span> i=<span class="dv">0</span>; i&lt; <span class="dv">5</span>; i++){</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>      </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>      <span class="co">// generate random number in range [-15, 50]</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a>      <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(<span class="st">&quot;Enter item #&quot;</span>+i+<span class="st">&quot;: &quot;</span>);</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a>      <span class="dt">int</span> randValue = keyboard.<span class="fu">nextInt</span>();</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a>      </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a>      <span class="co">// insert each number into myTree</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a>      myTree.<span class="fu">insert</span>(randValue); }</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a>    </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true"></a>    <span class="co">// System.out.println(myTree);</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true"></a>    </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true"></a>    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(<span class="st">&quot;The nodes of tree are (inorder): &quot;</span>);</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true"></a>    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(myTree.<span class="fu">inorder</span>());</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true"></a>    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">print</span>(<span class="st">&quot;The breadth order of the tree is: &quot;</span>);</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true"></a>    <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(myTree);</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true"></a>  }</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true"></a>}</span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -556,72 +626,72 @@ public class Main {
 </ul>
 </div>
 <p> </p>
-<pre class="java"><code>public class BinaryNode&lt;E extends Comparable&gt; {
-  
-  // each node contains three objects
-  private E  Data;
-  private BinaryNode&lt;E&gt; leftchild;
-  private BinaryNode&lt;E&gt; rightchild;
-
-  // alternate constructor: creates a new leaf in binary tree
-  public BinaryNode(E item){
-    Data = item;
-    leftchild = null;
-    rightchild = null; }
-  
-  // getters: return objects
-  public E getData(){
-    return Data; }
-  public BinaryNode&lt;E&gt; getLeft(){
-    return leftchild; }
-  public BinaryNode&lt;E&gt; getRight(){
-    return rightchild; }
-  
-  //  recursively insert item as a new leaf
-  public void insert(E item){
-    int compareV = item.compareTo(Data);
-    
-    // ignore items already in tree
-    if (compareV ==0) { 
-      return; }
-    
-    // left child
-    else if (compareV &lt; 0){
-      if (leftchild == null){
-        leftchild = new BinaryNode&lt;E&gt;(item); }
-      else {
-        leftchild.insert(item); }}
-    
-    // right child
-    else {
-      if (rightchild == null){
-        rightchild = new BinaryNode&lt;E&gt;(item);
-        return; }
-      else {
-        rightchild.insert(item); }}
-  }
-  
-  // boolean checks whether Left or Right child is empty
-  public boolean isLeftChildEmpty(){
-    return leftchild == null; }
-  public boolean isRightChildEmpty(){
-    return rightchild == null; }
-  
-  // recursive inorder traversal of the nodes
-  public String inorder(){
-    String Result = &quot; &quot;;
-    
-    // if there is a nonempty left child, check there first
-    if (!isLeftChildEmpty()){
-      Result = Result + leftchild.inorder(); }
-    // now print value at the node
-    Result = Result + &quot; &quot; + Data;
-    
-    // if there is a nonempty right child, check there last
-    if (!isRightChildEmpty()){
-      Result = Result + &quot; &quot; + rightchild.inorder(); }
-    return Result; }
-  }</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> BinaryNode&lt;E <span class="kw">extends</span> <span class="bu">Comparable</span>&gt; {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>  </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>  <span class="co">// each node contains three objects</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>  <span class="kw">private</span> E  <span class="bu">Data</span>;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>  <span class="kw">private</span> BinaryNode&lt;E&gt; leftchild;</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>  <span class="kw">private</span> BinaryNode&lt;E&gt; rightchild;</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>  <span class="co">// alternate constructor: creates a new leaf in binary tree</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>  <span class="kw">public</span> <span class="fu">BinaryNode</span>(E item){</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>    <span class="bu">Data</span> = item;</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>    leftchild = <span class="kw">null</span>;</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>    rightchild = <span class="kw">null</span>; }</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>  </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>  <span class="co">// getters: return objects</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>  <span class="kw">public</span> E <span class="fu">getData</span>(){</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a>    <span class="kw">return</span> <span class="bu">Data</span>; }</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a>  <span class="kw">public</span> BinaryNode&lt;E&gt; <span class="fu">getLeft</span>(){</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a>    <span class="kw">return</span> leftchild; }</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a>  <span class="kw">public</span> BinaryNode&lt;E&gt; <span class="fu">getRight</span>(){</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a>    <span class="kw">return</span> rightchild; }</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a>  </span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a>  <span class="co">//  recursively insert item as a new leaf</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">insert</span>(E item){</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a>    <span class="dt">int</span> compareV = item.<span class="fu">compareTo</span>(<span class="bu">Data</span>);</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true"></a>    </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true"></a>    <span class="co">// ignore items already in tree</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true"></a>    <span class="kw">if</span> (compareV ==<span class="dv">0</span>) { </span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true"></a>      <span class="kw">return</span>; }</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true"></a>    </span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true"></a>    <span class="co">// left child</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true"></a>    <span class="kw">else</span> <span class="kw">if</span> (compareV &lt; <span class="dv">0</span>){</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true"></a>      <span class="kw">if</span> (leftchild == <span class="kw">null</span>){</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true"></a>        leftchild = <span class="kw">new</span> BinaryNode&lt;E&gt;(item); }</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true"></a>      <span class="kw">else</span> {</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true"></a>        leftchild.<span class="fu">insert</span>(item); }}</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true"></a>    </span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true"></a>    <span class="co">// right child</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true"></a>    <span class="kw">else</span> {</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true"></a>      <span class="kw">if</span> (rightchild == <span class="kw">null</span>){</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true"></a>        rightchild = <span class="kw">new</span> BinaryNode&lt;E&gt;(item);</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true"></a>        <span class="kw">return</span>; }</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true"></a>      <span class="kw">else</span> {</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true"></a>        rightchild.<span class="fu">insert</span>(item); }}</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true"></a>  }</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true"></a>  </span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true"></a>  <span class="co">// boolean checks whether Left or Right child is empty</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">isLeftChildEmpty</span>(){</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true"></a>    <span class="kw">return</span> leftchild == <span class="kw">null</span>; }</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">isRightChildEmpty</span>(){</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true"></a>    <span class="kw">return</span> rightchild == <span class="kw">null</span>; }</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true"></a>  </span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true"></a>  <span class="co">// recursive inorder traversal of the nodes</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true"></a>  <span class="kw">public</span> <span class="bu">String</span> <span class="fu">inorder</span>(){</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true"></a>    <span class="bu">String</span> <span class="bu">Result</span> = <span class="st">&quot; &quot;</span>;</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true"></a>    </span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true"></a>    <span class="co">// if there is a nonempty left child, check there first</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true"></a>    <span class="kw">if</span> (!<span class="fu">isLeftChildEmpty</span>()){</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true"></a>      <span class="bu">Result</span> = <span class="bu">Result</span> + leftchild.<span class="fu">inorder</span>(); }</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true"></a>    <span class="co">// now print value at the node</span></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true"></a>    <span class="bu">Result</span> = <span class="bu">Result</span> + <span class="st">&quot; &quot;</span> + <span class="bu">Data</span>;</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true"></a>    </span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true"></a>    <span class="co">// if there is a nonempty right child, check there last</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true"></a>    <span class="kw">if</span> (!<span class="fu">isRightChildEmpty</span>()){</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true"></a>      <span class="bu">Result</span> = <span class="bu">Result</span> + <span class="st">&quot; &quot;</span> + rightchild.<span class="fu">inorder</span>(); }</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true"></a>    <span class="kw">return</span> <span class="bu">Result</span>; }</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true"></a>  }</span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -644,58 +714,58 @@ public class Main {
 <p><span class="lp7">e.</span> <code>ToString</code> method prints tree in a breadth first order</p>
 </div>
 <p> </p>
-<pre class="java"><code>import java.util.LinkedList;
-import java.util.Queue;
-
-public class BinaryTree&lt;E extends Comparable&gt; {
-  
-  private BinaryNode&lt;E&gt; root;
-  
-  // default constructor
-  public BinaryTree(){
-    root = null; }
-  
-  
-  // insert an item into the tree as a binary node
-  public void insert(E item) {
-    
-    // if tree is empty, create a binary node as the root containing an item
-    if (root == null) {
-      root = new BinaryNode&lt;E&gt;(item);
-      return; }
-    
-    // insert item as a node using the order relation
-    root.insert(item); }
-  
-  
-  // print tree in inorder
-  public String inorder(){
-    String Result = &quot;&quot;;
-    if (root == null){
-      return Result; }
-    
-    // call recursive BinaryNode inorder()
-    return root.inorder(); }
-  
-
-  // print tree in a breadth first order
-  public String toString(){
-    Queue&lt;BinaryNode&lt;E&gt;&gt; myQueue = new LinkedList&lt;BinaryNode&lt;E&gt;&gt;();
-    String Result = &quot;&quot;;
-    
-    if (root == null) return Result;
-    myQueue.add(root);
-    
-    while (!myQueue.isEmpty()){
-      BinaryNode&lt;E&gt; current = myQueue.remove();
-      Result = Result + &quot; &quot; + current.getData();
-      if (!current.isLeftChildEmpty()){
-        myQueue.add(current.getLeft()); }
-      if (!current.isRightChildEmpty()){
-        myQueue.add(current.getRight()); }}
-    return Result; }
-  
-  }</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.LinkedList;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.Queue;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> BinaryTree&lt;E <span class="kw">extends</span> <span class="bu">Comparable</span>&gt; {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>  </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>  <span class="kw">private</span> BinaryNode&lt;E&gt; root;</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>  </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>  <span class="co">// default constructor</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>  <span class="kw">public</span> <span class="fu">BinaryTree</span>(){</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>    root = <span class="kw">null</span>; }</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>  </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>  </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>  <span class="co">// insert an item into the tree as a binary node</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">insert</span>(E item) {</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>    </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a>    <span class="co">// if tree is empty, create a binary node as the root containing an item</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a>    <span class="kw">if</span> (root == <span class="kw">null</span>) {</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a>      root = <span class="kw">new</span> BinaryNode&lt;E&gt;(item);</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true"></a>      <span class="kw">return</span>; }</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true"></a>    </span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true"></a>    <span class="co">// insert item as a node using the order relation</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true"></a>    root.<span class="fu">insert</span>(item); }</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true"></a>  </span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true"></a>  </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true"></a>  <span class="co">// print tree in inorder</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true"></a>  <span class="kw">public</span> <span class="bu">String</span> <span class="fu">inorder</span>(){</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true"></a>    <span class="bu">String</span> <span class="bu">Result</span> = <span class="st">&quot;&quot;</span>;</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true"></a>    <span class="kw">if</span> (root == <span class="kw">null</span>){</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true"></a>      <span class="kw">return</span> <span class="bu">Result</span>; }</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true"></a>    </span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true"></a>    <span class="co">// call recursive BinaryNode inorder()</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true"></a>    <span class="kw">return</span> root.<span class="fu">inorder</span>(); }</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true"></a>  </span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true"></a></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true"></a>  <span class="co">// print tree in a breadth first order</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true"></a>  <span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span>(){</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true"></a>    <span class="bu">Queue</span>&lt;BinaryNode&lt;E&gt;&gt; myQueue = <span class="kw">new</span> <span class="bu">LinkedList</span>&lt;BinaryNode&lt;E&gt;&gt;();</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true"></a>    <span class="bu">String</span> <span class="bu">Result</span> = <span class="st">&quot;&quot;</span>;</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true"></a>    </span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true"></a>    <span class="kw">if</span> (root == <span class="kw">null</span>) <span class="kw">return</span> <span class="bu">Result</span>;</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true"></a>    myQueue.<span class="fu">add</span>(root);</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true"></a>    </span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true"></a>    <span class="kw">while</span> (!myQueue.<span class="fu">isEmpty</span>()){</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true"></a>      BinaryNode&lt;E&gt; current = myQueue.<span class="fu">remove</span>();</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true"></a>      <span class="bu">Result</span> = <span class="bu">Result</span> + <span class="st">&quot; &quot;</span> + current.<span class="fu">getData</span>();</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true"></a>      <span class="kw">if</span> (!current.<span class="fu">isLeftChildEmpty</span>()){</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true"></a>        myQueue.<span class="fu">add</span>(current.<span class="fu">getLeft</span>()); }</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true"></a>      <span class="kw">if</span> (!current.<span class="fu">isRightChildEmpty</span>()){</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true"></a>        myQueue.<span class="fu">add</span>(current.<span class="fu">getRight</span>()); }}</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true"></a>    <span class="kw">return</span> <span class="bu">Result</span>; }</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true"></a>  </span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true"></a>  }</span></code></pre></div>
 <p> </p>
 <hr />
 </div>
@@ -735,8 +805,8 @@ public class BinaryTree&lt;E extends Comparable&gt; {
 <div id="traversal-example" class="section level2">
 <h2>Traversal Example</h2>
 <p>An InOrder traversal visits the nodes in the following order:</p>
-<div id="htmlwidget-99fae2ce884a5f99a042" style="width:600px;height:210px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-99fae2ce884a5f99a042">{"x":{"diagram":"digraph {\n\n\n\n\n  \"1\" [label = \"25\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 25\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"2\" [label = \"15\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 15\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"3\" [label = \"10\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 10\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"4\" [label = \"4\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 4\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"5\" [label = \"12\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 12\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"6\" [label = \"22\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 22\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"7\" [label = \"18\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 18\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"8\" [label = \"24\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 24\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"9\" [label = \"50\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 50\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"10\" [label = \"35\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 35\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"11\" [label = \"31\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 31\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"12\" [label = \"44\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 44\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"13\" [label = \"70\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 70\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"14\" [label = \"66\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 66\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"15\" [label = \"90\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 90\", width = \"0.6\", fillcolor = \"#9bddff\"] \n\"1\"->\"2\" [arrowhead = \"vee\", color = \"#708090\"] \n\"1\"->\"9\" [arrowhead = \"vee\", color = \"#708090\"] \n\"2\"->\"3\" [arrowhead = \"vee\", color = \"#708090\"] \n\"2\"->\"6\" [arrowhead = \"vee\", color = \"#708090\"] \n\"9\"->\"10\" [arrowhead = \"vee\", color = \"#708090\"] \n\"9\"->\"13\" [arrowhead = \"vee\", color = \"#708090\"] \n\"3\"->\"4\" [arrowhead = \"vee\", color = \"#708090\"] \n\"3\"->\"5\" [arrowhead = \"vee\", color = \"#708090\"] \n\"6\"->\"7\" [arrowhead = \"vee\", color = \"#708090\"] \n\"6\"->\"8\" [arrowhead = \"vee\", color = \"#708090\"] \n\"10\"->\"11\" [arrowhead = \"vee\", color = \"#708090\"] \n\"10\"->\"12\" [arrowhead = \"vee\", color = \"#708090\"] \n\"13\"->\"14\" [arrowhead = \"vee\", color = \"#708090\"] \n\"13\"->\"15\" [arrowhead = \"vee\", color = \"#708090\"] \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-bcc206deaff80e328a1e" style="width:600px;height:210px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bcc206deaff80e328a1e">{"x":{"diagram":"digraph {\n\n\n\n\n  \"1\" [label = \"25\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 25\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"2\" [label = \"15\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 15\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"3\" [label = \"10\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 10\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"4\" [label = \"4\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 4\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"5\" [label = \"12\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 12\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"6\" [label = \"22\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 22\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"7\" [label = \"18\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 18\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"8\" [label = \"24\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 24\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"9\" [label = \"50\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 50\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"10\" [label = \"35\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 35\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"11\" [label = \"31\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 31\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"12\" [label = \"44\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 44\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"13\" [label = \"70\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 70\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"14\" [label = \"66\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 66\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"15\" [label = \"90\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 90\", width = \"0.6\", fillcolor = \"#9bddff\"] \n\"1\"->\"2\" [arrowhead = \"vee\", color = \"#708090\"] \n\"1\"->\"9\" [arrowhead = \"vee\", color = \"#708090\"] \n\"2\"->\"3\" [arrowhead = \"vee\", color = \"#708090\"] \n\"2\"->\"6\" [arrowhead = \"vee\", color = \"#708090\"] \n\"9\"->\"10\" [arrowhead = \"vee\", color = \"#708090\"] \n\"9\"->\"13\" [arrowhead = \"vee\", color = \"#708090\"] \n\"3\"->\"4\" [arrowhead = \"vee\", color = \"#708090\"] \n\"3\"->\"5\" [arrowhead = \"vee\", color = \"#708090\"] \n\"6\"->\"7\" [arrowhead = \"vee\", color = \"#708090\"] \n\"6\"->\"8\" [arrowhead = \"vee\", color = \"#708090\"] \n\"10\"->\"11\" [arrowhead = \"vee\", color = \"#708090\"] \n\"10\"->\"12\" [arrowhead = \"vee\", color = \"#708090\"] \n\"13\"->\"14\" [arrowhead = \"vee\", color = \"#708090\"] \n\"13\"->\"15\" [arrowhead = \"vee\", color = \"#708090\"] \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p><span class="math display">\[\begin{matrix}4 &amp; \mathbf{10} &amp; 12 &amp; \mathbf{15} &amp; 18 &amp; \mathbf{22} &amp; 24 &amp; \Large\mathbf{25} &amp; 31 &amp; \mathbf{35} &amp; 44 &amp; \mathbf{50} &amp; 66 &amp; \mathbf{70} &amp; 90\end{matrix}\]</span></p>
 <p> </p>
 <ul>
