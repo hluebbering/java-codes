@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Sorting Algorithms</title>
+
+<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+<link rel="stylesheet" href="./assets/css/styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Java Data Structures</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Sorting Algorithms</a>
+</li>
+<li>
+  <a href="BinarySearch.html">Binary Search</a>
+</li>
+<li>
+  <a href="Stacks.html">Stacks and Queues</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Sorting Algorithms</h1>
+
+</div>
+
+
+<p>The sorting algorithms we built in this lab are the <strong>Simple Bubble Sort</strong> and <strong>Merge Sort</strong>. After making the algorithms, we ran them on different <strong>data points</strong> of sizes (50, 100, 200, 400, 800, 1000, 2000) and collected the <strong>number of steps</strong> for the data points in a text file. We then used the text file to plot the graphs for both algorithms.</p>
+<hr />
+<div id="bubble-sort" class="section level2">
+<h2>Bubble Sort</h2>
+<div id="definition" class="section level3">
+<h3>Definition</h3>
+<p>Bubble sort checks and rechecks the relation between each component of the list. The method sorts the <span class="math inline">\(\mathrm{n}\)</span> elements by linearly moving through the list where each pass completes <span class="math inline">\(\mathrm{n-1}\)</span> comparisons and <span class="math inline">\(\mathrm{n-1}\)</span> exchanges. After one pass, the largest integer-value should “bubble” up to the ArrayList’s high-indexed side –the operation repeats. After <span class="math inline">\(\mathrm{n-1}\)</span> passes, the bubble sorting terminates.</p>
+<hr />
+</div>
+<div id="time-complexity" class="section level3">
+<h3>Time Complexity</h3>
+<div id="worst-case-time-complexity" class="section level4">
+<h4>Worst Case Time Complexity:</h4>
+<p>The worst case has time complexity <span class="math inline">\(O(n^2)\)</span>; this occurs when the array is reverse sorted.</p>
+</div>
+<div id="best-case-time-complexity" class="section level4">
+<h4>Best Case Time Complexity:</h4>
+<p>The best case has time complexity <span class="math inline">\(O(n)\)</span>. Bubble sort takes minimum time (Order of n) when elements are already sorted.</p>
+<hr />
+</div>
+</div>
+<div id="how-does-bubble-sort-act-on-the-following-list" class="section level3">
+<h3>How does Bubble Sort act on the following list</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>list XXX: <span class="dv">5</span> <span class="dv">1</span> <span class="dv">4</span> <span class="dv">2</span> <span class="dv">8</span></span></code></pre></div>
+<p><span class="math display">\[
+\begin{align}
+\begin{matrix} 5 &amp; 1 &amp; 4 &amp; 2 &amp; 8 \end{matrix} \\
+\begin{matrix} \mathbf{1} &amp; \mathbf{5} &amp; 4 &amp; 2 &amp; 8 \end{matrix} \\
+\begin{matrix} 1 &amp; \mathbf{4} &amp; \mathbf{5} &amp; 2 &amp; 8 \end{matrix} \\
+\begin{matrix} 1 &amp; 4 &amp; \mathbf{2} &amp; \mathbf{5} &amp; 8 \end{matrix} \\
+\\
+\begin{matrix} \mathbf{1} &amp; \mathbf{4} &amp; 2 &amp; 5 &amp; 8 \end{matrix} \\
+\begin{matrix} 1 &amp; \mathbf{2} &amp; \mathbf{4} &amp; 5 &amp; 8 \end{matrix} \\
+\begin{matrix} 1 &amp; 2 &amp; \mathbf{4} &amp; \mathbf{5} &amp; 8 \end{matrix} \\
+\begin{matrix} 1 &amp; 2 &amp; 4 &amp; \mathbf{5} &amp; \mathbf{8} \end{matrix}
+\end{align}
+\]</span></p>
+<ul>
+<li>The algorithm needs one whole pass without any swap to know it is sorted.</li>
+</ul>
+<p><span class="math display">\[
+\begin{align}
+\begin{matrix} \mathbf{1} &amp; \mathbf{2} &amp; 4 &amp; 5 &amp; 8 \end{matrix} \\
+\begin{matrix} 1 &amp; \mathbf{2} &amp; \mathbf{4} &amp; 5 &amp; 8 \end{matrix} \\
+\begin{matrix} 1 &amp; 2 &amp; \mathbf{4} &amp; \mathbf{5} &amp; 8 \end{matrix} \\
+\begin{matrix} 1 &amp; 2 &amp; 4 &amp; \mathbf{5} &amp; \mathbf{8} \end{matrix}
+\end{align}
+\]</span></p>
+<hr />
+</div>
+<div id="java-code" class="section level3">
+<h3>Java Code</h3>
+<div id="steps" class="section level4">
+<h4>Steps</h4>
+<p><span class="lp9">i. </span> Method sorts the elements by linearly moving through the list</p>
+<p><span class="lp9">ii. </span> After a pass, the largest value “bubbles” up the ArrayList</p>
+<p><span class="lp9">iii. </span> Bubble sorting repeats for (n-1) passes</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co">// Bubble Sort Class</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.ArrayList;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> BubbleSort {</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>    <span class="co">// Used to count number of steps</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">int</span> Bcount = <span class="dv">0</span>;</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>    <span class="co">// Getter</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">getBcount</span>(){</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>        <span class="kw">return</span> Bcount;</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>    }</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>    <span class="co">// Setter</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">resetBcount</span>(){</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a>        Bcount = <span class="dv">0</span>;</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a>    }</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a>    <span class="co">// Simple Bubble Sort -- O(n^2)</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a>    <span class="co">// Requires isLessThan from interface Relateable</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a>    <span class="co">// Uses a generic class T which extends Relateable</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> &lt;T <span class="kw">extends</span> Relateable&gt; <span class="bu">ArrayList</span>&lt;T&gt; <span class="fu">Bubble</span>(<span class="bu">ArrayList</span>&lt;T&gt;  A){</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true"></a>        <span class="co">// Depth of split levels:</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true"></a>        <span class="co">// number of times n can be halved while value is greater than 1</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true"></a>        <span class="kw">if</span> (A.<span class="fu">size</span>() &lt;= <span class="dv">1</span>) <span class="kw">return</span> A;</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true"></a>        <span class="co">// Each pass of the bubbling phase performs n-1 comparisons and n-1 exchanges</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true"></a>        <span class="co">// After n-1 passes, the method terminates</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true"></a>        <span class="kw">for</span>(<span class="dt">int</span> passes = <span class="dv">0</span>; passes &lt; A.<span class="fu">size</span>()-<span class="dv">1</span>; passes++){</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true"></a>            <span class="kw">for</span>(<span class="dt">int</span> index = <span class="dv">0</span>; index &lt; A.<span class="fu">size</span>() - passes - <span class="dv">1</span>; index++){</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true"></a>                Bcount++;</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true"></a>                <span class="kw">if</span> (A.<span class="fu">get</span>(index).<span class="fu">isLessThan</span>(A.<span class="fu">get</span>(index + <span class="dv">1</span>))){</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true"></a>                    T temp = A.<span class="fu">get</span>(index + <span class="dv">1</span>);</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true"></a>                    A.<span class="fu">set</span>(index + <span class="dv">1</span>, A.<span class="fu">get</span>(index));</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true"></a>                    A.<span class="fu">set</span>(index, temp);</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true"></a>                }</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true"></a></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true"></a>            }</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true"></a>        }</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true"></a></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true"></a>        <span class="kw">return</span> A;</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true"></a>    }</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true"></a>}</span></code></pre></div>
+<p> </p>
+</div>
+</div>
+<div id="code-output" class="section level3">
+<h3>Code Output</h3>
+<div id="execution-times" class="section level4">
+<h4>Execution Times</h4>
+<table class="table table-striped" style="font-size: 13.3px; width: auto !important; float: left; margin-right: 10px;">
+<thead>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: left; color: #417dc1 !important;font-size: 13.3px;" colspan="2">
+<div style="">
+Bubble Sort:
+</div>
+</th>
+</tr>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; padding-right: 4px; padding-left: 4px; background-color: white !important;font-size: 13.3px;" colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Collected Execution Times
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:center;color: #57a5ff !important;text-align: center;font-size: 13.3px;color: #417dc1 !important;">
+DataPoints
+</th>
+<th style="text-align:center;color: #57a5ff !important;text-align: center;font-size: 13.3px;color: #417dc1 !important;">
+Steps
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+50
+</td>
+<td style="text-align:center;">
+1225
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+100
+</td>
+<td style="text-align:center;">
+4950
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+200
+</td>
+<td style="text-align:center;">
+19900
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+400
+</td>
+<td style="text-align:center;">
+79800
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+800
+</td>
+<td style="text-align:center;">
+319600
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+499500
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2000
+</td>
+<td style="text-align:center;">
+1999000
+</td>
+</tr>
+</tbody>
+</table>
+<p><img src="index_files/figure-html/bubblesort-1.png" width="445" style="display: block; margin: auto;" /></p>
+<p> </p>
+<hr />
+</div>
+</div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<p>From the above execution times and graph, we can see that as the number of data points <span class="math inline">\(\mathrm{n}\)</span> increases, the number of steps it takes to complete the bubble sort increases <strong>exponentially</strong>. In <strong>big-O notation</strong>, the Simple Bubble Sort Method for sorting <span class="math inline">\(\mathrm{n}\)</span> elements of an array is <span class="math inline">\(O\mathbf{(n^2)}\)</span>; hence, the algorithm has a run time that grows quadratically as the input (data points) size grows.</p>
+<hr />
+</div>
+</div>
+<div id="merge-sort" class="section level2">
+<h2>Merge Sort</h2>
+<div id="definition-1" class="section level3">
+<h3>Definition</h3>
+<p>MergeSort is a recursive sorting technique that recursively splits, sorts, and reconstructs the data. This method recursively divides the data into two unsorted lists, sorts the two lists, and then merges the two sorted lists.</p>
+<hr />
+</div>
+<div id="time-complexity-1" class="section level3">
+<h3>Time Complexity:</h3>
+<p><span class="sp6">a.</span> Merge Sort is a recursive algorithm and time complexity can be expressed as following recurrence relation: <span class="math inline">\(T(n) = 2T(n/2) + \theta(n)\)</span></p>
+<p><span class="sp6">b.</span> The above recurrence can be solved either using the Recurrence Tree method or the Master method. The solution of the recurrence is <span class="math inline">\(\theta(n\log n)\)</span>.</p>
+<p><span class="sp6">c. <span class="math inline">\(\bigstar\)</span></span> Time complexity of Merge Sort is <span class="math inline">\(\theta(n\log n)\)</span> in all 3 cases (worst, average and best) as merge sort always divides the array into two halves and takes linear time to merge two halves.</p>
+<hr />
+</div>
+<div id="java-code." class="section level3">
+<h3>Java Code.</h3>
+<p><span class="lp9">i.</span> Break the whole array down into two subarrays</p>
+<p><span class="lp9">ii.</span> Sort the left half of the array (recursively)</p>
+<p><span class="lp9">iii.</span> Sort the right half of the array (recursively) Merge the solutions</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="co">// Merge Sort Class</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.ArrayList;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> MergeSort {</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>    <span class="kw">private</span> <span class="dt">static</span> <span class="dt">int</span> Mcount = <span class="dv">0</span>;</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>    <span class="co">// Getter</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">getMcount</span>(){</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>        <span class="kw">return</span> Mcount;</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>    }</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>    <span class="co">// Merge Sort --  O(nlog2(n))</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>    <span class="co">// Requires isLessthan from interface Relateable</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a>    <span class="co">// Uses a generic T which extends Relateable</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a>    <span class="co">// Public signature</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true"></a>    <span class="co">// This nonrecursive part takes care of small lists</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> &lt;T <span class="kw">extends</span> Relateable&gt; <span class="bu">ArrayList</span>&lt;T&gt; <span class="fu">MergeSort</span>(<span class="bu">ArrayList</span>&lt;T&gt; A){</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true"></a>        Mcount++;</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true"></a>        <span class="kw">if</span> (A.<span class="fu">size</span>() &lt;= <span class="dv">1</span>) {<span class="kw">return</span> A;}</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true"></a>        <span class="kw">return</span> <span class="fu">RMergeSort</span>(A);</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true"></a>    }</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true"></a>    <span class="co">// Recursive RMergeSort method--</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true"></a>    <span class="co">// Private signature for the recursive part</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true"></a>    <span class="co">// Requires isLessthan from interface Relateable</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true"></a>    <span class="co">// Uses a generic T which extends Relateable</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true"></a>    <span class="kw">private</span> <span class="dt">static</span> &lt;T <span class="kw">extends</span> Relateable&gt; <span class="bu">ArrayList</span>&lt;T&gt; <span class="fu">RMergeSort</span>(<span class="bu">ArrayList</span>&lt;T&gt; A){</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true"></a>        <span class="co">// Middle index to divide the ArrayList into two halves</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true"></a>        <span class="dt">int</span> mid = A.<span class="fu">size</span>() / <span class="dv">2</span>;</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true"></a></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true"></a>        <span class="co">// Create two temporary arrays:</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true"></a>        <span class="bu">ArrayList</span>&lt;T&gt; B = <span class="kw">new</span> <span class="bu">ArrayList</span>&lt;&gt;(); <span class="co">// first half</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true"></a>        <span class="bu">ArrayList</span>&lt;T&gt; C = <span class="kw">new</span> <span class="bu">ArrayList</span>&lt;&gt;(); <span class="co">// second half</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true"></a>        <span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; mid; i++) {</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true"></a>            B.<span class="fu">add</span>(A.<span class="fu">get</span>(i));</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true"></a>        }</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true"></a>        <span class="kw">for</span>(<span class="dt">int</span> i = mid; i &lt; A.<span class="fu">size</span>(); i++) {</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true"></a>            C.<span class="fu">add</span>(A.<span class="fu">get</span>(i));</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true"></a>        }</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true"></a></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true"></a>        <span class="co">// Call mergeSort for first half:</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true"></a>        B = <span class="fu">MergeSort</span>(B);</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true"></a></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true"></a>        <span class="co">// Call mergeSort for second half:</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true"></a>        C = <span class="fu">MergeSort</span>(C);</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true"></a></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true"></a>        <span class="co">// Merge the two halves sorted:</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true"></a>        <span class="kw">return</span> <span class="fu">Merge</span>(B,C);</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true"></a>    }</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true"></a></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true"></a>    <span class="co">// Merge method-- merge A and B routine</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true"></a>    <span class="co">// Requires isLessthan from interface Relateable</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true"></a>    <span class="co">// Uses a generic T which extends Relateable</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true"></a>    <span class="kw">private</span> <span class="dt">static</span> &lt;T <span class="kw">extends</span> Relateable&gt; <span class="bu">ArrayList</span>&lt;T&gt; <span class="fu">Merge</span>(<span class="bu">ArrayList</span>&lt;T&gt; A, <span class="bu">ArrayList</span>&lt;T&gt; B){</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true"></a>        <span class="bu">ArrayList</span>&lt;T&gt; C = <span class="kw">new</span> <span class="bu">ArrayList</span>&lt;&gt;();</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true"></a>        <span class="dt">int</span> j = <span class="dv">0</span>;</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true"></a>        <span class="dt">int</span> k = <span class="dv">0</span>;</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true"></a></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true"></a>        <span class="co">// Compares the elements of both sub-arrays one by one</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true"></a>        <span class="kw">while</span>(j &lt; A.<span class="fu">size</span>() &amp;&amp; k &lt; B.<span class="fu">size</span>()) {</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true"></a>            <span class="kw">if</span> (A.<span class="fu">get</span>(j).<span class="fu">isLessThan</span>(B.<span class="fu">get</span>(k))) {</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true"></a>                C.<span class="fu">add</span>(A.<span class="fu">get</span>(j));</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true"></a>                j++;</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true"></a>            }</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true"></a>            <span class="kw">else</span>{</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true"></a>                C.<span class="fu">add</span>(B.<span class="fu">get</span>(k));</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true"></a>                k++;</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true"></a>            }</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true"></a>        }</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true"></a>        <span class="kw">while</span>(j &lt; A.<span class="fu">size</span>()) {</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true"></a>            C.<span class="fu">add</span>(A.<span class="fu">get</span>(j));</span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true"></a>            j++;</span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true"></a>        }</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true"></a>        <span class="kw">while</span>(k &lt; B.<span class="fu">size</span>()) {</span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true"></a>            C.<span class="fu">add</span>(B.<span class="fu">get</span>(k));</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true"></a>            k++;</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true"></a>        }</span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true"></a></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true"></a>        <span class="kw">return</span> C; <span class="co">// sorted array</span></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true"></a>    }</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true"></a></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true"></a>}</span></code></pre></div>
+<p> </p>
+</div>
+<div id="code-output-1" class="section level3">
+<h3>Code Output</h3>
+<div id="execution-times-1" class="section level4">
+<h4>Execution Times</h4>
+<table class="table table-striped" style="font-size: 13.3px; width: auto !important; float: left; margin-right: 10px;">
+<thead>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: left; color: #004953 !important;padding-right: 4px; padding-left: 4px; background-color: white !important;font-size: 13.3px;" colspan="2">
+<div style="">
+Merge Sort:
+</div>
+</th>
+</tr>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; padding-right: 4px; padding-left: 4px; background-color: white !important;font-size: 13.3px;" colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Collected Execution Times
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:center;color: #008080 !important;font-size: 13.3px;">
+DataPoints
+</th>
+<th style="text-align:center;color: #008080 !important;font-size: 13.3px;">
+Steps
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+50
+</td>
+<td style="text-align:center;">
+99
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+100
+</td>
+<td style="text-align:center;">
+199
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+200
+</td>
+<td style="text-align:center;">
+399
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+400
+</td>
+<td style="text-align:center;">
+799
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+800
+</td>
+<td style="text-align:center;">
+1599
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+1999
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2000
+</td>
+<td style="text-align:center;">
+3999
+</td>
+</tr>
+</tbody>
+</table>
+<p><img src="index_files/figure-html/mergesort-1.png" width="445" style="display: block; margin: auto;" /></p>
+<p> </p>
+<hr />
+</div>
+</div>
+<div id="summary-1" class="section level3">
+<h3>Summary</h3>
+<p>Each value <span class="math inline">\(\mathrm{n}\)</span> in the data set must be sorted into a temporary array, allotted once before every single merge; therefore, we have <span class="math inline">\(O(\mathrm{n})\)</span> compares over all the merges. From the above execution times and graph, we can see that as the number of data points <span class="math inline">\(\mathrm{n}\)</span> increases, the number of steps it takes to complete the bubble sort increases <strong>logarithmically</strong>. In <strong>big-O notation</strong>, since there are <span class="math inline">\(\mathrm{\log{2}n}\)</span> split levels, we have a time execution of <span class="math inline">\(O(\mathrm{n \log{n}})\)</span>; hence, the search algorithm has a run time that grows logarithmically as the input size grows.</p>
+<div id="comparing-sort-algorithms" class="section level4">
+<h4>Comparing Sort Algorithms</h4>
+<p>From the graph below, we can see that the number of steps to execute the Merge Sort method is significantly lower than the number of steps to execute the Bubble Sort method; hence, the Merge Sort is faster and more efficient than the Bubble Sort.</p>
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" width="800" style="display: block; margin: auto;" /></p>
+<hr />
+</div>
+</div>
+<div id="questions" class="section level3">
+<h3>Questions</h3>
+<div id="what-non-sequential-data-structure-we-have-studied-does-the-logic-of-mergesort-resemble" class="section level4">
+<h4>1. What non-sequential data structure, we have studied, does the logic of MergeSort() resemble?</h4>
+<p>MergeSort is a recursive sorting technique that recursively splits, sorts, and reconstructs the data. This method recursively divides the data into two unsorted lists, sorts the two lists, and then merges the two sorted lists. In big-O notation, we have a time execution of <span class="math inline">\(O(\mathrm{n \log{n}})\)</span>; hence, the search algorithm has a run time that grows logarithmically as the input size grows. Similar to MergeSort, <strong>binary search trees</strong> are nonlinear structures that execute in logarithmic time.</p>
+<hr />
+</div>
+</div>
+</div>
+<div id="insertion-sort" class="section level2">
+<h2>Insertion Sort</h2>
+<div id="definition-2" class="section level3">
+<h3>Definition</h3>
+<p><strong>Definition.</strong> a Java sorting method where the sorted values locate to the low end of the array, and the unsorted values locate to the high end.</p>
+<p><span class="sp8">a.</span> Insertion sort takes linear time when input array is sorted or almost sorted (maximum 1 or 2 elements are misplaced). All other sorting algorithms mentioned above will take more than linear time in their typical implementation.</p>
+<p><span class="sp8">b.</span> total of <span class="math inline">\(n-1\)</span> passes over the array, with a new unsorted value inserted each time</p>
+<p><span class="sp8">c.</span> expected running time is <span class="math inline">\(\mathbb{O}\left(n^2\right)\)</span> compares and data movements –most compares will lead to movement of a data value</p>
+<p><span class="sp8">d.</span> best case running time performance is <span class="math inline">\(\mathbb{O}\left(n\right)\)</span> comparisons –occurs for no movements of data within the array; therefore, it’s best to implement insertion sort on data that is nearly ordered</p>
+<hr />
+</div>
+<div id="time-complexity-2" class="section level3">
+<h3>Time Complexity</h3>
+<p>On average, it is <span class="math inline">\(i/2\)</span> positions out of order</p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="7">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+<span class="math inline">\(\large\Longleftarrow n-1 \Longrightarrow\)</span>
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;background-color: pink !important;">
+<span class="math inline">\(0 \;\)</span>
+</td>
+<td style="text-align:left;background-color: salmon !important;">
+<span class="math inline">\(1 \;\)</span>
+</td>
+<td style="text-align:left;background-color: darkseagreen !important;">
+<span class="math inline">\(\dots\)</span>
+</td>
+<td style="text-align:left;background-color: plum !important;">
+<span class="math inline">\(i-1\)</span>
+</td>
+<td style="text-align:left;background-color: aquamarine !important;">
+<span class="math inline">\(i\;\)</span>
+</td>
+<td style="text-align:left;background-color: lightseagreen !important;">
+<span class="math inline">\(\dots\)</span>
+</td>
+<td style="text-align:left;background-color: cornflowerblue !important;">
+<span class="math inline">\(n-1\)</span>
+</td>
+</tr>
+</tbody>
+</table>
+<p>And since this is done from <span class="math inline">\(1\)</span> to <span class="math inline">\(n-1\)</span>, then we have the total cost as</p>
+<p><span class="math display">\[\sum^{n-1}_{i=1} \frac{i}{2} = \frac{n(n+1)}{4}\]</span></p>
+<p>Therefore, the average case running time of <strong>insertion sort</strong> is <span class="math inline">\(\mathbf{O(n^2)}\)</span></p>
+<p> </p>
+<hr />
+</div>
+<div id="show-how-insertion-sort-acts-on-the-following-list" class="section level3">
+<h3>1. Show how Insertion Sort acts on the following List:</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>list X: <span class="dv">7</span> <span class="dv">5</span> <span class="dv">4</span> <span class="dv">6</span> <span class="dv">8</span> <span class="dv">2</span></span></code></pre></div>
+<p><span class="math display">\[
+\begin{align}
+\begin{matrix} \mathbf{7} &amp; 5 &amp; 4 &amp; 6 &amp; 8 &amp; 2 \end{matrix} \\
+\begin{matrix} \mathbf{5} &amp; \mathbf{7} &amp; 4 &amp; 6 &amp; 8 &amp; 2 \end{matrix} \\
+\begin{matrix} \mathbf{4} &amp; \mathbf{5} &amp; \mathbf{7} &amp; 6 &amp; 8 &amp; 2 \end{matrix} \\
+\begin{matrix} \mathbf{4} &amp; \mathbf{5} &amp; \mathbf{6} &amp; \mathbf{7} &amp; 8 &amp; 2 \end{matrix} \\
+\begin{matrix} \mathbf{4} &amp; \mathbf{5} &amp; \mathbf{6} &amp; \mathbf{7} &amp; \mathbf{8} &amp; 2 \end{matrix} \\
+\begin{matrix} \mathbf{2} &amp; \mathbf{4} &amp; \mathbf{5} &amp; \mathbf{6} &amp; \mathbf{7} &amp; \mathbf{8} \end{matrix}
+\end{align}
+\]</span></p>
+<p> </p>
+</div>
+<div id="consider-an-array-of-elements-arr5-54321-what-are-the-steps-of-insertions-done-while-doing-insertion-sort-in-the-array." class="section level3">
+<h3>2. Consider an array of elements arr[5] = {5,4,3,2,1}, what are the steps of insertions done while doing insertion sort in the array.</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>arr[<span class="dv">5</span>] = {<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>}</span></code></pre></div>
+<p><span class="math display">\[
+\begin{align}
+\begin{matrix} 5 &amp; 4 &amp; 3 &amp; 2 &amp; 1 \end{matrix} \\
+\begin{matrix} \mathbf{4} &amp; \mathbf{5} &amp; 3 &amp; 2 &amp; 1 \end{matrix} \\
+\begin{matrix} \mathbf{3} &amp; \mathbf{4} &amp; \mathbf{5}  &amp; 2 &amp; 1 \end{matrix} \\
+\begin{matrix} \mathbf{2} &amp; \mathbf{3} &amp; \mathbf{4} &amp; \mathbf{5}  &amp; 1 \end{matrix} \\
+\begin{matrix} \mathbf{1} &amp; \mathbf{2} &amp; \mathbf{3} &amp; \mathbf{4} &amp; \mathbf{5}  \end{matrix}
+\end{align}
+\]</span></p>
+<hr />
+</div>
+<div id="method-to-insertion-sort" class="section level3">
+<h3>Method to Insertion Sort</h3>
+<div id="a-generic-type-that-extends-the-interface-relateable" class="section level4">
+<h4>a generic type that extends the interface Relateable</h4>
+<div class="b1">
+<p><span class="lp9">a.</span> create a LinkedList</p>
+<p><span class="lp9">b.</span> initialize ICount</p>
+<p><span class="lp9">c.</span> walk down ArrayList and insert each element into sorted LinkedList</p>
+<p><span class="lp9">d.</span> repackage and return ArrayList</p>
+<p><span class="lp9">e.</span> method to insert a new element myObj into a sorted LinkedList</p>
+<ul>
+<li>use a loop to traverse LinkedList</li>
+<li>begin with first element (smallest T) and find where myObj should go</li>
+</ul>
+<p><span class="lp9">f.</span> debugging tool and method to dump out content in LinkedList</p>
+</div>
+<p> </p>
+<hr />
+</div>
+</div>
+<div id="java-code-1" class="section level3">
+<h3>Java Code</h3>
+<div id="steps-1" class="section level4">
+<h4>Steps</h4>
+<p><span class="lp9">i.</span> Iterate through the array</p>
+<p><span class="lp9">ii.</span> Shifting all of the elements to the right until we encounter the first element we don’t have to shift</p>
+<p><span class="lp9">iii.</span> Place the new element into its proper place within the sorted subarray</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.LinkedList;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.ListIterator;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.ArrayList;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> InsertionSort {</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>  </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>  <span class="kw">private</span> <span class="dt">static</span> <span class="dt">int</span> ICount;</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">getICount</span>(){</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>    <span class="kw">return</span> ICount; }</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>  </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>  <span class="co">// a generic type that extends the interface Relateable</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">static</span> &lt;T <span class="kw">extends</span> Relateable&gt; <span class="bu">ArrayList</span>&lt;T&gt; <span class="fu">InsertionSort</span>(<span class="bu">ArrayList</span>&lt;T&gt; myAL){</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a>    </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a>    <span class="co">// create a LinkedList</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a>    <span class="bu">LinkedList</span>&lt;T&gt; mylist = <span class="kw">new</span> <span class="bu">LinkedList</span>&lt;T&gt;();</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true"></a>    <span class="co">// initialize ICount</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true"></a>    ICount = <span class="dv">0</span>;</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true"></a>    <span class="co">// walk down ArrayList and insert each into sorted LinkedList</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true"></a>    <span class="kw">for</span>(T XXX: myAL){</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true"></a>      <span class="fu">insert</span>(mylist, XXX); }</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true"></a>    </span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true"></a>    <span class="co">// repackage myAL from the LinkedList and return it</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true"></a>    <span class="kw">return</span> myAL; }</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true"></a>  </span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true"></a>  <span class="co">// insert new element myObj into sorted LinkedList</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">static</span>  &lt;T <span class="kw">extends</span> Relateable&gt; <span class="dt">void</span> <span class="fu">insert</span>(<span class="bu">LinkedList</span>&lt;T&gt; mylist, T myObj) {</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true"></a>    </span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true"></a>    <span class="co">// if myList is empty, add myObj and return</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true"></a>    <span class="kw">if</span> (mylist.<span class="fu">isEmpty</span>()) {</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true"></a>      ICount++;</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true"></a>      mylist.<span class="fu">add</span>(myObj);</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true"></a>      <span class="kw">return</span>; }</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true"></a>    </span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true"></a>    <span class="co">// use a loop to traverse LinkedList</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true"></a>    <span class="co">// begin with first element (smallest T) and find where myObj goes</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true"></a>    <span class="bu">ListIterator</span> current = mylist.<span class="fu">listIterator</span>();</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true"></a>    <span class="kw">while</span>(current.<span class="fu">hasNext</span>()){</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true"></a>      </span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true"></a>      <span class="co">// get value and advance iterator</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true"></a>      ICount++;</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true"></a>      T temp = (T)(current.<span class="fu">next</span>());</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true"></a>      </span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true"></a>      <span class="co">// figure out out if I should add now or not</span></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true"></a>      <span class="kw">if</span> (temp.<span class="fu">isLessThan</span>(myObj)){</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true"></a>        <span class="kw">continue</span>; }</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true"></a>      </span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true"></a>      <span class="co">// add on the list iterator but where?</span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true"></a>      <span class="kw">else</span>{</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true"></a>        current.<span class="fu">add</span>(myObj);</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true"></a>        <span class="kw">return</span>; }}</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true"></a>    </span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true"></a>    <span class="co">// **************************</span></span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true"></a>    <span class="co">// if we get here, then I should add myObj at the end of the list</span></span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true"></a>    <span class="co">// ICount++;</span></span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true"></a>    <span class="co">// mylist.addLast(myObj);</span></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true"></a>    <span class="co">// return; }</span></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true"></a>  </span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true"></a>  <span class="co">// method to dump out content in LinkedList</span></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true"></a>  <span class="co">// debugging tool</span></span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true"></a>  <span class="kw">private</span> <span class="dt">static</span> &lt;T&gt; <span class="dt">void</span> <span class="fu">dump</span> (<span class="bu">LinkedList</span>&lt;T&gt; mylist){</span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true"></a>    <span class="bu">ListIterator</span>&lt;T&gt; current = mylist.<span class="fu">listIterator</span>();</span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true"></a>    <span class="kw">for</span>(<span class="dt">int</span> i=<span class="dv">0</span>; i&lt; <span class="bu">Math</span>.<span class="fu">min</span>(<span class="dv">15</span>, mylist.<span class="fu">size</span>()); i++){</span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true"></a>      <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>((T)(current.<span class="fu">next</span>()).<span class="fu">toString</span>()); }}</span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true"></a>  </span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true"></a>  }</span></code></pre></div>
+</div>
+</div>
+<div id="code-output-2" class="section level3">
+<h3>Code Output</h3>
+<div id="execution-times-2" class="section level4">
+<h4>Execution Times</h4>
+<p>At the worst case scenario for the algorithm, the whole array is descending. This is because in each iteration, we’ll have to move the whole sorted list by 1, which is <span class="math inline">\(O(n)\)</span>. We have to do this for each element in every array, which means it’s going to be bounded by <span class="math inline">\(O(n^2)\)</span>.</p>
+<table class="table table-striped" style="font-size: 13.3px; width: auto !important; float: left; margin-right: 10px;">
+<thead>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: left; color: #fba0e3 !important;font-size: 13.3px;" colspan="2">
+<div style="">
+Insertion Sort:
+</div>
+</th>
+</tr>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; padding-right: 4px; padding-left: 4px; background-color: white !important;font-size: 13.3px;" colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Collected Execution Times
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:center;color: #fba0e3 !important;text-align: center;font-size: 13.3px;color: #fba0e3 !important;">
+DataPoints
+</th>
+<th style="text-align:center;color: #fba0e3 !important;text-align: center;font-size: 13.3px;color: #fba0e3 !important;">
+Steps
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+50
+</td>
+<td style="text-align:center;">
+671
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+100
+</td>
+<td style="text-align:center;">
+2395
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+200
+</td>
+<td style="text-align:center;">
+9743
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+400
+</td>
+<td style="text-align:center;">
+39658
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+800
+</td>
+<td style="text-align:center;">
+161494
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+251346
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2000
+</td>
+<td style="text-align:center;">
+974151
+</td>
+</tr>
+</tbody>
+</table>
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" width="450" /></p>
+<p> </p>
+<hr />
+</div>
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<div id="sorting-techniques" class="section level3">
+<h3>Sorting Techniques:</h3>
+<p><span class="math display">\[
+\begin{align}
+&amp;\text{How large of an array do you want } \mathcal{sorted} \text{ ? } \mathbf{20} \\
+&amp;\mathrm{Fisher} \text{ data file loaded }\dots \text{test file of size } \mathrm{20} \text{ created.} \\
+&amp;\text{For list size of } 20 \dots \\
+&amp;\qquad \Rightarrow \quad \text{Bubble sort number of steps: } 190 \\
+&amp;\qquad \Rightarrow \quad \text{Merge sort number  of steps: } 39 \\
+&amp;\qquad \Rightarrow \quad \text{Insertion sort number of steps: } 20
+\end{align}
+\]</span></p>
+<p>From the graph below, we can see that the number of steps to execute the Merge Sort method is significantly lower than the number of steps to execute the Bubble Sort method; hence, the Merge Sort is faster and more efficient than the Bubble Sort.</p>
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" width="445" /></p>
+<hr />
+</div>
+</div>
+<div id="references" class="section level2 unnumbered">
+<h2 class="unnumbered">References</h2>
+<div id="refs" class="references">
+<div id="ref-baileyJavaStructuresData2003">
+<p>[1] <span class="smallcaps">Bailey</span>, D. A. (2003). <em>Java structures: Data structures in Java for the principled programmer</em>. McGraw-Hill, Boston, Mau.</p>
+</div>
+<div id="ref-gallardoJavaTutorialShort2015">
+<p>[2] <span class="smallcaps">Gallardo</span>, R., <span class="smallcaps">Gordon</span>, J., <span class="smallcaps">Hommel</span>, S., <span class="smallcaps">Kannan</span>, S. and <span class="smallcaps">Zakhour</span>, S. (2015). <em>The Java tutorial a short course on the basics</em>. Addison-Wesley, Upper Saddle River, NJ.</p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
