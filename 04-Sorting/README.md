@@ -1,4 +1,4 @@
-Lab 5. Sorting Algorithms
+Lab 5. Sorting Algorithms 
 ================
 
 [![Badge](https://79e2hdgqbf59.runkit.sh)](https://git.io/gradientbadge)
