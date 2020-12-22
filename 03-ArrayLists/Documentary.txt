@@ -1,0 +1,71 @@
+tt0492884, movie, Harry: A Communication Breakdown, Harry: A Communication Breakdown, 2008, 0, documentary
+tt0492931, movie, The 11th Hour, The 11th Hour, 2007, 95, documentary
+tt0492500, movie, Wide Awake, Wide Awake, 2006, 79, documentary
+tt0492502, movie, Wide Awake, Wide Awake, 2006, 79, documentary
+tt0492506, movie, Wordplay, Wordplay, 2006, 94, documentary
+tt0492938, tvEpisode, Hip-Hop: Beyond Beats and Rhymes, Hip-Hop: Beyond Beats and Rhymes, 2006, 0, documentary
+tt0492947, movie, "Clear Cut: The Story of Philomath- Oregon", "Clear Cut: The Story of Philomath- Oregon", 2006, 72, documentary
+tt0492951, movie, A Conversation with Basquiat, A Conversation with Basquiat, 2006, 99, documentary
+tt0493017, movie, A Matter of Degrees, A Matter of Degrees, 2006, 0, documentary
+tt0493076, movie, Who Needs Sleep?, Who Needs Sleep?, 2006, 78, documentary
+tt0493078, movie, Wrestling with Angels: Playwright Tony Kushner, Wrestling with Angels: Playwright Tony Kushner, 2006, 98, documentary
+tt0493265, tvMovie, Life and Loss: The Impact of 'Six Feet Under', Life and Loss: The Impact of 'Six Feet Under', 2006, 30, documentary
+tt0493417, movie, The Great Happiness Space: Tale of an Osaka Love Thief, The Great Happiness Space: Tale of an Osaka Love Thief, 2006, 76, documentary
+tt0493456, movie, This Film Is Not Yet Rated, This Film Is Not Yet Rated, 2006, 98, documentary
+tt0492510, tvSeries, Build a New Life in the Country, Build a New Life in the Country, 2005, 48, documentary
+tt0492512, tvSeries, Car Cruzin', Car Cruzin', 2005, 23, documentary
+tt0492577, tvMovie, Charmed: Life's a Witch, Charmed: Life's a Witch, 2005, 23, documentary
+tt0492583, tvSpecial, The Comedians' Comedian, The Comedians' Comedian, 2005, 0, documentary
+tt0492714, movie, Our Brand Is Crisis, Our Brand Is Crisis, 2005, 87, documentary
+tt0492903, movie, Proa al Norte, Proa al Norte, 2005, 58, documentary
+tt0492952, movie, Corpus, Corpus, 2005, 80, documentary
+tt0493105, movie, Au fin moka, Au fin moka, 2005, 53, documentary
+tt0493121, video, Expert Insight: Final Table Poker, Expert Insight: Final Table Poker, 2005, 100, documentary
+tt0493131, video, The Jumping Flea: Tales of the Modern Ukulele, The Jumping Flea: Tales of the Modern Ukulele, 2005, 66, documentary
+tt0493172, movie, Vinicius, Vinicius, 2005, 121, "biographydocumentarymusic"
+tt0493173, movie, When I Die, When I Die, 2005, 60, documentary
+tt0493191, tvMiniSeries, Shining Mountains, Shining Mountains, 2005, 0, documentary
+tt0493213, tvMovie, The Big V, The Big V, 2005, 46, documentary
+tt0493233, movie, Dislocation, Dislocation, 2005, 52, documentary
+tt0493236, movie, The Eighth Summit, The Eighth Summit, 2005, 52, documentary
+tt0493243, tvMovie, GidyUp! On the Rodeo Circuit, GidyUp! On the Rodeo Circuit, 2005, 45, documentary
+tt0493297, tvMovie, Six Feet Under: In Memoriam, Six Feet Under: In Memoriam, 2005, 50, documentary
+tt0493333, movie, Armando: Portrait of a Friend, Armando: Portrait of a Friend, 2005, 0, documentary
+tt0493367, movie, Retrouver Bam, Retrouver Bam, 2005, 0, documentary
+tt0493370, tvMovie, The Templar Code: Crusade of Secrecy, The Templar Code: Crusade of Secrecy, 2005, 100, documentary
+tt0493388, video, Arthritis: An Integrated Approach, Arthritis: An Integrated Approach, 2005, 215, documentary
+tt0493391, video, Asthma: An Integrated Approach, Asthma: An Integrated Approach, 2005, 225, documentary
+tt0493398, video, The Blvd, The Blvd, 2005, 0, documentary
+tt0493407, video, Diabetes: An Integrated Approach, Diabetes: An Integrated Approach, 2005, 165, documentary
+tt0493413, video, FIFA Fever, FIFA Fever, 2005, 195, documentary
+tt0493444, tvMovie, Sinatra: Dark Star, Sinatra: Dark Star, 2005, 89, documentary
+tt0493450, tvMovie, Sleeper Cell: Know Your Enemy, Sleeper Cell: Know Your Enemy, 2005, 0, documentary
+tt0492537, tvMovie, Alias Ricky Gervais, Alias Ricky Gervais, 2004, 46, documentary
+tt0492538, tvMovie, Alias: The Story So Far, Alias: The Story So Far, 2004, 23, documentary
+tt0492854, tvMovie, Akon Makes a Video, Akon Makes a Video, 2004, 22, documentary
+tt0492876, tvMovie, The Dolphin Murders, The Dolphin Murders, 2004, 49, documentary
+tt0492891, video, Laughing Matters, Laughing Matters, 2004, 60, "comedydocumentaryromance"
+tt0492971, movie, In Favour of Light, A Favor da Claridade, 2004, 54, documentary
+tt0493040, video, Penguins Under Siege, Penguins Under Siege, 2004, 80, documentary
+tt0493117, tvMovie, Doomsday Called Off, Doomsday Called Off, 2004, 59, documentary
+tt0493165, video, Surviving the Dawn, Surviving the Dawn, 2004, 0, documentary
+tt0492995, movie, Kuxa Kanema - O Nascimento do Cinema, Kuxa Kanema - O Nascimento do Cinema, 2003, 52, documentary
+tt0493144, tvSpecial, Miss Playboy TV 2003, Miss Playboy TV 2003, 2003, 0, documentary
+tt0493372, movie, Tobacco Money Feeds My Family, Tobacco Money Feeds My Family, 2003, 0, documentary
+tt0493424, tvMovie, Hollywood Confidential, Hollywood Confidential, 2003, 59, documentary
+tt0492823, tvMovie, Un abolitionniste: Robert Badinter, Un abolitionniste: Robert Badinter, 2001, 55, documentary
+tt0493430, tvMovie, Meerkat Madness, Meerkat Madness, 2001, 26, documentary
+tt0493112, tvMovie, A Childhood, A Childhood, 2000, 60, documentary
+tt0493124, movie, "Ferreri- I Love You", "Ferreri- I Love You", 2000, 55, documentary
+tt0493313, tvMovie, Traveller, Traveller, 2000, 0, documentary
+tt0493252, tvMovie, In the Footsteps of Bruce Chatwin, In the Footsteps of Bruce Chatwin, 1999, 120, documentary
+tt0493352, tvMovie, Kontum Diary: The Journey Home, Kontum Diary: The Journey Home, 1999, 0, documentary
+tt0492514, tvSeries, House of Horrors, House of Horrors, 1998, 60, documentary
+tt0493053, movie, Reis zonder einde, Reis zonder einde, 1995, 85, documentary
+tt0493046, movie, Het portret van Natasha, Het portret van Natasha, 1992, 83, documentary
+tt0493041, movie, Periodes met zon, Periodes met zon, 1990, 75, documentary
+tt0492919, tvMovie, Weekday Heroes, Weekday Heroes, 1985, 0, documentary
+tt0493478, tvSeries, Historia de la educación, Historia de la educación, 1981, 30, documentary
+tt0492899, movie, Night Lunch, Night Lunch, 1975, 32, documentary
+tt0492856, tvSeries, Crufts Dog Show, Crufts Dog Show, 1966, 0, documentary
+tt0492843, movie, Wille und Werk, Wille und Werk, 1929, 0, documentary
