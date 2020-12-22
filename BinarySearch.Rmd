@@ -4,7 +4,7 @@ output:
   html_document: 
     toc: yes
     toc_float: yes
-    highlight: haddock
+    highlight: textmate
 css: ./assets/css/styles.css
 # knit: pagedown::chrome_print
 bibliography: ./assets/citation/csc112.bib
@@ -64,11 +64,11 @@ simpleNetwork(acmeNetwork[-3], fontSize = 12)
 
 <div class="a3">
 
-a. **Root:** the first node
+**Root:** the first node
 
-b. **Leaf:** a node with no children 
+**Leaf:** a node with no children 
 
-c. **Interior Nodes:** nodes that are neither the root or a leaf 
+**Interior Nodes:** nodes that are neither the root or a leaf 
 
 </div>
 
@@ -77,12 +77,11 @@ c. **Interior Nodes:** nodes that are neither the root or a leaf
 
 ------------------------------------------------
 
-
 ## Traversals of Binary Trees
 
 ### Mechanisms
 
-<span class="sp4">a.</span> In general, there isn't an explicit order for traversing binary tree arrangements. Here are three example mechanisms:
+In general, there isn't an explicit order for traversing binary tree arrangements. Here are three example mechanisms:
 
 
 <div class="a4">
@@ -220,9 +219,9 @@ graphics::plot(root)
 
 <div class="a3">
 
-<span class="lp10">a.</span> `Levels:` The root and each interior node have two children --a right and left child; hence, there are $4$ **full** levels.
+`Levels:` The root and each interior node have two children --a right and left child; hence, there are $4$ **full** levels.
 
-<span class="lp10">b.</span> `Nodes:` The number of nodes can be calculated by $2^{n}-1$ where $n$ represents the number of full levels; hence, there are $15$ nodes.
+`Nodes:` The number of nodes can be calculated by $2^{n}-1$ where $n$ represents the number of full levels; hence, there are $15$ nodes.
 
 </div>
 
