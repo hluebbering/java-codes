@@ -22,9 +22,7 @@ knitr::opts_chunk$set(echo = FALSE, out.width = 445)
 
 ```
 
-
-The sorting algorithms we built in this lab are the **Simple Bubble Sort** and **Merge Sort**. After making the algorithms, we ran them on different **data points** of sizes (50, 100, 200, 400, 800, 1000, 2000) and collected the **number of steps** for the data points in a text file. We then used the text file to plot the graphs for both algorithms.
-
+The sorting algorithms built in this lab are the Simple Bubble Sort, Merge Sort, and Insertion Sort. After making the algorithms, we ran them on different data points of sizes (50, 100, 200, 400, 800, 1000, 2000) and collected the **number of steps** for the data points in a text file. We then used the text file to plot the graphs for both algorithms.
 
 ----------------------------
 
