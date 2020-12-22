@@ -4,7 +4,6 @@ output:
   html_document: 
     toc: yes
     toc_float: yes
-    highlight: textmate
 css: ./assets/css/styles.css
 # knit: pagedown::chrome_print
 bibliography: ./assets/citation/csc112.bib

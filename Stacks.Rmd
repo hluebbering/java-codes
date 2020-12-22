@@ -5,7 +5,6 @@ output:
     toc: yes
     toc_float: yes
     self_contained: no
-    highlight: textmate
 css: ./assets/css/styles.css
 # knit: pagedown::chrome_print
 bibliography: ./assets/citation/csc112.bib
@@ -39,7 +38,7 @@ With most data structures, adding and removing values causes the system to grow 
 Linear structures abide by a simple interface:
 
 
-```java
+```{java}
 public interface Linear<E> extends Structure<E>{
   
   // value is non-null

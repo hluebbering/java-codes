@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Roboto+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Trocchi&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&display=swap');
@@ -8,109 +9,169 @@
 
 h1 {
   font-family: 'Noto Serif TC', serif;
-  color:#0B4151;
+  color: black;
   font-size:28px;
-  text-indent:2px;
 }
 h1.title {
   font-family: 'Noto Serif TC', serif;
-  color:#0B4151;
-  font-size:28px;
-  text-indent:2px;
+  color: black;
+  font-size:22px;
+  margin: 10px;
 }
+.author{
+  font-family: 'Noto Serif TC', serif;
+  color: #f4bbff;
+  font-size:14px;
+  margin: 5px;
+  margin-left: 16px;
+  padding: 2px;
+}
+
+.date{
+  font-family: 'Noto Serif TC', serif;
+  color: #f4bbff;
+  font-size:14px;
+  margin: 5px;
+  margin-left: 16px;
+  padding: 2px;
+}
+
+.subtitle{
+  font-family: 'Noto Serif TC', serif;
+  color: #4d648d;
+  font-size:18px;
+  margin: 10px;
+}
+figure{
+  font-family: 'Vollkorn', serif;
+}
+
+.figure{
+  font-family: 'Vollkorn', serif;
+}
+
 h2 {
   font-family: 'Noto Serif TC', serif;
-  color:#00545F;
-  font-size:24px;
-  text-indent:8px;
+  color:#4d648d;
+  font-size:20px;
+  margin-left: 10px;
 }
 h3 {
-  color: #708090;
-  font-family: 'Karla', sans-serif;
+  color: #536872;
+  font-family: 'Noto Serif TC', serif;
   font-size: 16px;
-  text-indent:10px;
-  text-decoration: bold;
+  margin-left: 16px;
 }
 h4{
-  color:#9CCCB8;
+  color:#458B74;
   text-shadow: #9CCCB8;
-  font-family: 'Vollkorn', serif;
+  font-family: 'Noto Serif TC', serif;
   font-size: 14px;
-  text-indent:16px;
-  text-decoration: bold;
+  margin-left: 26px;
 }
 h5 {
-  font-family: 'Libre Baskerville', serif;
-  color:#ff91af;
-  text-decoration: bold;
-  font-size:17px;
-  padding: 1px;
-  text-indent:12px;
+  color:#8FBC8F;
+  text-shadow: #9CCCB8;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 13px;
+  margin-left: 30px;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  margin: 14px;
+  font-size: 14px;
+  
+}
+p {
+  font-size: 14px;
+  color: black;
+  margin-right: 30px;
+  margin-left: 30px;
 }
 
 li {
-  font-size: 14px;
-  padding:2px;
+  font-size: 13px;
   text-indent:0;
   margin-top: 0;
   margin-bottom: 0;
   margin-right: 35px;
   margin-left: 35px;
 }
-body {
-  font-family: 'Open Sans', sans-serif;
-  margin: 24px;
-  font-size: 14px;
-  padding: 2px;
-  
-}
-p {
-  font-size: 14px;
-  padding:2px;
-  text-indent:0;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  margin-right: 35px;
-  margin-left: 35px;
-}
-
-li {
-  font-size: 14px;
-  padding:2px;
-  text-indent:0;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-right: 35px;
-  margin-left: 35px;
-}
 
 
-.a2 {
+.a1 {
   color: black;
+  font-family: 'Vollkorn', serif;
+  font-size: 14px;
   border-radius: 25px;
-  width: 85%;
-  padding: 4px;
-  white-space:normal;
+  width: 80%;
   background: #88d8c0;
-  font-size: 13px;
   margin: auto;
   box-shadow: 4px 4px 4px #aaa;
+  padding: 8px;
 }
 a {
   color: #f88379;
 }
 
-.a3 {
-  color: white;
+.a2 {
+  color: black;
+  font-family: 'Vollkorn', serif;
+  font-size: 14px;
   border-radius: 25px;
-  width: 85%;
-  padding: 4px;
-  white-space:normal;
-  background: #008080;
-  font-size: 13px;
+  width: 80%;
+  background: #C1CDC1;
   margin: auto;
   box-shadow: 4px 4px 4px #aaa;
+  padding: 8px;
 }
+
+.a3 {
+  color: black;
+  font-family: 'Vollkorn', serif;
+  font-size: 14px;
+  border-radius: 25px;
+  width: 80%;
+  background: #8FBC8F;
+  margin: auto;
+  box-shadow: 4px 4px 4px #aaa;
+  padding: 8px;
+}
+.a4 {
+  color: black;
+  font-family: 'Vollkorn', serif;
+  font-size: 14px;
+  border-radius: 25px;
+  width: 80%;
+  background: #6FB099;
+  margin: auto;
+  box-shadow: 4px 4px 4px #aaa;
+  padding: 8px;
+}
+.a5 {
+  color: black;
+  font-family: 'Vollkorn', serif;
+  font-size: 14px;
+  border-radius: 25px;
+  width: 80%;
+  background: #EAF8EA;
+  margin: auto;
+  box-shadow: 4px 4px 4px #aaa;
+  padding: 8px;
+}
+.a6 {
+  color: black;
+  font-family: 'Vollkorn', serif;
+  font-size: 14px;
+  border-radius: 25px;
+  width: 80%;
+  background: #838B83;
+  margin: auto;
+  box-shadow: 4px 4px 4px #aaa;
+  padding: 8px;
+}
+
 
 .b1 {
   color: black;
@@ -124,15 +185,70 @@ a {
   padding: 8px;
 }
 
+pre {
+  background: linear-gradient(120deg, #FAFAFE,#FCFCFC, #FFFFFF);
+  border: 0;
+}
+  
 
-pre.sourceCode.java{
+div.sourceCode {
+  font-family: 'Source Code Pro', monospace;
+  margin: auto;
+  font-size: 12px;
+  /*border: 1px solid #6C7B8B;*/
+  box-shadow: 1px 1px 3px 2px #aaa; 
+  margin: auto;
+  padding: 10px;
+  border-radius: 5px;
   width: 85%;
-  background: #F2F2F2;
-  margin:auto;
-  color: black;
-  max-height: 400px;
+  background: linear-gradient(120deg, #FAFAFE,#FCFCFC, #FFFFFF);
+}
+
+pre.sourceCode span.kw {
+  color: #009B7D;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+pre.sourceCode span.co {
+  color: #708090;
+}
+
+/* CODE BLOCK */
+
+
+code span.co {
+  color: #708090;
+}
+code span.kw {
+  color: #009B7D;
+  font-size: 12px;
+}
+
+code span.dt {
+  color: #a0d6b4;
+  font-family: 'Fira Code', monospace;
+}
+code span.fu {
+  color: #cf6ba9;
+  font-weight: bold;
+}
+code span.bu {
+  color: #f1a7fe;
+  font-family: 'Roboto Mono', monospace;
   
 }
+code span.dv {
+  color: #7FA789;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+  font-weight: bold;
+  outline-color: black;
+  text-shadow: 0.25px 0.25px 0.25px white;
+  
+}
+
+
 
 .sp1 {
   font-family: 'Trocchi', sans-serif;
@@ -140,23 +256,23 @@ pre.sourceCode.java{
   text-decoration: bold;
   font-size:19px;
   padding: 1px;
-  text-indent:14px;
+  margin-left:-6px;
 }
 .sp2 {
   font-family: 'Trocchi', sans-serif;
-  color:#6CB4D9;
+  color:#abcdef;
   text-decoration: bold;
   font-size:19px;
   padding: 1px;
-  text-indent:14px;
+  margin-left:-6px;
 }
 .sp3 {
   font-family: 'Trocchi', sans-serif;
-  color:#fe4164;
+  color:#e7accf;
   text-decoration: bold;
   font-size:19px;
   padding: 1px;
-  text-indent:14px;
+  margin-left:-6px;
 }
 .sp4 {
   font-family: 'Trocchi', sans-serif;
@@ -164,182 +280,200 @@ pre.sourceCode.java{
   text-decoration: bold;
   font-size:19px;
   padding: 1px;
-  text-indent:14px;
+  margin-left:-6px;
 }
 .sp5 {
   font-family: 'Trocchi', sans-serif;
-  color:#80d4ff;
+  color:#f1a7fe;
   text-decoration: bold;
   font-size:19px;
   padding: 1px;
-  text-indent:14px;
+  margin-left:-6px;
 }
 .sp6 {
   font-family: 'Trocchi', sans-serif;
-  color:#ff7f50;
+  color:#ffcba4;
   text-decoration: bold;
   font-size:19px;
   padding: 1px;
-  text-indent:14px;
+  margin-left:-6px;
 }
 .sp7 {
   font-family: 'Trocchi', sans-serif;
   color:#fba0e3;
   text-decoration: bold;
   font-size:19px;
-  padding: 1px;
-  text-indent:14px;
+  padding:0;
+  margin-left:-6px;
 }
 .sp8 {
   font-family: 'Trocchi', sans-serif;
   color:#38BDBB;
   text-decoration: bold;
   font-size:19px;
-  padding: 1px;
-  text-indent:14px;
+  padding:0;
+  margin-left:-6px;
 }
 .sp9 {
   font-family: 'Trocchi', sans-serif;
   color:#5CBD92;
   text-decoration: bold;
   font-size:19px;
-  padding: 1px;
-  text-indent:14px;
+  padding:0;
+  margin-left:-6px;
 }
 .sp10 {
   font-family: 'Trocchi', sans-serif;
-  color:#EF4868;
+  color:#efbbcc;
   text-decoration: bold;
   font-size:19px;
-  padding: 1px;
-  text-indent:14px;
+  padding:0;
+  margin-left:-6px;
 }
 .sp11 {
   font-family: 'Trocchi', sans-serif;
-  color:#F58249;
+  color:#967bb6;
   text-decoration: bold;
   font-size:19px;
-  padding: 1px;
-  text-indent:14px;
+  padding:0;
+  margin-left:-6px;
 }
 .sp12 {
   font-family: 'Trocchi', sans-serif;
-  color:#F0B15E;
+  color:#B4EEB4;
   text-decoration: bold;
   font-size:19px;
-  padding: 1px;
-  text-indent:14px;
+  padding:0;
+  margin-left:-6px;
 }
 .sp13 {
   font-family: 'Trocchi', sans-serif;
   color:#ECD999;
   text-decoration: bold;
   font-size:19px;
-  padding: 1px;
-  text-indent:14px;
+  padding:0;
+  margin-left:-6px;
+}
+
+.sp14 {
+  font-family: 'Trocchi', sans-serif;
+  color:#F2F2F2;
+  text-decoration: bold;
+  font-size:19px;
+  padding:0;
+  margin-left:-6px;
 }
 
 .lp1 {
   font-family: 'Trocchi', sans-serif;
   color:#ACA4E2;
   text-decoration: bold;
-  font-size:13px;
-  padding: 1px;
-  text-indent:20px;
+  font-size:17px;
+  padding:1px;
+  margin-left: 12px;
 }
 .lp2 {
   font-family: 'Trocchi', sans-serif;
-  color:#6CB4D9;
+  color:#abcdef;
   text-decoration: bold;
-  font-size:13px;
+  font-size:17px;
   padding: 1px;
-  text-indent:20px;
+  margin-left: 12px;
 }
 .lp3 {
   font-family: 'Trocchi', sans-serif;
-  color:#fe4164;
+  color:#e7accf;
   text-decoration: bold;
-  font-size:13px;
+  font-size:17px;
   padding: 1px;
-  text-indent:20px;
+  margin-left: 12px;
 }
 .lp4 {
   font-family: 'Trocchi', sans-serif;
   color:#008080;
   text-decoration: bold;
-  font-size:13px;
+  font-size:17px;
   padding: 1px;
-  text-indent:20px;
+  margin-left: 12px;
 }
 .lp5 {
   font-family: 'Trocchi', sans-serif;
-  color:#80d4ff;
+  color:#f1a7fe;
   text-decoration: bold;
-  font-size:13px;
+  font-size:17px;
   padding: 1px;
-  text-indent:20px;
+  margin-left: 12px;
 }
 .lp6 {
   font-family: 'Trocchi', sans-serif;
-  color:#ff7f50;
+  color:#ffcba4;
   text-decoration: bold;
-  font-size:13px;
+  font-size:17px;
   padding: 1px;
-  text-indent:20px;
+  margin-left: 12px;
 }
 .lp7 {
   font-family: 'Trocchi', sans-serif;
   color:#fba0e3;
   text-decoration: bold;
-  font-size:13px;
+  font-size:17px;
   padding: 1px;
-  text-indent:20px;
+  margin-left: 12px;
 }
 .lp8 {
   font-family: 'Trocchi', sans-serif;
   color:#38BDBB;
   text-decoration: bold;
-  font-size:13px;
+  font-size:17px;
   padding: 1px;
-  text-indent:20px;
+  margin-left: 12px;
 }
 .lp9 {
   font-family: 'Trocchi', sans-serif;
   color:#5CBD92;
   text-decoration: bold;
-  font-size:13px;
+  font-size:17px;
   padding: 1px;
-  text-indent:20px;
+  margin-left: 12px;
 }
 .lp10 {
   font-family: 'Trocchi', sans-serif;
-  color:#EF4868;
+  color:#efbbcc;
   text-decoration: bold;
-  font-size:13px;
+  font-size:17px;
   padding: 1px;
-  text-indent:20px;
+  margin-left: 12px;
 }
 .lp11 {
   font-family: 'Trocchi', sans-serif;
-  color:#F58249;
+  color:#967bb6;
   text-decoration: bold;
-  font-size:13px;
+  font-size:17px;
   padding: 1px;
-  text-indent:20px;
+  margin-left: 12px;
 }
 .lp12 {
   font-family: 'Trocchi', sans-serif;
-  color:#F0B15E;
+  color:#B4EEB4;
   text-decoration: bold;
-  font-size:13px;
+  font-size:17px;
   padding: 1px;
-  text-indent:20px;
+  margin-left: 12px;
 }
 .lp13 {
   font-family: 'Trocchi', sans-serif;
   color:#ECD999;
   text-decoration: bold;
-  font-size:13px;
+  font-size:17px;
   padding: 1px;
-  text-indent:20px;
+  margin-left: 12px;
+}
+
+.lp14 {
+  font-family: 'Trocchi', sans-serif;
+  color:#F2F2F2;
+  text-decoration: bold;
+  font-size:17px;
+  padding: 1px;
+  margin-left: 12px;
 }
