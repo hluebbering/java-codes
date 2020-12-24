@@ -105,6 +105,66 @@ In this traversal method, the program first traverses the left subtree, then the
 
 \ 
 
+### Traversal Example
+
+An InOrder traversal visits the nodes in the following order:
+
+
+```{r, include=FALSE}
+root <- Node$new("25")
+child <- Node$new("15")
+sibling <- Node$new("50")
+root$AddChildNode(child)$AddSiblingNode(sibling)
+
+child2 <- Node$new("10")
+sibling2 <- Node$new("22")
+child$AddChildNode(child2)$AddSiblingNode(sibling2)
+
+child3 <- Node$new("35")
+sibling3 <- Node$new("70")
+sibling$AddChildNode(child3)$AddSiblingNode(sibling3)
+
+child4 <- Node$new("4")
+sibling4 <- Node$new("12")
+child2$AddChildNode(child4)$AddSiblingNode(sibling4)
+
+child5 <- Node$new("18")
+sibling5 <- Node$new("24")
+sibling2$AddChildNode(child5)$AddSiblingNode(sibling5)
+
+child6 <- Node$new("31")
+sibling6 <- Node$new("44")
+child3$AddChildNode(child6)$AddSiblingNode(sibling6)
+
+child7 <- Node$new("66")
+sibling7 <- Node$new("90")
+sibling3$AddChildNode(child7)$AddSiblingNode(sibling7)
+```
+
+
+
+```{r, include=FALSE}
+SetEdgeStyle(root, arrowhead = "vee", color = "#708090", position = "center")
+SetNodeStyle(root, style = "filled", shape = "circle", fillcolor = "#9bddff",fontcolor = "black", fontsize=12,
+            fontname = "helvetica", tooltip = GetDefaultTooltip, position = "center", width=0.6)
+```
+
+
+```{r, out.height=210, fig.align="center", fig.show='hold'}
+graphics::plot(root)
+```
+
+
+
+
+$$\begin{matrix}4 & \mathbf{10} & 12 & \mathbf{15} & 18 & \mathbf{22} & 24 & \Large\mathbf{25} & 31 & \mathbf{35} & 44 & \mathbf{50} & 66 & \mathbf{70} & 90\end{matrix}$$
+
+
+\ 
+
+
+
+
 #### Summary:
 
 Traversing a binary tree requires creating an iterator that traverses all subtrees. 
@@ -582,64 +642,6 @@ The program performs better if we shuffle the values beforehand:
 </div>
 
 \ 
-
-## Traversal Example
-
-An InOrder traversal visits the nodes in the following order:
-
-
-```{r, include=FALSE}
-root <- Node$new("25")
-child <- Node$new("15")
-sibling <- Node$new("50")
-root$AddChildNode(child)$AddSiblingNode(sibling)
-
-child2 <- Node$new("10")
-sibling2 <- Node$new("22")
-child$AddChildNode(child2)$AddSiblingNode(sibling2)
-
-child3 <- Node$new("35")
-sibling3 <- Node$new("70")
-sibling$AddChildNode(child3)$AddSiblingNode(sibling3)
-
-child4 <- Node$new("4")
-sibling4 <- Node$new("12")
-child2$AddChildNode(child4)$AddSiblingNode(sibling4)
-
-child5 <- Node$new("18")
-sibling5 <- Node$new("24")
-sibling2$AddChildNode(child5)$AddSiblingNode(sibling5)
-
-child6 <- Node$new("31")
-sibling6 <- Node$new("44")
-child3$AddChildNode(child6)$AddSiblingNode(sibling6)
-
-child7 <- Node$new("66")
-sibling7 <- Node$new("90")
-sibling3$AddChildNode(child7)$AddSiblingNode(sibling7)
-```
-
-
-
-```{r, include=FALSE}
-SetEdgeStyle(root, arrowhead = "vee", color = "#708090", position = "center")
-SetNodeStyle(root, style = "filled", shape = "circle", fillcolor = "#9bddff",fontcolor = "black", fontsize=12,
-            fontname = "helvetica", tooltip = GetDefaultTooltip, position = "center", width=0.6)
-```
-
-
-```{r, out.height=210, fig.align="center", fig.show='hold'}
-graphics::plot(root)
-```
-
-
-
-
-$$\begin{matrix}4 & \mathbf{10} & 12 & \mathbf{15} & 18 & \mathbf{22} & 24 & \Large\mathbf{25} & 31 & \mathbf{35} & 44 & \mathbf{50} & 66 & \mathbf{70} & 90\end{matrix}$$
-
-
-\ 
-
 
 
 

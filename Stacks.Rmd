@@ -66,6 +66,8 @@ public interface Linear<E> extends Structure<E>{
 ```
 
 
+\ 
+
 The add and remove methods are used to: 
 
 <span class="lp8">i.</span> insert new values into the linear structure
@@ -106,6 +108,10 @@ A stack is a collection of items following the behavior that the newest inputted
 
 <span class="lp9">ii.</span> methods *push* and *pop* are alternatives for add and remove, respectively 
 
+</div>
+
+\ 
+
 
 ```{r, out.width=300, echo=FALSE, eval=TRUE}
 knitr::include_graphics("assets/css/stack.png")
@@ -113,7 +119,7 @@ knitr::include_graphics("assets/css/stack.png")
 
 
 
-</div>
+
 
 \ 
 
@@ -190,14 +196,15 @@ The primary operations of queues are to enqueue and dequeue elements.
 <span class="lp9">ii.</span> To support the linear interface, we supply the alternatives methods: add and remove
 
 
+</div> 
+
+\ 
 
 ```{r, out.width=300, echo=FALSE, fig.cap="As elements are added (enqueued), the Queue expands the Vector; as elements are removed, the leftmost element is removed, shrinking the Vector.", eval=TRUE}
 knitr::include_graphics("assets/css/queue.png")
 ```
 
 
-
-</div>
 
 \ 
 
@@ -244,7 +251,7 @@ public interface Queue<E> extends Linear<E>{
 ```
 
 
-
+\ 
 
 -----------------------
 

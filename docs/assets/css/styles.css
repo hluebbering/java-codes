@@ -14,7 +14,7 @@ h1 {
 h1.title {
   font-family: 'Noto Serif TC', serif;
   color: black;
-  font-size:22px;
+  font-size:28px;
 }
 .author{
   font-family: 'Noto Serif TC', serif;
@@ -46,7 +46,7 @@ figure{
 h2 {
   font-family: 'Noto Serif TC', serif;
   color:#4d648d;
-  font-size:20px;
+  font-size:24px;
 }
 h3 {
   color: #536872;
@@ -75,8 +75,8 @@ body {
 p {
   font-size: 14px;
   color: black;
-  margin-right: 10px;
-  margin-left: 10px;
+  margin-right: 8px;
+  margin-left: 8px;
 }
 
 li {
@@ -187,9 +187,9 @@ div.sourceCode {
   /*border: 1px solid #6C7B8B;*/
   box-shadow: 1px 1px 3px 2px #aaa; 
   margin: auto;
-  padding: 10px;
+  padding: 4px;
   border-radius: 5px;
-  width: 85%;
+  width: 86%;
   background: linear-gradient(120deg, #FAFAFE,#FCFCFC, #FFFFFF);
 }
 

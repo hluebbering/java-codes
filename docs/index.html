@@ -673,9 +673,9 @@ Steps
 </div>
 <div id="time-complexity-1" class="section level3">
 <h3>Time Complexity:</h3>
-<p><span class="sp6">a.</span> Merge Sort is a recursive algorithm and time complexity can be expressed as following recurrence relation: <span class="math inline">\(T(n) = 2T(n/2) + \theta(n)\)</span></p>
-<p><span class="sp6">b.</span> The above recurrence can be solved either using the Recurrence Tree method or the Master method. The solution of the recurrence is <span class="math inline">\(\theta(n\log n)\)</span>.</p>
-<p><span class="sp6">c. <span class="math inline">\(\bigstar\)</span></span> Time complexity of Merge Sort is <span class="math inline">\(\theta(n\log n)\)</span> in all 3 cases (worst, average and best) as merge sort always divides the array into two halves and takes linear time to merge two halves.</p>
+<p><span class="lp6">a.</span> Merge Sort is a recursive algorithm and time complexity can be expressed as following recurrence relation: <span class="math inline">\(T(n) = 2T(n/2) + \theta(n)\)</span></p>
+<p><span class="lp6">b.</span> The above recurrence can be solved either using the Recurrence Tree method or the Master method. The solution of the recurrence is <span class="math inline">\(\theta(n\log n)\)</span>.</p>
+<p><span class="lp6">c. <span class="math inline">\(\bigstar\)</span></span> Time complexity of Merge Sort is <span class="math inline">\(\theta(n\log n)\)</span> in all 3 cases (worst, average and best) as merge sort always divides the array into two halves and takes linear time to merge two halves.</p>
 <hr />
 </div>
 <div id="java-code." class="section level3">
@@ -889,10 +889,10 @@ Steps
 <div id="definition-2" class="section level3">
 <h3>Definition</h3>
 <p><strong>Definition.</strong> a Java sorting method where the sorted values locate to the low end of the array, and the unsorted values locate to the high end.</p>
-<p><span class="sp8">a.</span> Insertion sort takes linear time when input array is sorted or almost sorted (maximum 1 or 2 elements are misplaced). All other sorting algorithms mentioned above will take more than linear time in their typical implementation.</p>
-<p><span class="sp8">b.</span> total of <span class="math inline">\(n-1\)</span> passes over the array, with a new unsorted value inserted each time</p>
-<p><span class="sp8">c.</span> expected running time is <span class="math inline">\(\mathbb{O}\left(n^2\right)\)</span> compares and data movements –most compares will lead to movement of a data value</p>
-<p><span class="sp8">d.</span> best case running time performance is <span class="math inline">\(\mathbb{O}\left(n\right)\)</span> comparisons –occurs for no movements of data within the array; therefore, it’s best to implement insertion sort on data that is nearly ordered</p>
+<p><span class="lp8">a.</span> Insertion sort takes linear time when input array is sorted or almost sorted (maximum 1 or 2 elements are misplaced). All other sorting algorithms mentioned above will take more than linear time in their typical implementation.</p>
+<p><span class="lp8">b.</span> total of <span class="math inline">\(n-1\)</span> passes over the array, with a new unsorted value inserted each time</p>
+<p><span class="lp8">c.</span> expected running time is <span class="math inline">\(\mathbb{O}\left(n^2\right)\)</span> compares and data movements –most compares will lead to movement of a data value</p>
+<p><span class="lp8">d.</span> best case running time performance is <span class="math inline">\(\mathbb{O}\left(n\right)\)</span> comparisons –occurs for no movements of data within the array; therefore, it’s best to implement insertion sort on data that is nearly ordered</p>
 <hr />
 </div>
 <div id="time-complexity-2" class="section level3">
@@ -1079,6 +1079,7 @@ Steps
 <span id="cb6-65"><a href="#cb6-65" aria-hidden="true"></a>      <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>((T)(current.<span class="fu">next</span>()).<span class="fu">toString</span>()); }}</span>
 <span id="cb6-66"><a href="#cb6-66" aria-hidden="true"></a>  </span>
 <span id="cb6-67"><a href="#cb6-67" aria-hidden="true"></a>  }</span></code></pre></div>
+<p> </p>
 </div>
 </div>
 <div id="code-output-2" class="section level3">
@@ -1170,7 +1171,7 @@ Steps
 </tr>
 </tbody>
 </table>
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" width="450" /></p>
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" width="450" style="display: block; margin: auto;" /></p>
 <p> </p>
 <hr />
 </div>
@@ -1180,18 +1181,8 @@ Steps
 <h2>Conclusion</h2>
 <div id="sorting-techniques" class="section level3">
 <h3>Sorting Techniques:</h3>
-<p><span class="math display">\[
-\begin{align}
-&amp;\text{How large of an array do you want } \mathcal{sorted} \text{ ? } \mathbf{20} \\
-&amp;\mathrm{Fisher} \text{ data file loaded }\dots \text{test file of size } \mathrm{20} \text{ created.} \\
-&amp;\text{For list size of } 20 \dots \\
-&amp;\qquad \Rightarrow \quad \text{Bubble sort number of steps: } 190 \\
-&amp;\qquad \Rightarrow \quad \text{Merge sort number  of steps: } 39 \\
-&amp;\qquad \Rightarrow \quad \text{Insertion sort number of steps: } 20
-\end{align}
-\]</span></p>
 <p>From the graph below, we can see that the number of steps to execute the Merge Sort method is significantly lower than the number of steps to execute the Bubble Sort method; hence, the Merge Sort is faster and more efficient than the Bubble Sort.</p>
-<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" width="445" /></p>
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" width="445" style="display: block; margin: auto;" /></p>
 <hr />
 </div>
 </div>

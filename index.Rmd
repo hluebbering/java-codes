@@ -18,7 +18,7 @@ nocite: '@*'
 library(knitr)
 library(graphics)
 library(drc)
-knitr::opts_chunk$set(echo = FALSE, out.width = 445)
+knitr::opts_chunk$set(echo = FALSE, out.width = 445, fig.align = "center")
 
 ```
 
@@ -221,11 +221,11 @@ MergeSort is a recursive sorting technique that recursively splits, sorts, and r
 
 ### Time Complexity: 
 
-<span class="sp6">a.</span> Merge Sort is a recursive algorithm and time complexity can be expressed as following recurrence relation: $T(n) = 2T(n/2) + \theta(n)$
+<span class="lp6">a.</span> Merge Sort is a recursive algorithm and time complexity can be expressed as following recurrence relation: $T(n) = 2T(n/2) + \theta(n)$
 
-<span class="sp6">b.</span> The above recurrence can be solved either using the Recurrence Tree method or the Master method. The solution of the recurrence is $\theta(n\log n)$.
+<span class="lp6">b.</span> The above recurrence can be solved either using the Recurrence Tree method or the Master method. The solution of the recurrence is $\theta(n\log n)$.
 
-<span class="sp6">c. $\bigstar$</span> Time complexity of Merge Sort is  $\theta(n\log n)$ in all 3 cases (worst, average and best) as merge sort always divides the array into two halves and takes linear time to merge two halves.
+<span class="lp6">c. $\bigstar$</span> Time complexity of Merge Sort is  $\theta(n\log n)$ in all 3 cases (worst, average and best) as merge sort always divides the array into two halves and takes linear time to merge two halves.
 
 
 ------------------------------------------
@@ -449,14 +449,14 @@ MergeSort is a recursive sorting technique that recursively splits, sorts, and r
 
 **Definition.** a Java sorting method where the sorted values locate to the low end of the array, and the unsorted values locate to the high end. 
 
-<span class="sp8">a.</span> Insertion sort takes linear time when input array is sorted or almost sorted (maximum 1 or 2 elements are misplaced). All other sorting algorithms mentioned above will take more than linear time in their typical implementation.
+<span class="lp8">a.</span> Insertion sort takes linear time when input array is sorted or almost sorted (maximum 1 or 2 elements are misplaced). All other sorting algorithms mentioned above will take more than linear time in their typical implementation.
 
  
-<span class="sp8">b.</span> total of $n-1$ passes over the array, with a new unsorted value inserted each time
+<span class="lp8">b.</span> total of $n-1$ passes over the array, with a new unsorted value inserted each time
 
-<span class="sp8">c.</span> expected running time is $\mathbb{O}\left(n^2\right)$ compares and data movements --most compares will lead to movement of a data value
+<span class="lp8">c.</span> expected running time is $\mathbb{O}\left(n^2\right)$ compares and data movements --most compares will lead to movement of a data value
 
-<span class="sp8">d.</span> best case running time performance is $\mathbb{O}\left(n\right)$ comparisons --occurs for no movements of data within the array; therefore, it's best to implement insertion sort on data that is nearly ordered
+<span class="lp8">d.</span> best case running time performance is $\mathbb{O}\left(n\right)$ comparisons --occurs for no movements of data within the array; therefore, it's best to implement insertion sort on data that is nearly ordered
 
 -------------
 
@@ -646,6 +646,7 @@ public class InsertionSort {
   }
 ```
 
+\ 
 
 
 
@@ -716,18 +717,6 @@ legend(x=0,y=900000,legend=c(expression(
 ## Conclusion 
 
 ### Sorting Techniques: 
-
-$$
-\begin{align}
-&\text{How large of an array do you want } \mathcal{sorted} \text{ ? } \mathbf{20} \\
-&\mathrm{Fisher} \text{ data file loaded }\dots \text{test file of size } \mathrm{20} \text{ created.} \\
-&\text{For list size of } 20 \dots \\
-&\qquad \Rightarrow \quad \text{Bubble sort number of steps: } 190 \\
-&\qquad \Rightarrow \quad \text{Merge sort number  of steps: } 39 \\
-&\qquad \Rightarrow \quad \text{Insertion sort number of steps: } 20
-\end{align}
-$$
-
 
 
 From the graph below, we can see that the number of steps to execute the Merge Sort method is significantly lower than the number of steps to execute the Bubble Sort method; hence, the Merge Sort is faster and more efficient than the Bubble Sort. 
