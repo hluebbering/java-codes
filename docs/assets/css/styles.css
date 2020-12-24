@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Roboto+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Trocchi&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&display=swap');
@@ -16,14 +15,11 @@ h1.title {
   font-family: 'Noto Serif TC', serif;
   color: black;
   font-size:22px;
-  margin: 10px;
 }
 .author{
   font-family: 'Noto Serif TC', serif;
   color: #f4bbff;
   font-size:14px;
-  margin: 5px;
-  margin-left: 16px;
   padding: 2px;
 }
 
@@ -31,8 +27,6 @@ h1.title {
   font-family: 'Noto Serif TC', serif;
   color: #f4bbff;
   font-size:14px;
-  margin: 5px;
-  margin-left: 16px;
   padding: 2px;
 }
 
@@ -40,7 +34,6 @@ h1.title {
   font-family: 'Noto Serif TC', serif;
   color: #4d648d;
   font-size:18px;
-  margin: 10px;
 }
 figure{
   font-family: 'Vollkorn', serif;
@@ -54,40 +47,36 @@ h2 {
   font-family: 'Noto Serif TC', serif;
   color:#4d648d;
   font-size:20px;
-  margin-left: 10px;
 }
 h3 {
   color: #536872;
   font-family: 'Noto Serif TC', serif;
   font-size: 16px;
-  margin-left: 16px;
 }
 h4{
   color:#458B74;
   text-shadow: #9CCCB8;
   font-family: 'Noto Serif TC', serif;
   font-size: 14px;
-  margin-left: 26px;
 }
 h5 {
   color:#8FBC8F;
   text-shadow: #9CCCB8;
   font-family: 'Noto Serif TC', serif;
   font-size: 13px;
-  margin-left: 30px;
 }
 
 body {
   font-family: "Times New Roman", Times, serif;
-  margin: 14px;
+  margin: 8px;
   font-size: 14px;
   
 }
 p {
   font-size: 14px;
   color: black;
-  margin-right: 30px;
-  margin-left: 30px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 li {
@@ -95,8 +84,8 @@ li {
   text-indent:0;
   margin-top: 0;
   margin-bottom: 0;
-  margin-right: 35px;
-  margin-left: 35px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 
@@ -105,7 +94,7 @@ li {
   font-family: 'Vollkorn', serif;
   font-size: 14px;
   border-radius: 25px;
-  width: 80%;
+  width: 88%;
   background: #88d8c0;
   margin: auto;
   box-shadow: 4px 4px 4px #aaa;
@@ -120,7 +109,7 @@ a {
   font-family: 'Vollkorn', serif;
   font-size: 14px;
   border-radius: 25px;
-  width: 80%;
+  width: 88%;
   background: #C1CDC1;
   margin: auto;
   box-shadow: 4px 4px 4px #aaa;
@@ -132,7 +121,7 @@ a {
   font-family: 'Vollkorn', serif;
   font-size: 14px;
   border-radius: 25px;
-  width: 80%;
+  width: 88%;
   background: #8FBC8F;
   margin: auto;
   box-shadow: 4px 4px 4px #aaa;
@@ -143,7 +132,7 @@ a {
   font-family: 'Vollkorn', serif;
   font-size: 14px;
   border-radius: 25px;
-  width: 80%;
+  width: 88%;
   background: #6FB099;
   margin: auto;
   box-shadow: 4px 4px 4px #aaa;
@@ -154,7 +143,7 @@ a {
   font-family: 'Vollkorn', serif;
   font-size: 14px;
   border-radius: 25px;
-  width: 80%;
+  width: 88%;
   background: #EAF8EA;
   margin: auto;
   box-shadow: 4px 4px 4px #aaa;
@@ -165,7 +154,7 @@ a {
   font-family: 'Vollkorn', serif;
   font-size: 14px;
   border-radius: 25px;
-  width: 80%;
+  width: 88%;
   background: #838B83;
   margin: auto;
   box-shadow: 4px 4px 4px #aaa;
@@ -178,7 +167,7 @@ a {
   font-family: 'Vollkorn', serif;
   font-size: 14px;
   border-radius: 25px;
-  width: 80%;
+  width: 88%;
   background: #f9fafb;
   margin: auto;
   box-shadow: 4px 4px 4px #aaa;

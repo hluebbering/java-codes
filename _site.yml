@@ -1,4 +1,5 @@
 name: "Java Data Structures"
+output_dir: "docs"
 navbar:
   title: "Java Data Structures"
   left:
