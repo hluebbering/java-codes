@@ -28,27 +28,17 @@ The sorting algorithms built in this lab are the Simple Bubble Sort, Merge Sort,
 
 ## Bubble Sort 
 
-### Definition 
-
-Bubble sort checks and rechecks the relation between each component of the list. The method sorts the $\mathrm{n}$ elements by linearly moving through the list where each pass completes $\mathrm{n-1}$ comparisons and $\mathrm{n-1}$ exchanges. After one pass, the largest integer-value should "bubble" up to the ArrayList's high-indexed side --the operation repeats. After $\mathrm{n-1}$ passes, the bubble sorting terminates. 
-
-------------------
-
-### Time Complexity
-
-#### Worst Case Time Complexity: 
-
-The worst case has time complexity $O(n^2)$; this occurs when the array is reverse sorted.
-
-#### Best Case Time Complexity: 
-
-The best case has time complexity $O(n)$. Bubble sort takes minimum time (Order of n) when elements are already sorted.
+**Definition.** Bubble sort checks and rechecks the relation between each component of the list. The method sorts the $\mathrm{n}$ elements by linearly moving through the list where each pass completes $\mathrm{n-1}$ comparisons and $\mathrm{n-1}$ exchanges. After one pass, the largest integer-value should "bubble" up to the ArrayList's high-indexed side --the operation repeats. After $\mathrm{n-1}$ passes, the bubble sorting terminates. 
 
 
+<span class="lp2">a.</span> The worst case has time complexity $O(n^2)$; this occurs when the array is reverse sorted.
 
----------------------------------------
+<span class="lp2">b.</span> The best case has time complexity $O(n)$. Bubble sort takes minimum time (Order of n) when elements are already sorted.
 
-### How does Bubble Sort act on the following list
+
+\ 
+
+**How does Bubble Sort act on the following list:**
 
 ```java
 list XXX: 5 1 4 2 8
@@ -84,13 +74,11 @@ $$
 
 
 
----------------------------------------
+\ 
 
 
 
 ### Java Code
-
-#### Steps
 
 <span class="lp9">i. </span> Method sorts the elements by linearly moving through the list
 
@@ -98,6 +86,7 @@ $$
 
 <span class="lp9">iii. </span> Bubble sorting repeats for (n-1) passes
 
+\ 
 
 ```java
 // Bubble Sort Class
@@ -154,8 +143,6 @@ public class BubbleSort {
 \ 
 
 
-### Code Output
-
 #### Execution Times
 
 
@@ -196,10 +183,6 @@ lines(BubbleSort$DataPoints,quadratic, col="black")
 
 \ 
 
-------------------------------------------
-
-
-### Summary
 
 From the above execution times and graph, we can see that as the number of data points $\mathrm{n}$ increases, the number of steps it takes to complete the bubble sort increases **exponentially**. In **big-O notation**, the Simple Bubble Sort Method for sorting $\mathrm{n}$ elements of an array is $O\mathbf{(n^2)}$; hence, the algorithm has a run time that grows quadratically as the input (data points) size grows.
 
@@ -212,23 +195,15 @@ From the above execution times and graph, we can see that as the number of data 
 
 ## Merge Sort
 
-### Definition 
-
-MergeSort is a recursive sorting technique that recursively splits, sorts, and reconstructs the data. This method recursively divides the data into two unsorted lists, sorts the two lists, and then merges the two sorted lists.
+**Definition.** MergeSort is a recursive sorting technique that recursively splits, sorts, and reconstructs the data. This method recursively divides the data into two unsorted lists, sorts the two lists, and then merges the two sorted lists. In big-O notation, we have a time execution of $O(\mathrm{n \log{n}})$; hence, the search algorithm has a run time that grows logarithmically as the input size grows. Similar to MergeSort, **binary search trees** are nonlinear structures that execute in logarithmic time.
 
 
-------------------------
+<span class="lp6">a.</span> Merge Sort is a recursive algorithm and time complexity can be expressed by $\theta(n\log n)$.
 
-### Time Complexity: 
-
-<span class="lp6">a.</span> Merge Sort is a recursive algorithm and time complexity can be expressed as following recurrence relation: $T(n) = 2T(n/2) + \theta(n)$
-
-<span class="lp6">b.</span> The above recurrence can be solved either using the Recurrence Tree method or the Master method. The solution of the recurrence is $\theta(n\log n)$.
-
-<span class="lp6">c. $\bigstar$</span> Time complexity of Merge Sort is  $\theta(n\log n)$ in all 3 cases (worst, average and best) as merge sort always divides the array into two halves and takes linear time to merge two halves.
+<span class="lp6">b. $\bigstar$</span> Time complexity of Merge Sort is  $\theta(n\log n)$ in all 3 cases (worst, average and best) as merge sort always divides the array into two halves and takes linear time to merge two halves.
 
 
-------------------------------------------
+\ 
 
 ### Java Code.
 
@@ -239,6 +214,7 @@ MergeSort is a recursive sorting technique that recursively splits, sorts, and r
 <span class="lp9">iii.</span> Sort the right half of the array (recursively)
 Merge the solutions
 
+\ 
 
 ```java
 // Merge Sort Class
@@ -334,8 +310,6 @@ public class MergeSort {
 \ 
 
 
-### Code Output
-
 #### Execution Times
 
 
@@ -368,24 +342,19 @@ abline(lm(MergeSort$Steps ~ MergeSort$DataPoints), col="black")
 
 \ 
 
-------------------------------------------
 
-
-### Summary
 
 
 Each value $\mathrm{n}$ in the data set must be sorted into a temporary array, allotted once before every single merge; therefore, we have $O(\mathrm{n})$ compares over all the merges. From the above execution times and graph, we can see that as the number of data points  $\mathrm{n}$ increases, the number of steps it takes to complete the bubble sort increases **logarithmically**. In **big-O notation**, since there are $\mathrm{\log{2}n}$  split levels, we have a time execution of $O(\mathrm{n \log{n}})$; hence, the search algorithm has a run time that grows logarithmically as the input size grows.
 
 
+\ 
 
-#### Comparing Sort Algorithms 
-
-
-From the graph below, we can see that the number of steps to execute the Merge Sort method is significantly lower than the number of steps to execute the Bubble Sort method; hence, the Merge Sort is faster and more efficient than the Bubble Sort. 
+**Comparing Sort Algorithms.** From the graph below, we can see that the number of steps to execute the Merge Sort method is significantly lower than the number of steps to execute the Bubble Sort method; hence, the Merge Sort is faster and more efficient than the Bubble Sort. 
 
 
 
-```{r fig.align='center', out.width=800}
+```{r fig.align='center', out.width=400}
 require(datasets)
 require(grDevices); 
 require(graphics)
@@ -429,13 +398,8 @@ legend(x=0,y=900000,legend=c(expression(
 
 
 
---------------------
+\ 
 
-### Questions
-
-#### 1.	What non-sequential data structure, we have studied, does the logic of MergeSort() resemble?
-
-MergeSort is a recursive sorting technique that recursively splits, sorts, and reconstructs the data. This method recursively divides the data into two unsorted lists, sorts the two lists, and then merges the two sorted lists. In big-O notation, we have a time execution of $O(\mathrm{n \log{n}})$; hence, the search algorithm has a run time that grows logarithmically as the input size grows. Similar to MergeSort, **binary search trees** are nonlinear structures that execute in logarithmic time.
 
 
 
@@ -445,22 +409,15 @@ MergeSort is a recursive sorting technique that recursively splits, sorts, and r
 
 ## Insertion Sort 
 
-### Definition
-
 **Definition.** a Java sorting method where the sorted values locate to the low end of the array, and the unsorted values locate to the high end. 
 
-<span class="lp8">a.</span> Insertion sort takes linear time when input array is sorted or almost sorted (maximum 1 or 2 elements are misplaced). All other sorting algorithms mentioned above will take more than linear time in their typical implementation.
+<span class="lp8">a.</span> total of $n-1$ passes over the array, with a new unsorted value inserted each time
 
- 
-<span class="lp8">b.</span> total of $n-1$ passes over the array, with a new unsorted value inserted each time
+<span class="lp8">b.</span> expected running time is $\mathbb{O}\left(n^2\right)$ compares and data movements --most compares will lead to movement of a data value
 
-<span class="lp8">c.</span> expected running time is $\mathbb{O}\left(n^2\right)$ compares and data movements --most compares will lead to movement of a data value
+<span class="lp8">c.</span> best case running time performance is $\mathbb{O}\left(n\right)$ comparisons --occurs for no movements of data within the array; therefore, it's best to implement insertion sort on data that is nearly ordered
 
-<span class="lp8">d.</span> best case running time performance is $\mathbb{O}\left(n\right)$ comparisons --occurs for no movements of data within the array; therefore, it's best to implement insertion sort on data that is nearly ordered
-
--------------
-
-### Time Complexity
+\ 
 
 On average, it is $i/2$ positions out of order 
 
@@ -489,10 +446,7 @@ Therefore, the average case running time of **insertion sort** is $\mathbf{O(n^2
 
 \ 
 
--------------
-
-
-### 1. Show how Insertion Sort acts on the following List: 
+**Show how Insertion Sort acts on the following List:**
 
 
 ```java
@@ -511,42 +465,19 @@ $$
 \end{align}
 $$
 
+
 \ 
 
 
-### 2. Consider an array of elements arr[5] = {5,4,3,2,1}, what are the steps of insertions done while doing insertion sort in the array.  
+### Java Code
 
-```java
-arr[5] = {5,4,3,2,1}
-```
+**a generic type that extends the interface Relateable**
 
-$$
-\begin{align}
-\begin{matrix} 5 & 4 & 3 & 2 & 1 \end{matrix} \\
-\begin{matrix} \mathbf{4} & \mathbf{5} & 3 & 2 & 1 \end{matrix} \\
-\begin{matrix} \mathbf{3} & \mathbf{4} & \mathbf{5}  & 2 & 1 \end{matrix} \\
-\begin{matrix} \mathbf{2} & \mathbf{3} & \mathbf{4} & \mathbf{5}  & 1 \end{matrix} \\
-\begin{matrix} \mathbf{1} & \mathbf{2} & \mathbf{3} & \mathbf{4} & \mathbf{5}  \end{matrix}
-\end{align}
-$$
+<span class="lp9">i.</span> create a LinkedList
 
+<span class="lp9">ii.</span> initialize ICount
 
-
-
-------------------------------------
-
-
-### Method to Insertion Sort
-
-#### a generic type that extends the interface Relateable 
-
-<div class="b1">
-
-<span class="lp9">a.</span> create a LinkedList
-
-<span class="lp9">b.</span> initialize ICount
-
-<span class="lp9">c.</span> walk down ArrayList and insert each element into sorted LinkedList
+<span class="lp9">iii.</span> walk down ArrayList and insert each element into sorted LinkedList
 
 <span class="lp9">d.</span> repackage and return ArrayList
 
@@ -557,23 +488,7 @@ $$
 
 <span class="lp9">f.</span> debugging tool and method to dump out content in LinkedList 
 
-</div>
-
-
 \ 
-
----------------------------------------
-
-### Java Code
-
-#### Steps 
-
-<span class="lp9">i.</span> Iterate through the array
-
-<span class="lp9">ii.</span> Shifting all of the elements to the right until we encounter the first element we don't have to shift
-
-<span class="lp9">iii.</span> Place the new element into its proper place within the sorted subarray
-
 
 
 ```java
@@ -650,14 +565,10 @@ public class InsertionSort {
 
 
 
-### Code Output
-
-
 #### Execution Times
 
 
 At the worst case scenario for the algorithm, the whole array is descending. This is because in each iteration, we'll have to move the whole sorted list by 1, which is $O(n)$. We have to do this for each element in every array, which means it's going to be bounded by $O(n^2)$.
-
 
 
 
@@ -715,9 +626,6 @@ legend(x=0,y=900000,legend=c(expression(
 
 
 ## Conclusion 
-
-### Sorting Techniques: 
-
 
 From the graph below, we can see that the number of steps to execute the Merge Sort method is significantly lower than the number of steps to execute the Bubble Sort method; hence, the Merge Sort is faster and more efficient than the Bubble Sort. 
 

@@ -62,15 +62,13 @@ simpleNetwork(acmeNetwork[-3], fontSize = 12)
 
 ### Types of Binary Nodes
 
-<div class="a3">
 
-**Root:** the first node
+<span class="lp9">a.</span> **Root:** the first node
 
-**Leaf:** a node with no children 
+<span class="lp9">b.</span> **Leaf:** a node with no children 
 
-**Interior Nodes:** nodes that are neither the root or a leaf 
+<span class="lp9">c.</span> **Interior Nodes:** nodes that are neither the root or a leaf 
 
-</div>
 
 \ 
 
@@ -90,7 +88,7 @@ In general, there isn't an explicit order for traversing binary tree arrangement
 
 In this traversal method, the program visits each node before visiting any child nodes. Usually, it goes to a node first, then each node in its left subtree, and then each node in its right subtree.
 
-<span class="sp14">2.</span> $\bigstar$ In-order traversal
+<span class="sp14">2.</span> In-order traversal
 
 In this traversal method, the program first traverses the left subtree, then visits the root, and then traverses the right subtree.
 
@@ -107,7 +105,7 @@ In this traversal method, the program first traverses the left subtree, then the
 
 ### Traversal Example
 
-An InOrder traversal visits the nodes in the following order:
+Traversing a binary tree requires creating an iterator that traverses all subtrees. An InOrder traversal visits the nodes in the following order:
 
 
 ```{r, include=FALSE}
@@ -162,19 +160,12 @@ $$\begin{matrix}4 & \mathbf{10} & 12 & \mathbf{15} & 18 & \mathbf{22} & 24 & \La
 
 \ 
 
-
-
-
-#### Summary:
-
-Traversing a binary tree requires creating an iterator that traverses all subtrees. 
-
-- we perform implementations of iterators for each subtree traversal
-
-
 ------------------------------------------------
 
 ## Binary Search Tree
+
+Unlike the BinaryTree, the BinarySearchTree provides one iterator method: an in-order traversal. When implementing a BinarySearchTree, we're implementing an OrderedStructure: methods that accept and return values compared to one another. We assume the data is Comparable, and the natural order is sufficient. We can use alternative Comparators for elements that do not directly implement compareTo. 
+
 
 ### Definition
 
@@ -182,22 +173,9 @@ A binary search tree is a binary tree structure with the following attributes:
 
 <span class="lp4">a.</span> The left subtree of a node holds only nodes with values lesser than the node
 
-
 <span class="lp4">b.</span> The right subtree of a node has only nodes with values greater than the node
 
 <span class="lp4">c.</span> Both the left and right subtrees must also be a binary search tree
-
-\ 
-
-<div class="a1">
-
-Unlike the BinaryTree, the BinarySearchTree provides one iterator method: an in-order traversal. When implementing a BinarySearchTree, we're implementing an OrderedStructure: methods that accept and return values compared to one another.
-
-- we assume the data is Comparable, and the natural order is sufficient
-- we can use alternative Comparators for elements that do not directly implement compareTo
-
-
-</div>
 
 
 
@@ -268,13 +246,13 @@ graphics::plot(root)
 ```
 
 
-#### Summary:
+\ 
 
-<div class="a3">
+<div class="b1">
 
-`Levels:` The root and each interior node have two children --a right and left child; hence, there are $4$ **full** levels.
+**Levels.** The root and each interior node have two children --a right and left child; hence, there are $4$ **full** levels.
 
-`Nodes:` The number of nodes can be calculated by $2^{n}-1$ where $n$ represents the number of full levels; hence, there are $15$ nodes.
+**Nodes.** The number of nodes can be calculated by $2^{n}-1$ where $n$ represents the number of full levels; hence, there are $15$ nodes.
 
 </div>
 
@@ -311,40 +289,16 @@ graphics::plot(root1)
 
 \ 
 
-
-------------------------------------------------
-
-
-## Java Code.
-
-### Binary Search Tree
-
-<div class="b1">
-
-<span class="sp4">I.</span> Main.java
-
-Main method to demonstrate binary tree and binary tree node
-
-<span class="sp4">II.</span> BinaryNode.java
+----------------------------------------
 
 
-Simple BinaryNode method using a generic that extends Comparable
+## Java Code
 
-<span class="sp4">III.</span> BinaryTree.java
-
-Simple BinaryTree method using a generic E that extends Comparable
-
-</div>
-
-\ 
-
----------------------------------
 
 ### 1. Main.java
 
-#### Outline 
+Main method to demonstrate binary tree and binary tree node
 
-<div class="b1">
 
 <span class="lp6">a.</span> creates an empty `BinaryTree` 
 
@@ -354,12 +308,9 @@ Simple BinaryTree method using a generic E that extends Comparable
 
 <span class="lp6">d.</span> prints out the tree
 
-</div>
 
 
 \ 
-
- 
 
 
 ```java
@@ -402,9 +353,8 @@ public class Main {
 
 ### 2. BinaryNode.java
 
-#### Outline
+Simple BinaryNode method using a generic that extends Comparable
 
-<div class="b1">
 
 <span class="lp10">a.</span> uses a generic that extends Comparable `.compareTo()`
 
@@ -421,14 +371,10 @@ public class Main {
 - if there is a nonempty left child, check there first
 - if there is a nonempty right child, check there last
 
-</div>
-
 
 \ 
 
  
-
-
 ```java
 public class BinaryNode<E extends Comparable> {
   
@@ -503,10 +449,8 @@ public class BinaryNode<E extends Comparable> {
 
 ### 3. BinaryTree.java
 
-#### Outline
+Simple BinaryTree method using a generic E that extends Comparable
 
-
-<div class="b1">
 
 <span class="lp7">a.</span> uses a generic E to extend Comparable `.compareTo()`
 
@@ -523,12 +467,9 @@ public class BinaryNode<E extends Comparable> {
     
 <span class="lp7">e.</span> `ToString` method prints tree in a breadth first order
 
-</div>
-
 
 \ 
 
- 
 
 
 ```java
@@ -595,21 +536,12 @@ public class BinaryTree<E extends Comparable> {
 
 ## Summary
 
-\ 
+<div class="a1">
 
-<div class="a3">
+The binary search tree is the result of inserting new values. The method puts each new data point on a leaf; hence, the internal nodes remain unchanged, thereby making the structure reasonably static. Insufficient data allocation will cause a degraded tree structure to negatively affect the method's performance.
 
-The binary search tree requires an order on the nodes of the binary tree. 
+The binary search tree requires an order on the nodes of the binary tree. At each node in the search method, the program decides to go left or right. If the tree is short and relatively balanced, these decisions will eliminate many of the remaining candidate values.
 
-- At each node in the search method, the program decides to go left or right.
-- If the tree is short and relatively balanced, these decisions will eliminate many of the remaining candidate values.
-
-\ 
-
-The binary search tree is the result of inserting new values. 
-
-- method puts each new data point on a leaf; hence, the internal nodes remain unchanged, thereby making the structure reasonably static
-- insufficient data allocation will cause a degraded tree structure to negatively affect the method's performance
 
 </div>
 
@@ -620,13 +552,10 @@ The binary search tree is the result of inserting new values.
 
 <div class="b1">
 
-Each operation of a Binary Search Tree has a worst-case time complexity proportional to the tree's height.
-
-**Note.** Checking leaves, adding leaves, or removing roots are some of the most time-consuming operations. Therefore, for logarithmic behavior, we want the tree to be as short as possible.
+Each operation of a Binary Search Tree has a worst-case time complexity proportional to the tree's height. Checking leaves, adding leaves, or removing roots are some of the most time-consuming operations. Therefore, for logarithmic behavior, we want the tree to be as short as possible.
 
 
 <span class="sp12">i.</span> If we insert values using descending order, the tree is left-skewed.
-
 
 <span class="sp12">ii.</span> If we insert values using ascending order, the tree is right-skewed.
 
@@ -643,9 +572,6 @@ The program performs better if we shuffle the values beforehand:
 
 \ 
 
-
-
-- [Helpful resource](https://www.cs.usfca.edu/~galles/visualization/BST.html) for plotting nodes in binary search trees
 
 
 ------------------------

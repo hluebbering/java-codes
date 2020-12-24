@@ -461,25 +461,11 @@ div.tocify {
 <hr />
 <div id="bubble-sort" class="section level2">
 <h2>Bubble Sort</h2>
-<div id="definition" class="section level3">
-<h3>Definition</h3>
-<p>Bubble sort checks and rechecks the relation between each component of the list. The method sorts the <span class="math inline">\(\mathrm{n}\)</span> elements by linearly moving through the list where each pass completes <span class="math inline">\(\mathrm{n-1}\)</span> comparisons and <span class="math inline">\(\mathrm{n-1}\)</span> exchanges. After one pass, the largest integer-value should “bubble” up to the ArrayList’s high-indexed side –the operation repeats. After <span class="math inline">\(\mathrm{n-1}\)</span> passes, the bubble sorting terminates.</p>
-<hr />
-</div>
-<div id="time-complexity" class="section level3">
-<h3>Time Complexity</h3>
-<div id="worst-case-time-complexity" class="section level4">
-<h4>Worst Case Time Complexity:</h4>
-<p>The worst case has time complexity <span class="math inline">\(O(n^2)\)</span>; this occurs when the array is reverse sorted.</p>
-</div>
-<div id="best-case-time-complexity" class="section level4">
-<h4>Best Case Time Complexity:</h4>
-<p>The best case has time complexity <span class="math inline">\(O(n)\)</span>. Bubble sort takes minimum time (Order of n) when elements are already sorted.</p>
-<hr />
-</div>
-</div>
-<div id="how-does-bubble-sort-act-on-the-following-list" class="section level3">
-<h3>How does Bubble Sort act on the following list</h3>
+<p><strong>Definition.</strong> Bubble sort checks and rechecks the relation between each component of the list. The method sorts the <span class="math inline">\(\mathrm{n}\)</span> elements by linearly moving through the list where each pass completes <span class="math inline">\(\mathrm{n-1}\)</span> comparisons and <span class="math inline">\(\mathrm{n-1}\)</span> exchanges. After one pass, the largest integer-value should “bubble” up to the ArrayList’s high-indexed side –the operation repeats. After <span class="math inline">\(\mathrm{n-1}\)</span> passes, the bubble sorting terminates.</p>
+<p><span class="lp2">a.</span> The worst case has time complexity <span class="math inline">\(O(n^2)\)</span>; this occurs when the array is reverse sorted.</p>
+<p><span class="lp2">b.</span> The best case has time complexity <span class="math inline">\(O(n)\)</span>. Bubble sort takes minimum time (Order of n) when elements are already sorted.</p>
+<p> </p>
+<p><strong>How does Bubble Sort act on the following list:</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>list XXX: <span class="dv">5</span> <span class="dv">1</span> <span class="dv">4</span> <span class="dv">2</span> <span class="dv">8</span></span></code></pre></div>
 <p><span class="math display">\[
 \begin{align}
@@ -505,15 +491,13 @@ div.tocify {
 \begin{matrix} 1 &amp; 2 &amp; 4 &amp; \mathbf{5} &amp; \mathbf{8} \end{matrix}
 \end{align}
 \]</span></p>
-<hr />
-</div>
+<p> </p>
 <div id="java-code" class="section level3">
 <h3>Java Code</h3>
-<div id="steps" class="section level4">
-<h4>Steps</h4>
 <p><span class="lp9">i. </span> Method sorts the elements by linearly moving through the list</p>
 <p><span class="lp9">ii. </span> After a pass, the largest value “bubbles” up the ArrayList</p>
 <p><span class="lp9">iii. </span> Bubble sorting repeats for (n-1) passes</p>
+<p> </p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co">// Bubble Sort Class</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.ArrayList;</span></span>
@@ -563,10 +547,6 @@ div.tocify {
 <span id="cb2-47"><a href="#cb2-47" aria-hidden="true"></a></span>
 <span id="cb2-48"><a href="#cb2-48" aria-hidden="true"></a>}</span></code></pre></div>
 <p> </p>
-</div>
-</div>
-<div id="code-output" class="section level3">
-<h3>Code Output</h3>
 <div id="execution-times" class="section level4">
 <h4>Execution Times</h4>
 <table class="table table-striped" style="font-size: 13.3px; width: auto !important; float: left; margin-right: 10px;">
@@ -655,34 +635,23 @@ Steps
 </table>
 <p><img src="index_files/figure-html/bubblesort-1.png" width="445" style="display: block; margin: auto;" /></p>
 <p> </p>
-<hr />
-</div>
-</div>
-<div id="summary" class="section level3">
-<h3>Summary</h3>
 <p>From the above execution times and graph, we can see that as the number of data points <span class="math inline">\(\mathrm{n}\)</span> increases, the number of steps it takes to complete the bubble sort increases <strong>exponentially</strong>. In <strong>big-O notation</strong>, the Simple Bubble Sort Method for sorting <span class="math inline">\(\mathrm{n}\)</span> elements of an array is <span class="math inline">\(O\mathbf{(n^2)}\)</span>; hence, the algorithm has a run time that grows quadratically as the input (data points) size grows.</p>
 <hr />
 </div>
 </div>
+</div>
 <div id="merge-sort" class="section level2">
 <h2>Merge Sort</h2>
-<div id="definition-1" class="section level3">
-<h3>Definition</h3>
-<p>MergeSort is a recursive sorting technique that recursively splits, sorts, and reconstructs the data. This method recursively divides the data into two unsorted lists, sorts the two lists, and then merges the two sorted lists.</p>
-<hr />
-</div>
-<div id="time-complexity-1" class="section level3">
-<h3>Time Complexity:</h3>
-<p><span class="lp6">a.</span> Merge Sort is a recursive algorithm and time complexity can be expressed as following recurrence relation: <span class="math inline">\(T(n) = 2T(n/2) + \theta(n)\)</span></p>
-<p><span class="lp6">b.</span> The above recurrence can be solved either using the Recurrence Tree method or the Master method. The solution of the recurrence is <span class="math inline">\(\theta(n\log n)\)</span>.</p>
-<p><span class="lp6">c. <span class="math inline">\(\bigstar\)</span></span> Time complexity of Merge Sort is <span class="math inline">\(\theta(n\log n)\)</span> in all 3 cases (worst, average and best) as merge sort always divides the array into two halves and takes linear time to merge two halves.</p>
-<hr />
-</div>
+<p><strong>Definition.</strong> MergeSort is a recursive sorting technique that recursively splits, sorts, and reconstructs the data. This method recursively divides the data into two unsorted lists, sorts the two lists, and then merges the two sorted lists. In big-O notation, we have a time execution of <span class="math inline">\(O(\mathrm{n \log{n}})\)</span>; hence, the search algorithm has a run time that grows logarithmically as the input size grows. Similar to MergeSort, <strong>binary search trees</strong> are nonlinear structures that execute in logarithmic time.</p>
+<p><span class="lp6">a.</span> Merge Sort is a recursive algorithm and time complexity can be expressed by <span class="math inline">\(\theta(n\log n)\)</span>.</p>
+<p><span class="lp6">b. <span class="math inline">\(\bigstar\)</span></span> Time complexity of Merge Sort is <span class="math inline">\(\theta(n\log n)\)</span> in all 3 cases (worst, average and best) as merge sort always divides the array into two halves and takes linear time to merge two halves.</p>
+<p> </p>
 <div id="java-code." class="section level3">
 <h3>Java Code.</h3>
 <p><span class="lp9">i.</span> Break the whole array down into two subarrays</p>
 <p><span class="lp9">ii.</span> Sort the left half of the array (recursively)</p>
 <p><span class="lp9">iii.</span> Sort the right half of the array (recursively) Merge the solutions</p>
+<p> </p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="co">// Merge Sort Class</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.ArrayList;</span></span>
@@ -771,9 +740,6 @@ Steps
 <span id="cb3-86"><a href="#cb3-86" aria-hidden="true"></a></span>
 <span id="cb3-87"><a href="#cb3-87" aria-hidden="true"></a>}</span></code></pre></div>
 <p> </p>
-</div>
-<div id="code-output-1" class="section level3">
-<h3>Code Output</h3>
 <div id="execution-times-1" class="section level4">
 <h4>Execution Times</h4>
 <table class="table table-striped" style="font-size: 13.3px; width: auto !important; float: left; margin-right: 10px;">
@@ -862,41 +828,22 @@ Steps
 </table>
 <p><img src="index_files/figure-html/mergesort-1.png" width="445" style="display: block; margin: auto;" /></p>
 <p> </p>
-<hr />
-</div>
-</div>
-<div id="summary-1" class="section level3">
-<h3>Summary</h3>
 <p>Each value <span class="math inline">\(\mathrm{n}\)</span> in the data set must be sorted into a temporary array, allotted once before every single merge; therefore, we have <span class="math inline">\(O(\mathrm{n})\)</span> compares over all the merges. From the above execution times and graph, we can see that as the number of data points <span class="math inline">\(\mathrm{n}\)</span> increases, the number of steps it takes to complete the bubble sort increases <strong>logarithmically</strong>. In <strong>big-O notation</strong>, since there are <span class="math inline">\(\mathrm{\log{2}n}\)</span> split levels, we have a time execution of <span class="math inline">\(O(\mathrm{n \log{n}})\)</span>; hence, the search algorithm has a run time that grows logarithmically as the input size grows.</p>
-<div id="comparing-sort-algorithms" class="section level4">
-<h4>Comparing Sort Algorithms</h4>
-<p>From the graph below, we can see that the number of steps to execute the Merge Sort method is significantly lower than the number of steps to execute the Bubble Sort method; hence, the Merge Sort is faster and more efficient than the Bubble Sort.</p>
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" width="800" style="display: block; margin: auto;" /></p>
-<hr />
-</div>
-</div>
-<div id="questions" class="section level3">
-<h3>Questions</h3>
-<div id="what-non-sequential-data-structure-we-have-studied-does-the-logic-of-mergesort-resemble" class="section level4">
-<h4>1. What non-sequential data structure, we have studied, does the logic of MergeSort() resemble?</h4>
-<p>MergeSort is a recursive sorting technique that recursively splits, sorts, and reconstructs the data. This method recursively divides the data into two unsorted lists, sorts the two lists, and then merges the two sorted lists. In big-O notation, we have a time execution of <span class="math inline">\(O(\mathrm{n \log{n}})\)</span>; hence, the search algorithm has a run time that grows logarithmically as the input size grows. Similar to MergeSort, <strong>binary search trees</strong> are nonlinear structures that execute in logarithmic time.</p>
+<p> </p>
+<p><strong>Comparing Sort Algorithms.</strong> From the graph below, we can see that the number of steps to execute the Merge Sort method is significantly lower than the number of steps to execute the Bubble Sort method; hence, the Merge Sort is faster and more efficient than the Bubble Sort.</p>
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" width="400" style="display: block; margin: auto;" /></p>
+<p> </p>
 <hr />
 </div>
 </div>
 </div>
 <div id="insertion-sort" class="section level2">
 <h2>Insertion Sort</h2>
-<div id="definition-2" class="section level3">
-<h3>Definition</h3>
 <p><strong>Definition.</strong> a Java sorting method where the sorted values locate to the low end of the array, and the unsorted values locate to the high end.</p>
-<p><span class="lp8">a.</span> Insertion sort takes linear time when input array is sorted or almost sorted (maximum 1 or 2 elements are misplaced). All other sorting algorithms mentioned above will take more than linear time in their typical implementation.</p>
-<p><span class="lp8">b.</span> total of <span class="math inline">\(n-1\)</span> passes over the array, with a new unsorted value inserted each time</p>
-<p><span class="lp8">c.</span> expected running time is <span class="math inline">\(\mathbb{O}\left(n^2\right)\)</span> compares and data movements –most compares will lead to movement of a data value</p>
-<p><span class="lp8">d.</span> best case running time performance is <span class="math inline">\(\mathbb{O}\left(n\right)\)</span> comparisons –occurs for no movements of data within the array; therefore, it’s best to implement insertion sort on data that is nearly ordered</p>
-<hr />
-</div>
-<div id="time-complexity-2" class="section level3">
-<h3>Time Complexity</h3>
+<p><span class="lp8">a.</span> total of <span class="math inline">\(n-1\)</span> passes over the array, with a new unsorted value inserted each time</p>
+<p><span class="lp8">b.</span> expected running time is <span class="math inline">\(\mathbb{O}\left(n^2\right)\)</span> compares and data movements –most compares will lead to movement of a data value</p>
+<p><span class="lp8">c.</span> best case running time performance is <span class="math inline">\(\mathbb{O}\left(n\right)\)</span> comparisons –occurs for no movements of data within the array; therefore, it’s best to implement insertion sort on data that is nearly ordered</p>
+<p> </p>
 <p>On average, it is <span class="math inline">\(i/2\)</span> positions out of order</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -954,10 +901,7 @@ Steps
 <p><span class="math display">\[\sum^{n-1}_{i=1} \frac{i}{2} = \frac{n(n+1)}{4}\]</span></p>
 <p>Therefore, the average case running time of <strong>insertion sort</strong> is <span class="math inline">\(\mathbf{O(n^2)}\)</span></p>
 <p> </p>
-<hr />
-</div>
-<div id="show-how-insertion-sort-acts-on-the-following-list" class="section level3">
-<h3>1. Show how Insertion Sort acts on the following List:</h3>
+<p><strong>Show how Insertion Sort acts on the following List:</strong></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>list X: <span class="dv">7</span> <span class="dv">5</span> <span class="dv">4</span> <span class="dv">6</span> <span class="dv">8</span> <span class="dv">2</span></span></code></pre></div>
 <p><span class="math display">\[
 \begin{align}
@@ -970,29 +914,12 @@ Steps
 \end{align}
 \]</span></p>
 <p> </p>
-</div>
-<div id="consider-an-array-of-elements-arr5-54321-what-are-the-steps-of-insertions-done-while-doing-insertion-sort-in-the-array." class="section level3">
-<h3>2. Consider an array of elements arr[5] = {5,4,3,2,1}, what are the steps of insertions done while doing insertion sort in the array.</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>arr[<span class="dv">5</span>] = {<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>}</span></code></pre></div>
-<p><span class="math display">\[
-\begin{align}
-\begin{matrix} 5 &amp; 4 &amp; 3 &amp; 2 &amp; 1 \end{matrix} \\
-\begin{matrix} \mathbf{4} &amp; \mathbf{5} &amp; 3 &amp; 2 &amp; 1 \end{matrix} \\
-\begin{matrix} \mathbf{3} &amp; \mathbf{4} &amp; \mathbf{5}  &amp; 2 &amp; 1 \end{matrix} \\
-\begin{matrix} \mathbf{2} &amp; \mathbf{3} &amp; \mathbf{4} &amp; \mathbf{5}  &amp; 1 \end{matrix} \\
-\begin{matrix} \mathbf{1} &amp; \mathbf{2} &amp; \mathbf{3} &amp; \mathbf{4} &amp; \mathbf{5}  \end{matrix}
-\end{align}
-\]</span></p>
-<hr />
-</div>
-<div id="method-to-insertion-sort" class="section level3">
-<h3>Method to Insertion Sort</h3>
-<div id="a-generic-type-that-extends-the-interface-relateable" class="section level4">
-<h4>a generic type that extends the interface Relateable</h4>
-<div class="b1">
-<p><span class="lp9">a.</span> create a LinkedList</p>
-<p><span class="lp9">b.</span> initialize ICount</p>
-<p><span class="lp9">c.</span> walk down ArrayList and insert each element into sorted LinkedList</p>
+<div id="java-code-1" class="section level3">
+<h3>Java Code</h3>
+<p><strong>a generic type that extends the interface Relateable</strong></p>
+<p><span class="lp9">i.</span> create a LinkedList</p>
+<p><span class="lp9">ii.</span> initialize ICount</p>
+<p><span class="lp9">iii.</span> walk down ArrayList and insert each element into sorted LinkedList</p>
 <p><span class="lp9">d.</span> repackage and return ArrayList</p>
 <p><span class="lp9">e.</span> method to insert a new element myObj into a sorted LinkedList</p>
 <ul>
@@ -1000,90 +927,75 @@ Steps
 <li>begin with first element (smallest T) and find where myObj should go</li>
 </ul>
 <p><span class="lp9">f.</span> debugging tool and method to dump out content in LinkedList</p>
-</div>
 <p> </p>
-<hr />
-</div>
-</div>
-<div id="java-code-1" class="section level3">
-<h3>Java Code</h3>
-<div id="steps-1" class="section level4">
-<h4>Steps</h4>
-<p><span class="lp9">i.</span> Iterate through the array</p>
-<p><span class="lp9">ii.</span> Shifting all of the elements to the right until we encounter the first element we don’t have to shift</p>
-<p><span class="lp9">iii.</span> Place the new element into its proper place within the sorted subarray</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.LinkedList;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.ListIterator;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.ArrayList;</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> InsertionSort {</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a>  </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>  <span class="kw">private</span> <span class="dt">static</span> <span class="dt">int</span> ICount;</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">getICount</span>(){</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>    <span class="kw">return</span> ICount; }</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>  </span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>  <span class="co">// a generic type that extends the interface Relateable</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">static</span> &lt;T <span class="kw">extends</span> Relateable&gt; <span class="bu">ArrayList</span>&lt;T&gt; <span class="fu">InsertionSort</span>(<span class="bu">ArrayList</span>&lt;T&gt; myAL){</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a>    </span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a>    <span class="co">// create a LinkedList</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a>    <span class="bu">LinkedList</span>&lt;T&gt; mylist = <span class="kw">new</span> <span class="bu">LinkedList</span>&lt;T&gt;();</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true"></a>    <span class="co">// initialize ICount</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true"></a>    ICount = <span class="dv">0</span>;</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true"></a></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true"></a>    <span class="co">// walk down ArrayList and insert each into sorted LinkedList</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true"></a>    <span class="kw">for</span>(T XXX: myAL){</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true"></a>      <span class="fu">insert</span>(mylist, XXX); }</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true"></a>    </span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true"></a>    <span class="co">// repackage myAL from the LinkedList and return it</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true"></a>    <span class="kw">return</span> myAL; }</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true"></a>  </span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true"></a>  <span class="co">// insert new element myObj into sorted LinkedList</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">static</span>  &lt;T <span class="kw">extends</span> Relateable&gt; <span class="dt">void</span> <span class="fu">insert</span>(<span class="bu">LinkedList</span>&lt;T&gt; mylist, T myObj) {</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true"></a>    </span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true"></a>    <span class="co">// if myList is empty, add myObj and return</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true"></a>    <span class="kw">if</span> (mylist.<span class="fu">isEmpty</span>()) {</span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true"></a>      ICount++;</span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true"></a>      mylist.<span class="fu">add</span>(myObj);</span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true"></a>      <span class="kw">return</span>; }</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true"></a>    </span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true"></a>    <span class="co">// use a loop to traverse LinkedList</span></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true"></a>    <span class="co">// begin with first element (smallest T) and find where myObj goes</span></span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true"></a>    <span class="bu">ListIterator</span> current = mylist.<span class="fu">listIterator</span>();</span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true"></a>    <span class="kw">while</span>(current.<span class="fu">hasNext</span>()){</span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true"></a>      </span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true"></a>      <span class="co">// get value and advance iterator</span></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true"></a>      ICount++;</span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true"></a>      T temp = (T)(current.<span class="fu">next</span>());</span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true"></a>      </span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true"></a>      <span class="co">// figure out out if I should add now or not</span></span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true"></a>      <span class="kw">if</span> (temp.<span class="fu">isLessThan</span>(myObj)){</span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true"></a>        <span class="kw">continue</span>; }</span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true"></a>      </span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true"></a>      <span class="co">// add on the list iterator but where?</span></span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true"></a>      <span class="kw">else</span>{</span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true"></a>        current.<span class="fu">add</span>(myObj);</span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true"></a>        <span class="kw">return</span>; }}</span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true"></a>    </span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true"></a>    <span class="co">// **************************</span></span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true"></a>    <span class="co">// if we get here, then I should add myObj at the end of the list</span></span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true"></a>    <span class="co">// ICount++;</span></span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true"></a>    <span class="co">// mylist.addLast(myObj);</span></span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true"></a>    <span class="co">// return; }</span></span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true"></a>  </span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true"></a>  <span class="co">// method to dump out content in LinkedList</span></span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true"></a>  <span class="co">// debugging tool</span></span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true"></a>  <span class="kw">private</span> <span class="dt">static</span> &lt;T&gt; <span class="dt">void</span> <span class="fu">dump</span> (<span class="bu">LinkedList</span>&lt;T&gt; mylist){</span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true"></a>    <span class="bu">ListIterator</span>&lt;T&gt; current = mylist.<span class="fu">listIterator</span>();</span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true"></a>    <span class="kw">for</span>(<span class="dt">int</span> i=<span class="dv">0</span>; i&lt; <span class="bu">Math</span>.<span class="fu">min</span>(<span class="dv">15</span>, mylist.<span class="fu">size</span>()); i++){</span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true"></a>      <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>((T)(current.<span class="fu">next</span>()).<span class="fu">toString</span>()); }}</span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true"></a>  </span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true"></a>  }</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.LinkedList;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.ListIterator;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="kw">import</span><span class="im"> java.util.ArrayList;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> InsertionSort {</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>  </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>  <span class="kw">private</span> <span class="dt">static</span> <span class="dt">int</span> ICount;</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">getICount</span>(){</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>    <span class="kw">return</span> ICount; }</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>  </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>  <span class="co">// a generic type that extends the interface Relateable</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">static</span> &lt;T <span class="kw">extends</span> Relateable&gt; <span class="bu">ArrayList</span>&lt;T&gt; <span class="fu">InsertionSort</span>(<span class="bu">ArrayList</span>&lt;T&gt; myAL){</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a>    </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a>    <span class="co">// create a LinkedList</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true"></a>    <span class="bu">LinkedList</span>&lt;T&gt; mylist = <span class="kw">new</span> <span class="bu">LinkedList</span>&lt;T&gt;();</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true"></a>    <span class="co">// initialize ICount</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true"></a>    ICount = <span class="dv">0</span>;</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true"></a>    <span class="co">// walk down ArrayList and insert each into sorted LinkedList</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true"></a>    <span class="kw">for</span>(T XXX: myAL){</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true"></a>      <span class="fu">insert</span>(mylist, XXX); }</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true"></a>    </span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true"></a>    <span class="co">// repackage myAL from the LinkedList and return it</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true"></a>    <span class="kw">return</span> myAL; }</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true"></a>  </span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true"></a>  <span class="co">// insert new element myObj into sorted LinkedList</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">static</span>  &lt;T <span class="kw">extends</span> Relateable&gt; <span class="dt">void</span> <span class="fu">insert</span>(<span class="bu">LinkedList</span>&lt;T&gt; mylist, T myObj) {</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true"></a>    </span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true"></a>    <span class="co">// if myList is empty, add myObj and return</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true"></a>    <span class="kw">if</span> (mylist.<span class="fu">isEmpty</span>()) {</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true"></a>      ICount++;</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true"></a>      mylist.<span class="fu">add</span>(myObj);</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true"></a>      <span class="kw">return</span>; }</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true"></a>    </span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true"></a>    <span class="co">// use a loop to traverse LinkedList</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true"></a>    <span class="co">// begin with first element (smallest T) and find where myObj goes</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true"></a>    <span class="bu">ListIterator</span> current = mylist.<span class="fu">listIterator</span>();</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true"></a>    <span class="kw">while</span>(current.<span class="fu">hasNext</span>()){</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true"></a>      </span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true"></a>      <span class="co">// get value and advance iterator</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true"></a>      ICount++;</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true"></a>      T temp = (T)(current.<span class="fu">next</span>());</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true"></a>      </span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true"></a>      <span class="co">// figure out out if I should add now or not</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true"></a>      <span class="kw">if</span> (temp.<span class="fu">isLessThan</span>(myObj)){</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true"></a>        <span class="kw">continue</span>; }</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true"></a>      </span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true"></a>      <span class="co">// add on the list iterator but where?</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true"></a>      <span class="kw">else</span>{</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true"></a>        current.<span class="fu">add</span>(myObj);</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true"></a>        <span class="kw">return</span>; }}</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true"></a>    </span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true"></a>    <span class="co">// **************************</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true"></a>    <span class="co">// if we get here, then I should add myObj at the end of the list</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true"></a>    <span class="co">// ICount++;</span></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true"></a>    <span class="co">// mylist.addLast(myObj);</span></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true"></a>    <span class="co">// return; }</span></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true"></a>  </span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true"></a>  <span class="co">// method to dump out content in LinkedList</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true"></a>  <span class="co">// debugging tool</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true"></a>  <span class="kw">private</span> <span class="dt">static</span> &lt;T&gt; <span class="dt">void</span> <span class="fu">dump</span> (<span class="bu">LinkedList</span>&lt;T&gt; mylist){</span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true"></a>    <span class="bu">ListIterator</span>&lt;T&gt; current = mylist.<span class="fu">listIterator</span>();</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true"></a>    <span class="kw">for</span>(<span class="dt">int</span> i=<span class="dv">0</span>; i&lt; <span class="bu">Math</span>.<span class="fu">min</span>(<span class="dv">15</span>, mylist.<span class="fu">size</span>()); i++){</span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true"></a>      <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>((T)(current.<span class="fu">next</span>()).<span class="fu">toString</span>()); }}</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true"></a>  </span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true"></a>  }</span></code></pre></div>
 <p> </p>
-</div>
-</div>
-<div id="code-output-2" class="section level3">
-<h3>Code Output</h3>
 <div id="execution-times-2" class="section level4">
 <h4>Execution Times</h4>
 <p>At the worst case scenario for the algorithm, the whole array is descending. This is because in each iteration, we’ll have to move the whole sorted list by 1, which is <span class="math inline">\(O(n)\)</span>. We have to do this for each element in every array, which means it’s going to be bounded by <span class="math inline">\(O(n^2)\)</span>.</p>
@@ -1179,12 +1091,9 @@ Steps
 </div>
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>
-<div id="sorting-techniques" class="section level3">
-<h3>Sorting Techniques:</h3>
 <p>From the graph below, we can see that the number of steps to execute the Merge Sort method is significantly lower than the number of steps to execute the Bubble Sort method; hence, the Merge Sort is faster and more efficient than the Bubble Sort.</p>
 <p><img src="index_files/figure-html/unnamed-chunk-5-1.png" width="445" style="display: block; margin: auto;" /></p>
 <hr />
-</div>
 </div>
 <div id="references" class="section level2 unnumbered">
 <h2 class="unnumbered">References</h2>
