@@ -5,7 +5,7 @@ output:
     toc: yes
     toc_float: yes
     self_contained: no
-    highlight: haddock
+    highlight: textmate
 css: ./assets/css/styles.css
 # knit: pagedown::chrome_print
 bibliography: ./assets/citation/csc112.bib

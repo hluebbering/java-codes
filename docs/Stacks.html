@@ -24,6 +24,8 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -34,94 +36,22 @@
   ul.task-list{list-style: none;}
     </style>
 
-
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css" data-origin="pandoc">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; } /* Alert */
-code span.an { color: #008000; } /* Annotation */
-code span.at { } /* Attribute */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #0000ff; } /* ControlFlow */
-code span.ch { color: #008080; } /* Char */
-code span.cn { } /* Constant */
-code span.co { color: #008000; } /* Comment */
-code span.cv { color: #008000; } /* CommentVar */
-code span.do { color: #008000; } /* Documentation */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.im { } /* Import */
-code span.in { color: #008000; } /* Information */
-code span.kw { color: #0000ff; } /* Keyword */
-code span.op { } /* Operator */
-code span.ot { color: #ff4000; } /* Other */
-code span.pp { color: #ff4000; } /* Preprocessor */
-code span.sc { color: #008080; } /* SpecialChar */
-code span.ss { color: #008080; } /* SpecialString */
-code span.st { color: #008080; } /* String */
-code span.va { } /* Variable */
-code span.vs { color: #008080; } /* VerbatimString */
-code span.wa { color: #008000; font-weight: bold; } /* Warning */
-
-</style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
-</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
   }
 </style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
 
 
 <style type="text/css">
@@ -464,28 +394,29 @@ div.tocify {
 <div id="interface" class="section level3">
 <h3>Interface</h3>
 <p>Linear structures abide by a simple interface:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">interface</span> Linear&lt;E&gt; <span class="kw">extends</span> Structure&lt;E&gt;{</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>  </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>  <span class="co">// value is non-null</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>  <span class="co">// value is added to the collection</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>  <span class="co">// the consistent replacement policy is not specified</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">add</span>(E value);</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>  </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>  <span class="co">// structure is not empty</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>  <span class="co">// returns reference to next object to be removed</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>  <span class="kw">public</span> E <span class="fu">get</span>();</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>  </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>  <span class="co">// structure is not empty</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>  <span class="co">// removes an object from store</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>  <span class="kw">public</span> E <span class="fu">remove</span>();</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>  </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>  <span class="co">// returns number of elements in structure</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">int</span> <span class="fu">size</span>();</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a>  </span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a>  <span class="co">// returns true iff the linear structure is empty</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">empty</span>();</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a>  </span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a>}</span></code></pre></div>
+<pre class="java"><code>public interface Linear&lt;E&gt; extends Structure&lt;E&gt;{
+  
+  // value is non-null
+  // value is added to the collection
+  // the consistent replacement policy is not specified
+  public void add(E value);
+  
+  // structure is not empty
+  // returns reference to next object to be removed
+  public E get();
+  
+  // structure is not empty
+  // removes an object from store
+  public E remove();
+  
+  // returns number of elements in structure
+  public int size();
+  
+  // returns true iff the linear structure is empty
+  public boolean empty();
+  
+}
+</code></pre>
 <p> </p>
 <p>The add and remove methods are used to:</p>
 <p><span class="lp8">i.</span> insert new values into the linear structure</p>
@@ -521,43 +452,43 @@ div.tocify {
 <div id="interface-1" class="section level4">
 <h4>Interface</h4>
 <p>Here is the interface that defines what it means to be a Stack:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">interface</span> <span class="bu">Stack</span>&lt;E&gt; <span class="kw">extends</span> Linear&lt;E&gt;{</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>  </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>  <span class="co">// item is added to stack </span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>  <span class="co">// will be popped next if no intervening push</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">add</span>(E value);</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>  </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>  <span class="co">// item is added to stack</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>  <span class="co">// will be popped next if no intervening push</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">push</span>(E value);</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>  </span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>  <span class="co">// stack is not empty</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>  <span class="co">// most recent added item is removed and returned</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>  <span class="kw">public</span> E <span class="fu">remove</span>();</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>  </span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>  <span class="co">// stack is not empty</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a>  <span class="co">// most recent pushed item is removed and returned</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a>  <span class="kw">public</span> E <span class="fu">pop</span>();</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a>  </span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a>  <span class="co">// stack is not empty</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a>  <span class="co">// top value (next to be popped) is returned </span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a>  <span class="kw">public</span> E <span class="fu">getFirst</span>();</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a>  </span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a>  <span class="co">// stack is not empty</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a>  <span class="co">// top value (next to be popped) is returned </span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true"></a>  <span class="kw">public</span> E <span class="fu">get</span>();</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true"></a>  </span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true"></a>  <span class="co">// stack is not empty</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true"></a>  <span class="co">// top value (next to be popped) is returned </span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true"></a>  <span class="kw">public</span> E <span class="fu">peek</span>();</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true"></a>  </span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true"></a>  <span class="co">// returns true iff the stack is empty</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">empty</span>();</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true"></a>  </span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true"></a>  <span class="co">// returns the number of elements in the stack</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">int</span> <span class="fu">size</span>();</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true"></a>  </span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true"></a>}</span></code></pre></div>
+<pre class="java"><code>public interface Stack&lt;E&gt; extends Linear&lt;E&gt;{
+  
+  // item is added to stack 
+  // will be popped next if no intervening push
+  public void add(E value);
+  
+  // item is added to stack
+  // will be popped next if no intervening push
+  public void push(E value);
+  
+  // stack is not empty
+  // most recent added item is removed and returned
+  public E remove();
+  
+  // stack is not empty
+  // most recent pushed item is removed and returned
+  public E pop();
+  
+  // stack is not empty
+  // top value (next to be popped) is returned 
+  public E getFirst();
+  
+  // stack is not empty
+  // top value (next to be popped) is returned 
+  public E get();
+  
+  // stack is not empty
+  // top value (next to be popped) is returned 
+  public E peek();
+  
+  // returns true iff the stack is empty
+  public boolean empty();
+  
+  // returns the number of elements in the stack
+  public int size();
+  
+}</code></pre>
 <p> </p>
 <hr />
 </div>
@@ -587,41 +518,41 @@ As elements are added (enqueued), the Queue expands the Vector; as elements are 
 <div id="interface-2" class="section level4">
 <h4>Interface</h4>
 <p>The interface provides a number of other features we have seen already:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">interface</span> <span class="bu">Queue</span>&lt;E&gt; <span class="kw">extends</span> Linear&lt;E&gt;{</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>  </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>  <span class="co">// value is added to the tail of the structure</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">add</span>(E value);</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>  </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>  <span class="co">// value is added to the tail of the structure </span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">enqueue</span>(E value);</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>  </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>  <span class="co">// queue is not empty</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>  <span class="co">// head of the queue is removed and returned</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>  <span class="kw">public</span> E <span class="fu">remove</span>();</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>  </span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>  <span class="co">// queue is not empty</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>  <span class="co">// head of the queue is removed and returned</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>  <span class="kw">public</span> E <span class="fu">dequeue</span>();</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a>  </span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a>  <span class="co">// queue is not empty</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a>  <span class="co">// element at the head of the queue is returned</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true"></a>  <span class="kw">public</span> E <span class="fu">getFirst</span>();</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true"></a>  </span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true"></a>  <span class="co">// queue is not empty</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true"></a>  <span class="co">// element at the head of the queue is returned</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true"></a>  <span class="kw">public</span> E <span class="fu">get</span>();</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true"></a>  </span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true"></a>  <span class="co">// queue is not empty</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true"></a>  <span class="co">// the element at the head of the queue is returned</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true"></a>  <span class="kw">public</span> E <span class="fu">peek</span>();</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true"></a>  </span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true"></a>  <span class="co">// returns true iff the queue is empty</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">empty</span>();</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true"></a>  </span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true"></a>  <span class="co">// returns the number of elements in the queue</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true"></a>  <span class="kw">public</span> <span class="dt">int</span> <span class="fu">size</span>();</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true"></a>  </span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true"></a>}</span></code></pre></div>
+<pre class="java"><code>public interface Queue&lt;E&gt; extends Linear&lt;E&gt;{
+  
+  // value is added to the tail of the structure
+  public void add(E value);
+  
+  // value is added to the tail of the structure 
+  public void enqueue(E value);
+  
+  // queue is not empty
+  // head of the queue is removed and returned
+  public E remove();
+  
+  // queue is not empty
+  // head of the queue is removed and returned
+  public E dequeue();
+  
+  // queue is not empty
+  // element at the head of the queue is returned
+  public E getFirst();
+  
+  // queue is not empty
+  // element at the head of the queue is returned
+  public E get();
+  
+  // queue is not empty
+  // the element at the head of the queue is returned
+  public E peek();
+  
+  // returns true iff the queue is empty
+  public boolean empty();
+  
+  // returns the number of elements in the queue
+  public int size();
+  
+}</code></pre>
 <p> </p>
 <hr />
 </div>

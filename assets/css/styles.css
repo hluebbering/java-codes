@@ -174,26 +174,24 @@ a {
   padding: 8px;
 }
 
-pre {
+/*pre {
   background: linear-gradient(120deg, #FAFAFE,#FCFCFC, #FFFFFF);
   border: 0;
 }
   
-
 div.sourceCode {
   font-family: 'Source Code Pro', monospace;
   margin: auto;
   font-size: 12px;
-  /*border: 1px solid #6C7B8B;*/
   box-shadow: 1px 1px 3px 2px #aaa; 
   margin: auto;
   padding: 4px;
   border-radius: 5px;
   width: 86%;
   background: linear-gradient(120deg, #FAFAFE,#FCFCFC, #FFFFFF);
-}
+}*/
 
-pre.sourceCode span.kw {
+/*pre.sourceCode span.kw {
   color: #009B7D;
   font-size: 12px;
   font-weight: bold;
@@ -202,8 +200,6 @@ pre.sourceCode span.kw {
 pre.sourceCode span.co {
   color: #708090;
 }
-
-/* CODE BLOCK */
 
 
 code span.co {
@@ -235,7 +231,7 @@ code span.dv {
   outline-color: black;
   text-shadow: 0.25px 0.25px 0.25px white;
   
-}
+}*/
 
 
 

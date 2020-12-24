@@ -4,7 +4,7 @@ output:
   html_document: 
     toc: yes
     toc_float: yes
-    highlight: haddock
+    highlight: textmate
 css: ./assets/css/styles.css
 # knit: pagedown::chrome_print
 bibliography: ./assets/citation/csc112.bib
@@ -181,10 +181,7 @@ A binary search tree is a binary tree structure with the following attributes:
 
 \ 
 
-###  Example. Complete Binary Search Tree with 4 Levels.
-
-
-<span class="sp4">a.</span> The below is an example of a **complete** binary tree:
+**Example.** The below is an example of a **complete** Binary Search Tree with 4 Levels:
 
 
 ```{r BinaryTree, include=FALSE}
@@ -265,9 +262,8 @@ graphics::plot(root)
 
 <span class="sp3">I.</span> Complete Binary Trees
 
-<span class="lp3">a.</span> Complete Binary Trees give excellent time complexities of $\mathbb{\bf O}\left(\log2\left(n\right)\right)$, which helps for find and insert methods in a Java data structure. 
-
-<span class="lp3">b.</span> The number of **nodes** can be calculated with, $\mathbb{\bf n}\text{ full levels:}\left(2^\mathbb{\bf n}-1\right) \text{ nodes}$.
+- Complete Binary Trees give excellent time complexities of $\mathbb{\bf O}\left(\log2\left(n\right)\right)$, which helps for find and insert methods in a Java data structure.
+- The number of **nodes** can be calculated with, $\mathbb{\bf n}\text{ full levels:}\left(2^\mathbb{\bf n}-1\right) \text{ nodes}$.
 
 
 
@@ -281,9 +277,8 @@ graphics::plot(root1)
 
 <span class="sp3">II.</span> "Real" Binary Trees
 
-<span class="lp3">a.</span> It's possible to have a non-complete binary tree, which means not every parent node has two children nodes. 
-
-<span class="lp3">b.</span> In the worst case, our binary tree could be a LinkedList with $\mathbb{\bf O}\left(n\right)$ complexities.
+- It's possible to have a non-complete binary tree, which means not every parent node has two children nodes.
+- In the worst case, our binary tree could be a LinkedList with $\mathbb{\bf O}\left(n\right)$ complexities.
 
 
 
