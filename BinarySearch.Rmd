@@ -5,7 +5,9 @@ output:
     toc: yes
     toc_float: yes
     highlight: textmate
-css: ./assets/css/styles.css
+css: 
+- ./assets/css/styles.css
+- ./assets/css/java.css
 # knit: pagedown::chrome_print
 bibliography: ./assets/citation/csc112.bib
 csl: ./assets/citation/institute-of-mathematical-statistics.csl 
@@ -13,6 +15,10 @@ link-citations: yes
 nocite: '@*'
 ---
 
+<script src = "assets/scripts/prism.r.js" type = "text/javascript"></script>
+<link href="assets/css/java.css" rel="stylesheet" />
+<script src="assets/scripts/prism.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
 
 ```{r include=FALSE}
 library(knitr)
@@ -82,19 +88,19 @@ simpleNetwork(acmeNetwork[-3], fontSize = 12)
 In general, there isn't an explicit order for traversing binary tree arrangements. Here are three example mechanisms:
 
 
-<div class="a4">
+<div class="b1">
 
-<span class="sp14">1.</span> Pre-order traversal 
+<span class="sp10">1.</span> Pre-order traversal 
 
 In this traversal method, the program visits each node before visiting any child nodes. Usually, it goes to a node first, then each node in its left subtree, and then each node in its right subtree.
 
-<span class="sp14">2.</span> In-order traversal
+<span class="sp10">2.</span> In-order traversal
 
 In this traversal method, the program first traverses the left subtree, then visits the root, and then traverses the right subtree.
 
 
 
-<span class="sp14">3.</span> Post-order traversal 
+<span class="sp10">3.</span> Post-order traversal 
 
 In this traversal method, the program first traverses the left subtree, then the right subtree, and lastly, visits the root node.
 
@@ -245,13 +251,9 @@ graphics::plot(root)
 
 \ 
 
-<div class="b1">
 
-**Levels.** The root and each interior node have two children --a right and left child; hence, there are $4$ **full** levels.
-
-**Nodes.** The number of nodes can be calculated by $2^{n}-1$ where $n$ represents the number of full levels; hence, there are $15$ nodes.
-
-</div>
+- **Levels.** The root and each interior node have two children --a right and left child; hence, there are $4$ full levels.
+- **Nodes.** The number of nodes can be calculated by $2^{n}-1$ where $n$ represents the number of full levels; hence, there are $15$ nodes.
 
 \ 
 
@@ -308,7 +310,7 @@ Main method to demonstrate binary tree and binary tree node
 \ 
 
 
-```java
+```{language-java}
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.Scanner;
 
@@ -370,7 +372,7 @@ Simple BinaryNode method using a generic that extends Comparable
 \ 
 
  
-```java
+```{language-java}
 public class BinaryNode<E extends Comparable> {
   
   // each node contains three objects
@@ -467,7 +469,7 @@ Simple BinaryTree method using a generic E that extends Comparable
 
 
 
-```java
+```{language-java}
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -505,7 +507,7 @@ public class BinaryTree<E extends Comparable> {
   // print tree in a breadth first order
   public String toString(){
     Queue<BinaryNode<E>> myQueue = new LinkedList<BinaryNode<E>>();
-    String Result = "";
+    String Result = " ";
     
     if (root == null) return Result;
     myQueue.add(root);
@@ -519,7 +521,9 @@ public class BinaryTree<E extends Comparable> {
         myQueue.add(current.getRight()); }}
     return Result; }
   
-  }
+}
+
+
 ```
 
 
@@ -531,42 +535,156 @@ public class BinaryTree<E extends Comparable> {
 
 ## Summary
 
-<div class="a1">
-
 The binary search tree is the result of inserting new values. The method puts each new data point on a leaf; hence, the internal nodes remain unchanged, thereby making the structure reasonably static. Insufficient data allocation will cause a degraded tree structure to negatively affect the method's performance.
 
 The binary search tree requires an order on the nodes of the binary tree. At each node in the search method, the program decides to go left or right. If the tree is short and relatively balanced, these decisions will eliminate many of the remaining candidate values.
 
-
-</div>
 
 
 \ 
 
 ### Time Complexity
 
-<div class="b1">
-
 Each operation of a Binary Search Tree has a worst-case time complexity proportional to the tree's height. Checking leaves, adding leaves, or removing roots are some of the most time-consuming operations. Therefore, for logarithmic behavior, we want the tree to be as short as possible.
 
 
-<span class="sp12">i.</span> If we insert values using descending order, the tree is left-skewed.
+<span class="lp12">i.</span> If we insert values using descending order, the tree is left-skewed.
 
-<span class="sp12">ii.</span> If we insert values using ascending order, the tree is right-skewed.
+<span class="lp12">ii.</span> If we insert values using ascending order, the tree is right-skewed.
 
-The program performs better if we shuffle the values beforehand:
+<span class="lp12">iii.</span> The program performs better if we shuffle the values beforehand:
 
-<span class="lp12">i.</span> the tree becomes shorter and more balanced
+- the tree becomes shorter and more balanced
+- the expected insertion time is $O(\log n)$
 
-<span class="lp12">ii.</span> the expected insertion time is $O(\log n)$
-
-
-
-
-</div>
 
 \ 
 
+```{language-java}
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
+
+
+public class Main {
+
+    // declaration of ArrayList
+    private static ArrayList<Lilly> Flowers;
+
+    public static void main(String[] args) {
+
+        // How many data points do you want
+        // formatted input from FileReader using Scanner
+        System.out.print("How large of an array do you want to sort? ");
+        Scanner keyboard = new Scanner(System.in);
+        int FileSize = keyboard.nextInt();
+
+        // create data set
+        Flowers = CreateData(FileSize);
+
+        // sort data set
+        ArrayList<Lilly> MFlowers = MergeSort.MergeSort(Flowers); // Merge Sort
+        ArrayList<Lilly> NFlowers = BubbleSort.Bubble(Flowers); // Bubble Sort
+        ArrayList<Lilly> IFlowers = InsertionSort.InsertionSort(Flowers); // Insertion Sort
+
+        System.out.println();
+        System.out.println("For list size of " + Flowers.size());
+        System.out.println("     Bubble sort number of steps: " + BubbleSort.getBcount());
+        System.out.println("     Merge sort number  of steps: " + MergeSort.getMcount());
+        System.out.println("     Insertion sort number of steps:  " + InsertionSort.getICount());
+    }
+
+    // **************
+    // Utility for debugging
+    public static void Dump(ArrayList<Lilly> tFlowers){
+        for( Lilly XXX : tFlowers){
+            System.out.println(XXX.toString());
+        }
+    }
+
+    // ******************
+    // Provided method to read from dataset and fill an ArrayList with lilly objects
+    // Read from the dataset fisherIris.csv
+    // Randomly chooses n samples from dataset
+    // such that n is the user defined number of data points
+    private static ArrayList<Lilly> CreateData(int testSize){
+
+        ArrayList<Lilly> FisherData = ReadFromFile("fisherIris.csv");
+        System.out.println();
+        System.out.print("Fisher data file loaded ...");
+        return GenerateTestSet(FisherData, testSize);
+    }
+
+    // *******************
+    // Generate simple test cases:
+    // Create the test file of size tsize from the Fisher Iris data set
+    private static ArrayList<Lilly> GenerateTestSet(ArrayList<Lilly> fisher, int tsize){
+
+        ArrayList<Lilly> testSet = new ArrayList<Lilly>();
+        for (int i=0; i< tsize; i++){
+
+            // correct way to generate random number in range [0, fisher.size()-1]  in Java
+            int randfisher = ThreadLocalRandom.current().nextInt(0,fisher.size());
+
+            testSet.add( fisher.get(randfisher) );
+        }
+
+        System.out.println(" test file of size " + tsize + " created.");
+        return testSet;
+    }
+
+    // ****************
+    // Provided method to read from dataset and fill an ArrayList with lilly objects
+    // Open external input file to be read with Scanner class
+    private static ArrayList<Lilly> ReadFromFile(String fname){
+
+        // Arraylist that will hold Fisher Iris data set
+        // this data set will be read in from the comma separated file fname
+        ArrayList<Lilly> basefile = new ArrayList<Lilly>();
+
+        Scanner DataFile;
+        try{
+            DataFile = new Scanner(new FileReader(fname));
+            DataFile.useDelimiter(",");
+
+            // throw away first line
+            DataFile.nextLine();
+
+        } catch(Exception e){
+            System.out.println("Something is horribly wrong with input file");
+            System.exit(22);
+            return null;
+        }
+
+        double sl, sw, pl, pw;
+        String category;
+
+        // Opened file for input on Scanner DataFile
+        while (DataFile.hasNext()) {
+            try {
+                sl = DataFile.nextDouble();
+                sw = DataFile.nextDouble();
+                pl = DataFile.nextDouble();
+                pw = DataFile.nextDouble();
+                category = DataFile.nextLine();
+            } catch (Exception e) {
+                System.out.println("Fisher data is corrupted");
+                System.exit(33);
+                return null;
+            }
+
+            basefile.add(new Lilly(sl, sw, pl, pw, category));
+        }
+
+        DataFile.close();
+
+        return basefile;
+
+    }
+
+}
+```
 
 
 ------------------------

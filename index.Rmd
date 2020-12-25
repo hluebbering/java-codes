@@ -4,8 +4,9 @@ output:
   html_document: 
     toc: yes
     toc_float: yes
-    highlight: textmate
-css: ./assets/css/styles.css
+css: 
+- ./assets/css/styles.css
+- ./assets/css/java.css
 # knit: pagedown::chrome_print
 bibliography: ./assets/citation/csc112.bib
 csl: ./assets/citation/institute-of-mathematical-statistics.csl 
@@ -14,13 +15,20 @@ nocite: '@*'
 ---
 
 
+<script src = "assets/scripts/prism.r.js" type = "text/javascript"></script>
+<link href="assets/css/java.css" rel="stylesheet" />
+<script src="assets/scripts/prism.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+
 ```{r include=FALSE}
 library(knitr)
 library(graphics)
 library(drc)
 knitr::opts_chunk$set(echo = FALSE, out.width = 445, fig.align = "center")
-
 ```
+
+
+
 
 The sorting algorithms built in this lab are the Simple Bubble Sort, Merge Sort, and Insertion Sort. After making the algorithms, we ran them on different data points of sizes (50, 100, 200, 400, 800, 1000, 2000) and collected the **number of steps** for the data points in a text file. We then used the text file to plot the graphs for both algorithms.
 
@@ -38,39 +46,36 @@ The sorting algorithms built in this lab are the Simple Bubble Sort, Merge Sort,
 
 \ 
 
+  
+
+
+     
 **How does Bubble Sort act on the following list:**
 
-```java
+```{language-java}
 list XXX: 5 1 4 2 8
 ```
 
 
 $$
-\begin{align}
-\begin{matrix} 5 & 1 & 4 & 2 & 8 \end{matrix} \\
-\begin{matrix} \mathbf{1} & \mathbf{5} & 4 & 2 & 8 \end{matrix} \\
-\begin{matrix} 1 & \mathbf{4} & \mathbf{5} & 2 & 8 \end{matrix} \\
-\begin{matrix} 1 & 4 & \mathbf{2} & \mathbf{5} & 8 \end{matrix} \\
-\\
-\begin{matrix} \mathbf{1} & \mathbf{4} & 2 & 5 & 8 \end{matrix} \\
-\begin{matrix} 1 & \mathbf{2} & \mathbf{4} & 5 & 8 \end{matrix} \\
-\begin{matrix} 1 & 2 & \mathbf{4} & \mathbf{5} & 8 \end{matrix} \\
-\begin{matrix} 1 & 2 & 4 & \mathbf{5} & \mathbf{8} \end{matrix}
-\end{align}
+\begin{matrix}
+{\begin{matrix} 5 & 1 & 4 & 2 & 8 \\
+\mathbf{1} & \mathbf{5} & 4 & 2 & 8 \\
+1 & \mathbf{4} & \mathbf{5} & 2 & 8 \\
+1 & 4 & \mathbf{2} & \mathbf{5} & 8 
+\end{matrix}} 
+&\rightarrow&
+\begin{matrix} \mathbf{1} & \mathbf{4} & 2 & 5 & 8  \\
+1 & \mathbf{2} & \mathbf{4} & 5 & 8 \\
+1 & 2 & \mathbf{4} & \mathbf{5} & 8 \\
+1 & 2 & 4 & \mathbf{5} & \mathbf{8} \end{matrix} 
+&\xrightarrow{\small \begin{matrix}\text{full pass with no swaps}\end{matrix}}&
+\begin{matrix} \mathbf{1} & \mathbf{2} & 4 & 5 & 8 \\
+1 & \mathbf{2} & \mathbf{4} & 5 & 8 \\
+1 & 2 & \mathbf{4} & \mathbf{5} & 8 \\
+1 & 2 & 4 & \mathbf{5} & \mathbf{8} \end{matrix}
+\end{matrix}
 $$
-
-
-- The algorithm needs one whole pass without any swap to know it is sorted. 
-
-$$
-\begin{align}
-\begin{matrix} \mathbf{1} & \mathbf{2} & 4 & 5 & 8 \end{matrix} \\
-\begin{matrix} 1 & \mathbf{2} & \mathbf{4} & 5 & 8 \end{matrix} \\
-\begin{matrix} 1 & 2 & \mathbf{4} & \mathbf{5} & 8 \end{matrix} \\
-\begin{matrix} 1 & 2 & 4 & \mathbf{5} & \mathbf{8} \end{matrix}
-\end{align}
-$$
-
 
 
 
@@ -80,15 +85,13 @@ $$
 
 ### Java Code
 
-<span class="lp9">i. </span> Method sorts the elements by linearly moving through the list
-
-<span class="lp9">ii. </span> After a pass, the largest value "bubbles" up the ArrayList
-
-<span class="lp9">iii. </span> Bubble sorting repeats for (n-1) passes
+- Method sorts the elements by linearly moving through the list
+- After a pass, the largest value "bubbles" up the ArrayList
+- Bubble sorting repeats for (n-1) passes
 
 \ 
 
-```java
+```{language-java}
 // Bubble Sort Class
 
 import java.util.ArrayList;
@@ -200,23 +203,21 @@ From the above execution times and graph, we can see that as the number of data 
 
 <span class="lp6">a.</span> Merge Sort is a recursive algorithm and time complexity can be expressed by $\theta(n\log n)$.
 
-<span class="lp6">b. $\bigstar$</span> Time complexity of Merge Sort is  $\theta(n\log n)$ in all 3 cases (worst, average and best) as merge sort always divides the array into two halves and takes linear time to merge two halves.
+<span class="lp6">b.</span> Time complexity of Merge Sort is  $\theta(n\log n)$ in all 3 cases (worst, average and best) as merge sort always divides the array into two halves and takes linear time to merge two halves.
 
 
 \ 
 
-### Java Code.
+### Java Code
 
-<span class="lp9">i.</span> Break the whole array down into two subarrays
-
-<span class="lp9">ii.</span> Sort the left half of the array (recursively)
-
-<span class="lp9">iii.</span> Sort the right half of the array (recursively)
-Merge the solutions
+- Break the whole array down into two subarrays
+- Sort the left half of the array (recursively)
+- Sort the right half of the array (recursively)
+- Merge the solutions
 
 \ 
 
-```java
+```{language-java}
 // Merge Sort Class
 
 import java.util.ArrayList;
@@ -419,6 +420,9 @@ legend(x=0,y=900000,legend=c(expression(
 
 \ 
 
+
+<div class="b1">
+
 On average, it is $i/2$ positions out of order 
 
 ```{r, echo=FALSE, eval=TRUE}
@@ -443,13 +447,14 @@ $$\sum^{n-1}_{i=1} \frac{i}{2} = \frac{n(n+1)}{4}$$
 Therefore, the average case running time of **insertion sort** is $\mathbf{O(n^2)}$
 
 
+</div>
 
 \ 
 
 **Show how Insertion Sort acts on the following List:**
 
 
-```java
+```{language-java}
 list X: 7 5 4 6 8 2
 ```
 
@@ -473,25 +478,19 @@ $$
 
 **a generic type that extends the interface Relateable**
 
-<span class="lp9">i.</span> create a LinkedList
-
-<span class="lp9">ii.</span> initialize ICount
-
-<span class="lp9">iii.</span> walk down ArrayList and insert each element into sorted LinkedList
-
-<span class="lp9">d.</span> repackage and return ArrayList
-
-<span class="lp9">e.</span> method to insert a new element myObj into a sorted LinkedList
-
-- use a loop to traverse LinkedList
-- begin with first element (smallest T) and find where myObj should go
-
-<span class="lp9">f.</span> debugging tool and method to dump out content in LinkedList 
+- create a LinkedList
+- initialize ICount
+- walk down ArrayList and insert each element into sorted LinkedList
+- repackage and return ArrayList
+- method to insert a new element myObj into a sorted LinkedList
+    - use a loop to traverse LinkedList
+    - begin with first element (smallest T) and find where myObj should go
+- debugging tool and method to dump out content in LinkedList 
 
 \ 
 
 
-```java
+```{language-java}
 import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.ArrayList;

@@ -9,3 +9,9 @@ navbar:
       href: BinarySearch.html
     - text: "Stacks and Queues"
       href: Stacks.html
+output:
+  html_document:
+    theme: readable
+    css:
+      - ./assets/css/styles.css
+      - ./assets/css/java.css

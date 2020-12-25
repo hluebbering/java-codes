@@ -6,7 +6,9 @@ output:
     toc_float: yes
     self_contained: no
     highlight: textmate
-css: ./assets/css/styles.css
+css: 
+- ./assets/css/styles.css
+- ./assets/css/java.css
 # knit: pagedown::chrome_print
 bibliography: ./assets/citation/csc112.bib
 csl: ./assets/citation/institute-of-mathematical-statistics.csl 
@@ -14,6 +16,10 @@ link-citations: yes
 nocite: '@*'
 ---
 
+<script src = "assets/scripts/prism.r.js" type = "text/javascript"></script>
+<link href="assets/css/java.css" rel="stylesheet" />
+<script src="assets/scripts/prism.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
 
 ```{r include=FALSE}
 library(knitr)
@@ -39,7 +45,7 @@ With most data structures, adding and removing values causes the system to grow 
 Linear structures abide by a simple interface:
 
 
-```{java}
+```{language-java}
 public interface Linear<E> extends Structure<E>{
   
   // value is non-null
@@ -127,7 +133,7 @@ knitr::include_graphics("assets/css/stack.png")
 
 Here is the interface that defines what it means to be a Stack:
 
-```java
+```{language-java}
 public interface Stack<E> extends Linear<E>{
   
   // item is added to stack 
@@ -212,7 +218,7 @@ knitr::include_graphics("assets/css/queue.png")
 
 The interface provides a number of other features we have seen already:
 
-```java
+```{language-java}
 public interface Queue<E> extends Linear<E>{
   
   // value is added to the tail of the structure
