@@ -238,48 +238,48 @@ code span.dv {
   color:#ACA4E2;
   text-decoration: bold;
   font-size:19px;
-  padding: 1px;
-  margin-left:-6px;
+
+
 }
 .sp2 {
   font-family: 'Trocchi', sans-serif;
   color:#abcdef;
   text-decoration: bold;
   font-size:19px;
-  padding: 1px;
-  margin-left:-6px;
+
+
 }
 .sp3 {
   font-family: 'Trocchi', sans-serif;
   color:#e7accf;
   text-decoration: bold;
   font-size:19px;
-  padding: 1px;
-  margin-left:-6px;
+
+
 }
 .sp4 {
   font-family: 'Trocchi', sans-serif;
   color:#008080;
   text-decoration: bold;
   font-size:19px;
-  padding: 1px;
-  margin-left:-6px;
+
+
 }
 .sp5 {
   font-family: 'Trocchi', sans-serif;
   color:#f1a7fe;
   text-decoration: bold;
   font-size:19px;
-  padding: 1px;
-  margin-left:-6px;
+
+
 }
 .sp6 {
   font-family: 'Trocchi', sans-serif;
   color:#ffcba4;
   text-decoration: bold;
   font-size:19px;
-  padding: 1px;
-  margin-left:-6px;
+
+
 }
 .sp7 {
   font-family: 'Trocchi', sans-serif;
@@ -287,7 +287,7 @@ code span.dv {
   text-decoration: bold;
   font-size:19px;
   padding:0;
-  margin-left:-6px;
+
 }
 .sp8 {
   font-family: 'Trocchi', sans-serif;
@@ -295,7 +295,7 @@ code span.dv {
   text-decoration: bold;
   font-size:19px;
   padding:0;
-  margin-left:-6px;
+
 }
 .sp9 {
   font-family: 'Trocchi', sans-serif;
@@ -303,7 +303,7 @@ code span.dv {
   text-decoration: bold;
   font-size:19px;
   padding:0;
-  margin-left:-6px;
+
 }
 .sp10 {
   font-family: 'Trocchi', sans-serif;
@@ -311,7 +311,7 @@ code span.dv {
   text-decoration: bold;
   font-size:19px;
   padding:0;
-  margin-left:-6px;
+
 }
 .sp11 {
   font-family: 'Trocchi', sans-serif;
@@ -319,7 +319,7 @@ code span.dv {
   text-decoration: bold;
   font-size:19px;
   padding:0;
-  margin-left:-6px;
+
 }
 .sp12 {
   font-family: 'Trocchi', sans-serif;
@@ -327,7 +327,7 @@ code span.dv {
   text-decoration: bold;
   font-size:19px;
   padding:0;
-  margin-left:-6px;
+
 }
 .sp13 {
   font-family: 'Trocchi', sans-serif;
@@ -335,7 +335,7 @@ code span.dv {
   text-decoration: bold;
   font-size:19px;
   padding:0;
-  margin-left:-6px;
+
 }
 
 .sp14 {
@@ -344,7 +344,7 @@ code span.dv {
   text-decoration: bold;
   font-size:19px;
   padding:0;
-  margin-left:-6px;
+
 }
 
 .lp1 {
@@ -353,103 +353,103 @@ code span.dv {
   text-decoration: bold;
   font-size:17px;
   padding:1px;
-  margin-left: 12px;
+
 }
 .lp2 {
   font-family: 'Trocchi', sans-serif;
   color:#abcdef;
   text-decoration: bold;
   font-size:17px;
-  padding: 1px;
-  margin-left: 12px;
+
+
 }
 .lp3 {
   font-family: 'Trocchi', sans-serif;
   color:#e7accf;
   text-decoration: bold;
   font-size:17px;
-  padding: 1px;
-  margin-left: 12px;
+
+
 }
 .lp4 {
   font-family: 'Trocchi', sans-serif;
   color:#008080;
   text-decoration: bold;
   font-size:17px;
-  padding: 1px;
-  margin-left: 12px;
+
+
 }
 .lp5 {
   font-family: 'Trocchi', sans-serif;
   color:#f1a7fe;
   text-decoration: bold;
   font-size:17px;
-  padding: 1px;
-  margin-left: 12px;
+
+
 }
 .lp6 {
   font-family: 'Trocchi', sans-serif;
   color:#ffcba4;
   text-decoration: bold;
   font-size:17px;
-  padding: 1px;
-  margin-left: 12px;
+
+
 }
 .lp7 {
   font-family: 'Trocchi', sans-serif;
   color:#fba0e3;
   text-decoration: bold;
   font-size:17px;
-  padding: 1px;
-  margin-left: 12px;
+
+
 }
 .lp8 {
   font-family: 'Trocchi', sans-serif;
   color:#38BDBB;
   text-decoration: bold;
   font-size:17px;
-  padding: 1px;
-  margin-left: 12px;
+
+
 }
 .lp9 {
   font-family: 'Trocchi', sans-serif;
   color:#5CBD92;
   text-decoration: bold;
   font-size:17px;
-  padding: 1px;
-  margin-left: 12px;
+
+
 }
 .lp10 {
   font-family: 'Trocchi', sans-serif;
   color:#efbbcc;
   text-decoration: bold;
   font-size:17px;
-  padding: 1px;
-  margin-left: 12px;
+
+
 }
 .lp11 {
   font-family: 'Trocchi', sans-serif;
   color:#967bb6;
   text-decoration: bold;
   font-size:17px;
-  padding: 1px;
-  margin-left: 12px;
+
+
 }
 .lp12 {
   font-family: 'Trocchi', sans-serif;
   color:#B4EEB4;
   text-decoration: bold;
   font-size:17px;
-  padding: 1px;
-  margin-left: 12px;
+
+
 }
 .lp13 {
   font-family: 'Trocchi', sans-serif;
   color:#ECD999;
   text-decoration: bold;
   font-size:17px;
-  padding: 1px;
-  margin-left: 12px;
+
+
 }
 
 .lp14 {
@@ -457,8 +457,8 @@ code span.dv {
   color:#F2F2F2;
   text-decoration: bold;
   font-size:17px;
-  padding: 1px;
-  margin-left: 12px;
+
+
 }
 
 
