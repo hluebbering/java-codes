@@ -68,16 +68,14 @@ h5 {
 
 body {
   font-family: "Times New Roman", Times, serif;
-  margin: 8px;
-  font-size: 14px;
-  
-}
-p {
-  font-size: 14px;
+  /*margin: 30.6px;*/
+  font-size: 11pt;
   color: black;
-  margin-right: 8px;
-  margin-left: 8px;
+  margin: 2em 3em;
+  position: relative;
+
 }
+
 
 li {
   font-size: 13px;
@@ -178,12 +176,12 @@ a {
   background: linear-gradient(120deg, #FAFAFE,#FCFCFC, #FFFFFF);
   border: 0;
 }
-  
+
 div.sourceCode {
   font-family: 'Source Code Pro', monospace;
   margin: auto;
   font-size: 12px;
-  box-shadow: 1px 1px 3px 2px #aaa; 
+  box-shadow: 1px 1px 3px 2px #aaa;
   margin: auto;
   padding: 4px;
   border-radius: 5px;
@@ -221,7 +219,7 @@ code span.fu {
 code span.bu {
   color: #f1a7fe;
   font-family: 'Roboto Mono', monospace;
-  
+
 }
 code span.dv {
   color: #7FA789;
@@ -230,7 +228,7 @@ code span.dv {
   font-weight: bold;
   outline-color: black;
   text-shadow: 0.25px 0.25px 0.25px white;
-  
+
 }*/
 
 
