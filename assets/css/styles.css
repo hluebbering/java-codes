@@ -20,14 +20,12 @@ h1.title {
   font-family: 'Noto Serif TC', serif;
   color: #f4bbff;
   font-size:14px;
-  padding: 2px;
 }
 
 .date{
   font-family: 'Noto Serif TC', serif;
   color: #f4bbff;
   font-size:14px;
-  padding: 2px;
 }
 
 .subtitle{
@@ -68,218 +66,67 @@ h5 {
 
 body {
   font-family: "Times New Roman", Times, serif;
-  /*margin: 30.6px;*/
   font-size: 11pt;
   color: black;
-  margin: 2em 3em;
-  position: relative;
-
 }
-
 
 li {
   font-size: 13px;
-  text-indent:0;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-right: 20px;
-  margin-left: 20px;
 }
 
-
-.a1 {
-  color: black;
-  font-family: 'Vollkorn', serif;
-  font-size: 14px;
-  border-radius: 25px;
-  width: 88%;
-  background: #88d8c0;
-  margin: auto;
-  box-shadow: 4px 4px 4px #aaa;
-  padding: 8px;
-}
 a {
   color: #f88379;
 }
 
-.a2 {
-  color: black;
-  font-family: 'Vollkorn', serif;
-  font-size: 14px;
-  border-radius: 25px;
-  width: 88%;
-  background: #C1CDC1;
-  margin: auto;
-  box-shadow: 4px 4px 4px #aaa;
-  padding: 8px;
-}
-
-.a3 {
-  color: black;
-  font-family: 'Vollkorn', serif;
-  font-size: 14px;
-  border-radius: 25px;
-  width: 88%;
-  background: #8FBC8F;
-  margin: auto;
-  box-shadow: 4px 4px 4px #aaa;
-  padding: 8px;
-}
-.a4 {
-  color: black;
-  font-family: 'Vollkorn', serif;
-  font-size: 14px;
-  border-radius: 25px;
-  width: 88%;
-  background: #6FB099;
-  margin: auto;
-  box-shadow: 4px 4px 4px #aaa;
-  padding: 8px;
-}
-.a5 {
-  color: black;
-  font-family: 'Vollkorn', serif;
-  font-size: 14px;
-  border-radius: 25px;
-  width: 88%;
-  background: #EAF8EA;
-  margin: auto;
-  box-shadow: 4px 4px 4px #aaa;
-  padding: 8px;
-}
-.a6 {
-  color: black;
-  font-family: 'Vollkorn', serif;
-  font-size: 14px;
-  border-radius: 25px;
-  width: 88%;
-  background: #838B83;
-  margin: auto;
-  box-shadow: 4px 4px 4px #aaa;
-  padding: 8px;
-}
-
-
 .b1 {
   color: black;
   font-family: 'Vollkorn', serif;
-  font-size: 14px;
+  font-size: 13px;
   border-radius: 25px;
-  width: 88%;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.25em;
+  margin-bottom: 0.5em;
   background: #f9fafb;
-  margin: auto;
   box-shadow: 4px 4px 4px #aaa;
-  padding: 8px;
 }
-
-/*pre {
-  background: linear-gradient(120deg, #FAFAFE,#FCFCFC, #FFFFFF);
-  border: 0;
-}
-
-div.sourceCode {
-  font-family: 'Source Code Pro', monospace;
-  margin: auto;
-  font-size: 12px;
-  box-shadow: 1px 1px 3px 2px #aaa;
-  margin: auto;
-  padding: 4px;
-  border-radius: 5px;
-  width: 86%;
-  background: linear-gradient(120deg, #FAFAFE,#FCFCFC, #FFFFFF);
-}*/
-
-/*pre.sourceCode span.kw {
-  color: #009B7D;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-pre.sourceCode span.co {
-  color: #708090;
-}
-
-
-code span.co {
-  color: #708090;
-}
-code span.kw {
-  color: #009B7D;
-  font-size: 12px;
-}
-
-code span.dt {
-  color: #a0d6b4;
-  font-family: 'Fira Code', monospace;
-}
-code span.fu {
-  color: #cf6ba9;
-  font-weight: bold;
-}
-code span.bu {
-  color: #f1a7fe;
-  font-family: 'Roboto Mono', monospace;
-
-}
-code span.dv {
-  color: #7FA789;
-  font-family: 'Roboto Mono', monospace;
-  font-size: 12px;
-  font-weight: bold;
-  outline-color: black;
-  text-shadow: 0.25px 0.25px 0.25px white;
-
-}*/
-
-
 
 .sp1 {
   font-family: 'Trocchi', sans-serif;
   color:#ACA4E2;
   text-decoration: bold;
   font-size:19px;
-
-
 }
 .sp2 {
   font-family: 'Trocchi', sans-serif;
   color:#abcdef;
   text-decoration: bold;
   font-size:19px;
-
-
 }
 .sp3 {
   font-family: 'Trocchi', sans-serif;
   color:#e7accf;
   text-decoration: bold;
   font-size:19px;
-
-
 }
 .sp4 {
   font-family: 'Trocchi', sans-serif;
   color:#008080;
   text-decoration: bold;
   font-size:19px;
-
-
 }
 .sp5 {
   font-family: 'Trocchi', sans-serif;
   color:#f1a7fe;
   text-decoration: bold;
   font-size:19px;
-
-
 }
 .sp6 {
   font-family: 'Trocchi', sans-serif;
   color:#ffcba4;
   text-decoration: bold;
   font-size:19px;
-
-
 }
 .sp7 {
   font-family: 'Trocchi', sans-serif;
@@ -287,7 +134,6 @@ code span.dv {
   text-decoration: bold;
   font-size:19px;
   padding:0;
-
 }
 .sp8 {
   font-family: 'Trocchi', sans-serif;
@@ -295,7 +141,6 @@ code span.dv {
   text-decoration: bold;
   font-size:19px;
   padding:0;
-
 }
 .sp9 {
   font-family: 'Trocchi', sans-serif;
@@ -303,7 +148,6 @@ code span.dv {
   text-decoration: bold;
   font-size:19px;
   padding:0;
-
 }
 .sp10 {
   font-family: 'Trocchi', sans-serif;
@@ -311,7 +155,6 @@ code span.dv {
   text-decoration: bold;
   font-size:19px;
   padding:0;
-
 }
 .sp11 {
   font-family: 'Trocchi', sans-serif;
@@ -319,7 +162,6 @@ code span.dv {
   text-decoration: bold;
   font-size:19px;
   padding:0;
-
 }
 .sp12 {
   font-family: 'Trocchi', sans-serif;
@@ -327,7 +169,6 @@ code span.dv {
   text-decoration: bold;
   font-size:19px;
   padding:0;
-
 }
 .sp13 {
   font-family: 'Trocchi', sans-serif;
@@ -335,16 +176,13 @@ code span.dv {
   text-decoration: bold;
   font-size:19px;
   padding:0;
-
 }
-
 .sp14 {
   font-family: 'Trocchi', sans-serif;
   color:#F2F2F2;
   text-decoration: bold;
   font-size:19px;
   padding:0;
-
 }
 
 .lp1 {
@@ -353,113 +191,82 @@ code span.dv {
   text-decoration: bold;
   font-size:17px;
   padding:1px;
-
 }
 .lp2 {
   font-family: 'Trocchi', sans-serif;
   color:#abcdef;
   text-decoration: bold;
   font-size:17px;
-
-
 }
 .lp3 {
   font-family: 'Trocchi', sans-serif;
   color:#e7accf;
   text-decoration: bold;
   font-size:17px;
-
-
 }
 .lp4 {
   font-family: 'Trocchi', sans-serif;
   color:#008080;
   text-decoration: bold;
   font-size:17px;
-
-
 }
 .lp5 {
   font-family: 'Trocchi', sans-serif;
   color:#f1a7fe;
   text-decoration: bold;
   font-size:17px;
-
-
 }
 .lp6 {
   font-family: 'Trocchi', sans-serif;
   color:#ffcba4;
   text-decoration: bold;
   font-size:17px;
-
-
 }
 .lp7 {
   font-family: 'Trocchi', sans-serif;
   color:#fba0e3;
   text-decoration: bold;
   font-size:17px;
-
-
 }
 .lp8 {
   font-family: 'Trocchi', sans-serif;
   color:#38BDBB;
   text-decoration: bold;
   font-size:17px;
-
-
 }
 .lp9 {
   font-family: 'Trocchi', sans-serif;
   color:#5CBD92;
   text-decoration: bold;
   font-size:17px;
-
-
 }
 .lp10 {
   font-family: 'Trocchi', sans-serif;
   color:#efbbcc;
   text-decoration: bold;
   font-size:17px;
-
-
 }
 .lp11 {
   font-family: 'Trocchi', sans-serif;
   color:#967bb6;
   text-decoration: bold;
   font-size:17px;
-
-
 }
 .lp12 {
   font-family: 'Trocchi', sans-serif;
   color:#B4EEB4;
   text-decoration: bold;
   font-size:17px;
-
-
 }
 .lp13 {
   font-family: 'Trocchi', sans-serif;
   color:#ECD999;
   text-decoration: bold;
   font-size:17px;
-
-
 }
-
 .lp14 {
   font-family: 'Trocchi', sans-serif;
   color:#F2F2F2;
   text-decoration: bold;
   font-size:17px;
-
-
 }
-
-
-

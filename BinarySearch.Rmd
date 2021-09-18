@@ -111,8 +111,7 @@ In this traversal method, the program first traverses the left subtree, then the
 
 ### Traversal Example
 
-Traversing a binary tree requires creating an iterator that traverses all subtrees. An InOrder traversal visits the nodes in the following order:
-
+Traversing a binary tree requires creating an iterator that traverses all subtrees. Consider the following binary tree.
 
 ```{r, include=FALSE}
 root <- Node$new("25")
@@ -158,10 +157,11 @@ SetNodeStyle(root, style = "filled", shape = "circle", fillcolor = "#9bddff",fon
 graphics::plot(root)
 ```
 
+$\require{color}$
 
+An InOrder traversal visits the nodes in the following order:
 
-
-$$\begin{matrix}4 & \mathbf{10} & 12 & \mathbf{15} & 18 & \mathbf{22} & 24 & \Large\mathbf{25} & 31 & \mathbf{35} & 44 & \mathbf{50} & 66 & \mathbf{70} & 90\end{matrix}$$
+$$\begin{gather}4 & \mathbf{10} & 12 & \mathbf{15} & 18 & \mathbf{22} & 24 & {\color{navy}\mathbf{25}} & 31 & \mathbf{35} & 44 & \mathbf{50} & 66 & \mathbf{70} & 90\end{gather}$$
 
 
 \ 

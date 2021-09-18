@@ -58,24 +58,16 @@ list XXX: 5 1 4 2 8
 
 
 $$
-\begin{matrix}
-{\begin{matrix} 5 & 1 & 4 & 2 & 8 \\
-\mathbf{1} & \mathbf{5} & 4 & 2 & 8 \\
-1 & \mathbf{4} & \mathbf{5} & 2 & 8 \\
-1 & 4 & \mathbf{2} & \mathbf{5} & 8 
-\end{matrix}} 
-&\rightarrow&
-\begin{matrix} \mathbf{1} & \mathbf{4} & 2 & 5 & 8  \\
-1 & \mathbf{2} & \mathbf{4} & 5 & 8 \\
-1 & 2 & \mathbf{4} & \mathbf{5} & 8 \\
-1 & 2 & 4 & \mathbf{5} & \mathbf{8} \end{matrix} 
-&\xrightarrow{\small \begin{matrix}\text{full pass with no swaps}\end{matrix}}&
-\begin{matrix} \mathbf{1} & \mathbf{2} & 4 & 5 & 8 \\
-1 & \mathbf{2} & \mathbf{4} & 5 & 8 \\
-1 & 2 & \mathbf{4} & \mathbf{5} & 8 \\
-1 & 2 & 4 & \mathbf{5} & \mathbf{8} \end{matrix}
-\end{matrix}
+\small
+\begin{align}
+\begin{matrix} 5 & 1 & 4 & 2 & 8 \\ \bf{1} & \bf{5} & 4 & 2 & 8 \\ 1 & \bf{4} & \bf{5} & 2 & 8 \\ 1 & 4 & \bf{2} & \bf{5} & 8 \end{matrix} 
+&\longrightarrow 
+\begin{matrix} \bf{1} & \bf{4} & 2 & 5 & 8 \\ 1 & \bf{2} & \bf{4} & 5 & 8 \\1 & 2 & \bf{4} & \bf{5} & 8 \\1 & 2 & 4 & \bf{5} & \bf{8}\end{matrix}
+\longrightarrow
+\begin{matrix} \mathbf{1} & \mathbf{2} & 4 & 5 & 8 \\ 1 & \mathbf{2} & \mathbf{4} & 5 & 8 \\ 1 & 2 & \mathbf{4} & \mathbf{5} & 8 \\ 1 & 2 & 4 & \mathbf{5} & \mathbf{8} \end{matrix}
+\end{align}
 $$
+
 
 
 
