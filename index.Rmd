@@ -24,7 +24,7 @@ nocite: '@*'
 library(knitr)
 library(graphics)
 library(drc)
-knitr::opts_chunk$set(echo = FALSE, out.width = 445, fig.align = "center")
+knitr::opts_chunk$set(echo = FALSE, out.width = 445, fig.align = "center", message = FALSE, warning = FALSE)
 ```
 
 
