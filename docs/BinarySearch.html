@@ -13,20 +13,29 @@
 
 <title>Binary Search Tree</title>
 
-<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<script src="site_libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <script src="site_libs/d3-4.5.0/d3.min.js"></script>
 <script src="site_libs/forceNetwork-binding-0.4/forceNetwork.js"></script>
 <script src="site_libs/viz-1.8.2/viz.js"></script>
@@ -43,11 +52,6 @@
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -60,33 +64,29 @@ if (window.hljs) {
 
 
 
+
 <style type="text/css">
-h1 {
-  font-size: 34px;
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
 }
-h1.title {
-  font-size: 38px;
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
 }
-h2 {
-  font-size: 30px;
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
 }
-h3 {
-  font-size: 24px;
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
 }
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
+div.csl-indent {
+  margin-left: 2em;
 }
 </style>
-
 
 <link rel="stylesheet" href="assets/css/styles.css" type="text/css" />
 <link rel="stylesheet" href="assets/css/java.css" type="text/css" />
@@ -98,10 +98,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -118,40 +114,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 66px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 71px;
-  margin-top: -71px;
-}
-.section h2 {
-  padding-top: 71px;
-  margin-top: -71px;
-}
-.section h3 {
-  padding-top: 71px;
-  margin-top: -71px;
-}
-.section h4 {
-  padding-top: 71px;
-  margin-top: -71px;
-}
-.section h5 {
-  padding-top: 71px;
-  margin-top: -71px;
-}
-.section h6 {
-  padding-top: 71px;
-  margin-top: -71px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -179,7 +148,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -191,7 +160,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -202,10 +171,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -217,7 +199,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -343,7 +324,7 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
+<div class="row">
 <div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
@@ -383,7 +364,7 @@ div.tocify {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -399,8 +380,8 @@ div.tocify {
 <div id="binary-nodes" class="section level2">
 <h2>Binary Nodes</h2>
 <p><span class="sp4">a.</span> Every node can have up to two children: a left child and a right child</p>
-<div id="htmlwidget-4bfdea24667d1e5103d7" style="width:600px;height:200px;" class="forceNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4bfdea24667d1e5103d7">{"x":{"links":{"source":[0,3,3],"target":[3,1,2],"value":[1,1,1],"colour":["#666","#666","#666"]},"nodes":{"name":["Header","LeftChild","RightChild","Root"],"group":[1,1,1,1],"nodesize":[8,8,8,8]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scaleOrdinal(['#3182bd'])","fontSize":12,"fontFamily":"serif","clickTextSize":30,"linkDistance":50,"linkWidth":"'1.5px'.toString()","charge":-30,"opacity":0.6,"zoom":false,"legend":false,"arrows":false,"nodesize":true,"radiusCalculation":"d.nodesize","bounded":false,"opacityNoHover":1,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-27e4a9df8f417efa230e" style="width:600px;height:200px;" class="forceNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-27e4a9df8f417efa230e">{"x":{"links":{"source":[0,3,3],"target":[3,1,2],"value":[1,1,1],"colour":["#666","#666","#666"]},"nodes":{"name":["Header","LeftChild","RightChild","Root"],"group":[1,1,1,1],"nodesize":[8,8,8,8]},"options":{"NodeID":"name","Group":"group","colourScale":"d3.scaleOrdinal(['#3182bd'])","fontSize":12,"fontFamily":"serif","clickTextSize":30,"linkDistance":50,"linkWidth":"'1.5px'.toString()","charge":-30,"opacity":0.6,"zoom":false,"legend":false,"arrows":false,"nodesize":true,"radiusCalculation":"d.nodesize","bounded":false,"opacityNoHover":1,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
 <div id="types-of-binary-nodes" class="section level3">
 <h3>Types of Binary Nodes</h3>
 <p><span class="lp9">a.</span> <strong>Root:</strong> the first node</p>
@@ -427,10 +408,12 @@ div.tocify {
 </div>
 <div id="traversal-example" class="section level3">
 <h3>Traversal Example</h3>
-<p>Traversing a binary tree requires creating an iterator that traverses all subtrees. An InOrder traversal visits the nodes in the following order:</p>
-<div id="htmlwidget-a91a2297457ec171925c" style="width:600px;height:210px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a91a2297457ec171925c">{"x":{"diagram":"digraph {\n\n\n\n\n  \"1\" [label = \"25\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 25\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"2\" [label = \"15\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 15\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"3\" [label = \"10\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 10\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"4\" [label = \"4\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 4\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"5\" [label = \"12\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 12\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"6\" [label = \"22\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 22\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"7\" [label = \"18\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 18\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"8\" [label = \"24\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 24\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"9\" [label = \"50\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 50\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"10\" [label = \"35\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 35\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"11\" [label = \"31\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 31\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"12\" [label = \"44\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 44\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"13\" [label = \"70\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 70\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"14\" [label = \"66\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 66\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"15\" [label = \"90\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 90\", width = \"0.6\", fillcolor = \"#9bddff\"] \n\"1\"->\"2\" [arrowhead = \"vee\", color = \"#708090\"] \n\"1\"->\"9\" [arrowhead = \"vee\", color = \"#708090\"] \n\"2\"->\"3\" [arrowhead = \"vee\", color = \"#708090\"] \n\"2\"->\"6\" [arrowhead = \"vee\", color = \"#708090\"] \n\"9\"->\"10\" [arrowhead = \"vee\", color = \"#708090\"] \n\"9\"->\"13\" [arrowhead = \"vee\", color = \"#708090\"] \n\"3\"->\"4\" [arrowhead = \"vee\", color = \"#708090\"] \n\"3\"->\"5\" [arrowhead = \"vee\", color = \"#708090\"] \n\"6\"->\"7\" [arrowhead = \"vee\", color = \"#708090\"] \n\"6\"->\"8\" [arrowhead = \"vee\", color = \"#708090\"] \n\"10\"->\"11\" [arrowhead = \"vee\", color = \"#708090\"] \n\"10\"->\"12\" [arrowhead = \"vee\", color = \"#708090\"] \n\"13\"->\"14\" [arrowhead = \"vee\", color = \"#708090\"] \n\"13\"->\"15\" [arrowhead = \"vee\", color = \"#708090\"] \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p><span class="math display">\[\begin{matrix}4 &amp; \mathbf{10} &amp; 12 &amp; \mathbf{15} &amp; 18 &amp; \mathbf{22} &amp; 24 &amp; \Large\mathbf{25} &amp; 31 &amp; \mathbf{35} &amp; 44 &amp; \mathbf{50} &amp; 66 &amp; \mathbf{70} &amp; 90\end{matrix}\]</span></p>
+<p>Traversing a binary tree requires creating an iterator that traverses all subtrees. Consider the following binary tree.</p>
+<div id="htmlwidget-83f4bcfa477a886a3fe2" style="width:600px;height:210px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-83f4bcfa477a886a3fe2">{"x":{"diagram":"digraph {\n\n\n\n\n  \"1\" [label = \"25\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 25\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"2\" [label = \"15\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 15\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"3\" [label = \"10\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 10\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"4\" [label = \"4\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 4\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"5\" [label = \"12\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 12\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"6\" [label = \"22\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 22\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"7\" [label = \"18\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 18\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"8\" [label = \"24\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 24\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"9\" [label = \"50\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 50\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"10\" [label = \"35\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 35\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"11\" [label = \"31\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 31\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"12\" [label = \"44\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 44\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"13\" [label = \"70\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 70\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"14\" [label = \"66\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 66\", width = \"0.6\", fillcolor = \"#9bddff\"] \n  \"15\" [label = \"90\", style = \"filled\", shape = \"circle\", fontcolor = \"black\", fontsize = \"12\", fontname = \"helvetica\", tooltip = \"- name: 90\", width = \"0.6\", fillcolor = \"#9bddff\"] \n\"1\"->\"2\" [arrowhead = \"vee\", color = \"#708090\"] \n\"1\"->\"9\" [arrowhead = \"vee\", color = \"#708090\"] \n\"2\"->\"3\" [arrowhead = \"vee\", color = \"#708090\"] \n\"2\"->\"6\" [arrowhead = \"vee\", color = \"#708090\"] \n\"9\"->\"10\" [arrowhead = \"vee\", color = \"#708090\"] \n\"9\"->\"13\" [arrowhead = \"vee\", color = \"#708090\"] \n\"3\"->\"4\" [arrowhead = \"vee\", color = \"#708090\"] \n\"3\"->\"5\" [arrowhead = \"vee\", color = \"#708090\"] \n\"6\"->\"7\" [arrowhead = \"vee\", color = \"#708090\"] \n\"6\"->\"8\" [arrowhead = \"vee\", color = \"#708090\"] \n\"10\"->\"11\" [arrowhead = \"vee\", color = \"#708090\"] \n\"10\"->\"12\" [arrowhead = \"vee\", color = \"#708090\"] \n\"13\"->\"14\" [arrowhead = \"vee\", color = \"#708090\"] \n\"13\"->\"15\" [arrowhead = \"vee\", color = \"#708090\"] \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p><span class="math inline">\(\require{color}\)</span></p>
+<p>An InOrder traversal visits the nodes in the following order:</p>
+<p><span class="math display">\[\begin{gather}4 &amp; \mathbf{10} &amp; 12 &amp; \mathbf{15} &amp; 18 &amp; \mathbf{22} &amp; 24 &amp; {\color{navy}\mathbf{25}} &amp; 31 &amp; \mathbf{35} &amp; 44 &amp; \mathbf{50} &amp; 66 &amp; \mathbf{70} &amp; 90\end{gather}\]</span></p>
 <p> </p>
 <hr />
 </div>
@@ -446,8 +429,8 @@ div.tocify {
 <p><span class="lp4">c.</span> Both the left and right subtrees must also be a binary search tree</p>
 <p> </p>
 <p><strong>Example.</strong> The below is an example of a <strong>complete</strong> Binary Search Tree with 4 Levels:</p>
-<div id="htmlwidget-c742eb2475cd8bb5e7c8" style="width:600px;height:230px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c742eb2475cd8bb5e7c8">{"x":{"diagram":"digraph {\n\n\n\n\n  \"1\" [label = \"b50\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: b50\", width = \"0.5\", fontsize = \"16\", fontcolor = \"\", fillcolor = \"#D8BFD8\"] \n  \"2\" [label = \"a50\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a50\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ECD999\"] \n  \"3\" [label = \"a40\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a40\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ffa089\"] \n  \"4\" [label = \"a35\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a35\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#EF4868\"] \n  \"5\" [label = \"a45\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a45\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#EF4868\"] \n  \"6\" [label = \"a60\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a60\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ffa089\"] \n  \"7\" [label = \"a55\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a55\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#FBA0E3\"] \n  \"8\" [label = \"a65\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a65\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#FBA0E3\"] \n  \"9\" [label = \"c50\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c50\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ECD999\"] \n  \"10\" [label = \"c40\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c40\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#5CBD92\"] \n  \"11\" [label = \"c35\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c35\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#38BDBB\"] \n  \"12\" [label = \"c45\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c45\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#38BDBB\"] \n  \"13\" [label = \"c60\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c60\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#5CBD92\"] \n  \"14\" [label = \"c55\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c55\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#9bddff\"] \n  \"15\" [label = \"c65\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c65\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#9bddff\"] \n\"1\"->\"2\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"1\"->\"9\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"2\"->\"3\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"2\"->\"6\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"9\"->\"10\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"9\"->\"13\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"3\"->\"4\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"3\"->\"5\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"6\"->\"7\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"6\"->\"8\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"10\"->\"11\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"10\"->\"12\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"13\"->\"14\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"13\"->\"15\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-5f63b1eb97eba578f80d" style="width:600px;height:230px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5f63b1eb97eba578f80d">{"x":{"diagram":"digraph {\n\n\n\n\n  \"1\" [label = \"b50\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: b50\", width = \"0.5\", fontsize = \"16\", fontcolor = \"\", fillcolor = \"#D8BFD8\"] \n  \"2\" [label = \"a50\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a50\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ECD999\"] \n  \"3\" [label = \"a40\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a40\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ffa089\"] \n  \"4\" [label = \"a35\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a35\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#EF4868\"] \n  \"5\" [label = \"a45\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a45\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#EF4868\"] \n  \"6\" [label = \"a60\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a60\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ffa089\"] \n  \"7\" [label = \"a55\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a55\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#FBA0E3\"] \n  \"8\" [label = \"a65\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: a65\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#FBA0E3\"] \n  \"9\" [label = \"c50\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c50\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#ECD999\"] \n  \"10\" [label = \"c40\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c40\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#5CBD92\"] \n  \"11\" [label = \"c35\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c35\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#38BDBB\"] \n  \"12\" [label = \"c45\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c45\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#38BDBB\"] \n  \"13\" [label = \"c60\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c60\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#5CBD92\"] \n  \"14\" [label = \"c55\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c55\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#9bddff\"] \n  \"15\" [label = \"c65\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", tooltip = \"- name: c65\", width = \"0.5\", fontsize = \"16\", fontcolor = \"black\", fillcolor = \"#9bddff\"] \n\"1\"->\"2\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"1\"->\"9\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"2\"->\"3\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"2\"->\"6\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"9\"->\"10\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"9\"->\"13\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"3\"->\"4\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"3\"->\"5\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"6\"->\"7\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"6\"->\"8\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"10\"->\"11\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"10\"->\"12\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"13\"->\"14\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n\"13\"->\"15\" [arrowhead = \"vee\", color = \"grey35\", penwidth = \"2\"] \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p> </p>
 <ul>
 <li><strong>Levels.</strong> The root and each interior node have two children –a right and left child; hence, there are <span class="math inline">\(4\)</span> full levels.</li>
@@ -463,8 +446,8 @@ div.tocify {
 <li>Complete Binary Trees give excellent time complexities of <span class="math inline">\(\mathbb{\bf O}\left(\log2\left(n\right)\right)\)</span>, which helps for find and insert methods in a Java data structure.</li>
 <li>The number of <strong>nodes</strong> can be calculated with, <span class="math inline">\(\mathbb{\bf n}\text{ full levels:}\left(2^\mathbb{\bf n}-1\right) \text{ nodes}\)</span>.</li>
 </ul>
-<div id="htmlwidget-f68ffcedd61d3078f9b6" style="width:600px;height:160px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f68ffcedd61d3078f9b6">{"x":{"diagram":"digraph {\n\n\n\n\n  \"1\" [label = \"Root\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", fontsize = \"6\", fontcolor = \"\", fillcolor = \"#D8BFD8\"] \n  \"2\" [label = \"LeftChild\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", fontsize = \"5\", fontcolor = \"black\", fillcolor = \"#20B2AA\"] \n  \"3\" [label = \"RightChild\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", fontsize = \"4.5\", fontcolor = \"black\", fillcolor = \"#C1CDC1\"] \n  \"1\"->\"2\" \n  \"1\"->\"3\" \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-4951a3815e05c0ff9af1" style="width:600px;height:160px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4951a3815e05c0ff9af1">{"x":{"diagram":"digraph {\n\n\n\n\n  \"1\" [label = \"Root\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", fontsize = \"6\", fontcolor = \"\", fillcolor = \"#D8BFD8\"] \n  \"2\" [label = \"LeftChild\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", fontsize = \"5\", fontcolor = \"black\", fillcolor = \"#20B2AA\"] \n  \"3\" [label = \"RightChild\", style = \"filled\", shape = \"circle\", fontname = \"helvetica\", fontsize = \"4.5\", fontcolor = \"black\", fillcolor = \"#C1CDC1\"] \n  \"1\"->\"2\" \n  \"1\"->\"3\" \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p> </p>
 <p><span class="sp3">II.</span> “Real” Binary Trees</p>
 <ul>
@@ -818,12 +801,12 @@ public class Main {
 </div>
 <div id="references" class="section level2 unnumbered">
 <h2 class="unnumbered">References</h2>
-<div id="refs" class="references">
-<div id="ref-baileyJavaStructuresData2003">
-<p>[1] <span class="smallcaps">Bailey</span>, D. A. (2003). <em>Java structures: Data structures in Java for the principled programmer</em>. McGraw-Hill, Boston, Mau.</p>
+<div id="refs" class="references csl-bib-body">
+<div id="ref-baileyJavaStructuresData2003" class="csl-entry">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline"><span class="smallcaps">Bailey</span>, D. A. (2003). <em>Java structures: Data structures in <span>Java</span> for the principled programmer</em>. <span>McGraw-Hill</span>, <span>Boston, Mau</span>.</div>
 </div>
-<div id="ref-gallardoJavaTutorialShort2015">
-<p>[2] <span class="smallcaps">Gallardo</span>, R., <span class="smallcaps">Gordon</span>, J., <span class="smallcaps">Hommel</span>, S., <span class="smallcaps">Kannan</span>, S. and <span class="smallcaps">Zakhour</span>, S. (2015). <em>The Java tutorial a short course on the basics</em>. Addison-Wesley, Upper Saddle River, NJ.</p>
+<div id="ref-gallardoJavaTutorialShort2015" class="csl-entry">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline"><span class="smallcaps">Gallardo</span>, R., <span class="smallcaps">Gordon</span>, J., <span class="smallcaps">Hommel</span>, S., <span class="smallcaps">Kannan</span>, S. and <span class="smallcaps">Zakhour</span>, S. (2015). <em>The <span>Java</span> tutorial a short course on the basics</em>. <span>Addison-Wesley</span>, <span>Upper Saddle River, NJ</span>.</div>
 </div>
 </div>
 </div>
@@ -857,7 +840,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -866,6 +849,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')
